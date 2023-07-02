@@ -64,36 +64,26 @@
     isNormalUser = true;
     extraGroups = [ "wheel" "video" ];
     initialPassword = "pw123";
-    packages = with pkgs; [
-      jq
-      exa
-      bat
-      rtx
-      ripgrep
-      starship
-
-      discord
-      steam
-
-      wofi
-      inotify-tools
-      pfetch-rs
-
-      grim
-      slurp
-    ];
   };
 
   environment.systemPackages = with pkgs; [
     gcc
     glibc
-    neovim
     sqlite
     wget
     dunst
     killall
     rustup
     libsecret
+    wofi
+    inotify-tools
+    pfetch-rs
+    grim
+    slurp
+  ];
+
+  fonts.fonts = with pkgs; [
+   (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
   ];
 
   programs.waybar.enable = true;

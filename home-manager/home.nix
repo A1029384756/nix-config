@@ -18,8 +18,19 @@
     homeDirectory = "/home/haydengray";
   };
 
+  programs.nix-index = {
+    enable = true;
+    enableFishIntegration = true;
+  };
+
   home.packages = with pkgs; [ 
     git-credential-oauth
+    jq
+    exa
+    bat
+    rtx
+    ripgrep
+    starship
   ];
 
   programs.home-manager.enable = true;
@@ -34,6 +45,8 @@
       };
     };
   };
+
+  programs.neovim.enable = true;
 
   programs.wezterm = {
     enable = true;
