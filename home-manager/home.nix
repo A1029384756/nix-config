@@ -50,10 +50,13 @@
   programs.home-manager.enable = true;
   programs.git = {
     enable = true;
-    package = pkgs.gitFull;
-    config.credential.helper = "libsecret";
-    credentialStore = "secretservice";
-      helper = "${config.nur.repos.utybo.git-credential-manager}/bin/git-credential-manager-core";
+    # ...
+    extraConfig = {
+      credential = {
+        credentialStore = "secretservice";
+        helper = "${config.nur.repos.utybo.git-credential-manager}/bin/git-credential-manager-core";
+      };
+    };
   };
 
   # Nicely reload system units when changing configs

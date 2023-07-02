@@ -41,16 +41,6 @@
           modules = [
             inputs.nur.nixosModules.nur
             inputs.hyprland.nixosModules.default
-            { 
-              programs.hyprland = {
-                enable = true; 
-                xwayland = {
-                  enable = true;
-                  hidpi = false;
-                };
-                nvidiaPatches = true;
-              };
-            }
             ./nixos/configuration.nix
           ];
         };
@@ -61,6 +51,7 @@
           pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
           extraSpecialArgs = { inherit inputs outputs; };
           modules = [
+            inputs.nur.nixosModules.nur
             ./home-manager/home.nix
           ];
         };
