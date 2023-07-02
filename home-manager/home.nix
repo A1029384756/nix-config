@@ -25,6 +25,8 @@
   programs.home-manager.enable = true;
   programs.git = {
     enable = true;
+    userName = "A1029384756";
+    userEmail = "hayden.gray104@gmail.com";
     extraConfig = {
       credential = {
         credentialStore = "secretservice";
