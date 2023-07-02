@@ -11,7 +11,7 @@
     trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
   };
 
-  config.programs.hyprland = {
+  programs.hyprland = {
     enable = true; 
     xwayland = {
       enable = true;
@@ -28,7 +28,6 @@
     driSupport = true;
     driSupport32Bit = true;
   };
-  nixpkgs.config.allowUnfree = true;
 
   services.xserver.videoDrivers = ["nvidia"];
   hardware.nvidia = {

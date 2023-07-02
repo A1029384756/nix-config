@@ -37,9 +37,9 @@
 
       nixosConfigurations = {
         laptop = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs outputs nixpkgs; };
+          nixpkgs.config.allowUnfree = true;
+          specialArgs = { inherit inputs outputs; };
           modules = [
-            inputs.nur.nixosModules.nur
             inputs.hyprland.nixosModules.default
             ./nixos/configuration.nix
           ];
