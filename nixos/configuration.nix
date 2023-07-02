@@ -59,15 +59,25 @@
   };
   services.gnome.gnome-keyring.enable = true;
   sound.enable = true;
+  programs.fish.enable = true;
+  programs.waybar.enable = true;
+  programs.firefox.enable = true;
+  programs.light.enable = true;
+  programs.seahorse.enable = true;
 
   users.users.haydengray = {
     isNormalUser = true;
     extraGroups = [ "wheel" "video" ];
     initialPassword = "pw123";
+    shell = pkgs.fish;
+    packages = with pkgs; [
+      btop
+    ];
   };
 
   environment.systemPackages = with pkgs; [
     gcc
+    git
     glibc
     sqlite
     wget
@@ -85,14 +95,6 @@
   fonts.fonts = with pkgs; [
    (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
   ];
-
-  programs.waybar.enable = true;
-  programs.firefox.enable = true;
-  programs.fish.enable = true;
-  programs.light.enable = true;
-  programs.seahorse.enable = true;
-
-  users.defaultUserShell = pkgs.fish;
 
   system.stateVersion = "23.05";
 }

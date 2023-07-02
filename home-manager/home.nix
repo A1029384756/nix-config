@@ -18,22 +18,36 @@
     homeDirectory = "/home/haydengray";
   };
 
-  programs.nix-index = {
-    enable = true;
-    enableFishIntegration = true;
-  };
-
   home.packages = with pkgs; [ 
     git-credential-manager
     jq
     exa
     bat
-    rtx
     ripgrep
-    starship
+    unzip
   ];
 
   programs.home-manager.enable = true;
+  programs.starship.enable = true;
+
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+    viAlias = true;
+    vimAlias = true;
+  };
+
+  xdg.configFile.nvim = {
+    source = ./nvim;
+    recursive = true;
+    target = "nvim";
+  };
+
+  programs.nix-index = {
+    enable = true;
+    enableFishIntegration = true;
+  };
+
   programs.git = {
     enable = true;
     userName = "A1029384756";
@@ -46,7 +60,15 @@
     };
   };
 
-  programs.neovim.enable = true;
+  programs.fish = {
+    enable = true;
+    interactiveShellInit = "set fish_greeting";
+    shellAliases = {
+      ls = "exa --icons -F -H --group-directories-first --git -h $argv";
+      cat = "bat --theme base16-256 $argv";
+      vi = "nvim $argv";
+    };
+  };
 
   programs.wezterm = {
     enable = true;
