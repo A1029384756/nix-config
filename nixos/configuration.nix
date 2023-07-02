@@ -2,78 +2,28 @@
 {
   imports =
     [ 
+    ./host.nix
+    ./nvidia.nix
+    ./services.nix
+    ./hyprland.nix
     ./hardware-configuration.nix
     ];
 
-  nix.settings = {
-    experimental-features = [ "nix-command" "flakes" ];
-    substituters = ["https://hyprland.cachix.org"];
-    trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
+  nixpkgs.config = {
+    allowUnfree = true;
+    allowUnfreePredicate = (_: true);
   };
 
-  programs.hyprland = {
-    enable = true; 
-    xwayland = {
-      enable = true;
-      hidpi = false;
-    };
-    nvidiaPatches = true;
-  };
-
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nix.gc.automatic = true;
   nix.gc.options = "--delete-older-than 8d";
-
-  hardware.opengl = {
-    enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
-  };
-
-  services.xserver.videoDrivers = ["nvidia"];
-  hardware.nvidia = {
-    modesetting.enable = true;
-  };
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "laptop";
-  networking.networkmanager.enable = true;
-
-  time.timeZone = "US/Eastern";
-
-  i18n.defaultLocale = "en_US.UTF-8";
-
-  services.printing.enable = true;
-  services.supergfxd.enable = true;
-  services.xserver.enable = true;
-  services.xserver.displayManager.gdm.enable = true;
-  systemd.services.supergfxd.path = [ pkgs.pciutils ];
-  services.asusd = {
-    enable = true;
-    enableUserService = true;
-  };
-  services.pipewire = {
-    enable = true;
-    pulse.enable = true;
-  };
-  services.gnome.gnome-keyring.enable = true;
-  sound.enable = true;
   programs.fish.enable = true;
-  programs.waybar.enable = true;
   programs.firefox.enable = true;
-  programs.light.enable = true;
   programs.seahorse.enable = true;
-
-  users.users.haydengray = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" "video" ];
-    initialPassword = "pw123";
-    shell = pkgs.fish;
-    packages = with pkgs; [
-      btop
-    ];
-  };
 
   environment.systemPackages = with pkgs; [
     gcc
@@ -81,19 +31,8 @@
     glibc
     sqlite
     wget
-    dunst
-    killall
     rustup
-    wofi
-    inotify-tools
     pfetch-rs
-    grim
-    slurp
-    pamixer
-  ];
-
-  fonts.fonts = with pkgs; [
-   (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
   ];
 
   system.stateVersion = "23.05";

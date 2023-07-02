@@ -22,16 +22,6 @@
     in
 
     {
-      packages = forAllSystems (system:
-        let pkgs = nixpkgs.legacyPackages.${system};
-        in import ./pkgs { inherit pkgs; }
-      );
-
-      devShells = forAllSystems (system:
-        let pkgs = nixpkgs.legacyPackages.${system};
-        in import ./shell.nix { inherit pkgs; }
-      );
-
       overlays = import ./overlays { inherit inputs; };
       nixosModules = import ./modules/nixos;
 
@@ -39,7 +29,6 @@
         laptop = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
           modules = [
-            { nixpkgs.config.allowUnfree = true; }
             inputs.hyprland.nixosModules.default
             ./nixos/configuration.nix
           ];
