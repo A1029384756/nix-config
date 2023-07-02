@@ -21,6 +21,7 @@
     bat
     ripgrep
     unzip
+    yuzu
   ];
 
   programs.home-manager.enable = true;
