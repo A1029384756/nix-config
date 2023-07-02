@@ -57,7 +57,7 @@
     enable = true;
     pulse.enable = true;
   };
-
+  services.gnome.gnome-keyring.enable = true;
   sound.enable = true;
 
   users.users.haydengray = {
@@ -74,13 +74,12 @@
     dunst
     killall
     rustup
-    libsecret
-    pass-secret-service
     wofi
     inotify-tools
     pfetch-rs
     grim
     slurp
+    pamixer
   ];
 
   fonts.fonts = with pkgs; [
