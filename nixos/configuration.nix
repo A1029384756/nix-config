@@ -83,8 +83,8 @@
     wget
     dunst
     killall
-
     rustup
+    gh
   ];
 
   programs.waybar.enable = true;
