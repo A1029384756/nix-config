@@ -4,9 +4,12 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     hyprland.url = "github:hyprwm/Hyprland";
+    nur.url = "github:nix-community/NUR";
+    home-manager.url = "github:nix-community/home-manager/release-23.05";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, hyprland, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, ... }@inputs:
     let
       inherit (self) outputs;
       forAllSystems = nixpkgs.lib.genAttrs [
@@ -36,7 +39,8 @@
         laptop = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs outputs nixpkgs; };
           modules = [
-            hyprland.nixosModules.default
+            inputs.nur.nixosModules.nur
+            inputs.hyprland.nixosModules.default
             { 
               programs.hyprland = {
                 enable = true; 
@@ -48,6 +52,16 @@
               };
             }
             ./nixos/configuration.nix
+          ];
+        };
+      };
+
+      homeConfigurations = {
+        "haydengray@laptop" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
+          extraSpecialArgs = { inherit inputs outputs; };
+          modules = [
+            ./home-manager/home.nix
           ];
         };
       };

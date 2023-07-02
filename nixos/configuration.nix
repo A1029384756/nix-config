@@ -84,22 +84,15 @@
     dunst
     killall
     rustup
-    gh
+    git
   ];
 
   programs.waybar.enable = true;
   programs.firefox.enable = true;
   programs.fish.enable = true;
   programs.light.enable = true;
-  
-  programs.git = {
-    enable = true;
-    package = pkgs.gitFull;
-    config.credential.helper = "libsecret";
-  };
 
   users.defaultUserShell = pkgs.fish;
 
   system.stateVersion = "23.05";
-
 }
