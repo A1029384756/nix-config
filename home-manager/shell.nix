@@ -4,7 +4,7 @@
     interactiveShellInit = "set fish_greeting";
     shellAliases = {
       ls = "exa --icons -F -H --group-directories-first --git -h $argv";
-      cat = "bat --theme base16-256 $argv";
+      cat = "bat --theme base16-256";
       vi = "nvim $argv";
     };
   };

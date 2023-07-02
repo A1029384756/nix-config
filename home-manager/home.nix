@@ -1,21 +1,13 @@
-{ inputs, outputs, lib, config, pkgs, ... }: {
+{ inputs, lib, config, pkgs, ... }: {
   imports = [
     ./git.nix
     ./shell.nix
     ./wezterm.nix
     ./nvim/nvim.nix
+    ./waybar/waybar.nix
+    ./wofi/wofi.nix
+    ./hyprland/hyprland.nix
   ];
-
-  nixpkgs = {
-    overlays = [
-      outputs.overlays.additions
-      outputs.overlays.modifications
-    ];
-    config = {
-      allowUnfree = true;
-      allowUnfreePredicate = (_: true);
-    };
-  };
 
   home = {
     username = "haydengray";

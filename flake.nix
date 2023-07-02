@@ -10,40 +10,29 @@
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
-    let
-      inherit (self) outputs;
-      forAllSystems = nixpkgs.lib.genAttrs [
-        "aarch64-linux"
-        "i686-linux"
-        "x86_64-linux"
-        "aarch64-darwin"
-        "x86_64-darwin"
-      ];
-    in
+  {
+    overlays = import ./overlays { inherit inputs; };
+    nixosModules = import ./modules/nixos;
 
-    {
-      overlays = import ./overlays { inherit inputs; };
-      nixosModules = import ./modules/nixos;
-
-      nixosConfigurations = {
-        laptop = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs outputs; };
-          modules = [
-            inputs.hyprland.nixosModules.default
+    nixosConfigurations = {
+      laptop = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs ; };
+        modules = [
+          inputs.hyprland.nixosModules.default
             ./nixos/configuration.nix
-          ];
-        };
-      };
-
-      homeConfigurations = {
-        "haydengray@laptop" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          extraSpecialArgs = { inherit inputs outputs; };
-          modules = [
-            inputs.nur.nixosModules.nur
-            ./home-manager/home.nix
-          ];
-        };
+        ];
       };
     };
+
+    homeConfigurations = {
+      "haydengray@laptop" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        extraSpecialArgs = { inherit inputs; };
+        modules = [
+          inputs.nur.nixosModules.nur
+            ./home-manager/home.nix
+        ];
+      };
+    };
+  };
 }
