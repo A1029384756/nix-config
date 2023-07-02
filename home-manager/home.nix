@@ -24,7 +24,7 @@
   };
 
   home.packages = with pkgs; [ 
-    git-credential-oauth
+    git-credential-manager
     jq
     exa
     bat
@@ -41,7 +41,7 @@
     extraConfig = {
       credential = {
         credentialStore = "secretservice";
-        helper = "${pkgs.git-credential-oauth}/bin/git-credential-oauth";
+        helper = "${pkgs.git-credential-manager}/bin/git-credential-manager";
       };
     };
   };

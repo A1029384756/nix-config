@@ -75,6 +75,7 @@
     killall
     rustup
     libsecret
+    pass-secret-service
     wofi
     inotify-tools
     pfetch-rs
