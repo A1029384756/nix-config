@@ -1,5 +1,5 @@
 {
-  description = "Your new nix config";
+  description = "Hayden's NixOS config";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -37,9 +37,9 @@
 
       nixosConfigurations = {
         laptop = nixpkgs.lib.nixosSystem {
-          nixpkgs.config.allowUnfree = true;
           specialArgs = { inherit inputs outputs; };
           modules = [
+            { nixpkgs.config.allowUnfree = true; }
             inputs.hyprland.nixosModules.default
             ./nixos/configuration.nix
           ];
@@ -48,7 +48,7 @@
 
       homeConfigurations = {
         "haydengray@laptop" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
           extraSpecialArgs = { inherit inputs outputs; };
           modules = [
             inputs.nur.nixosModules.nur

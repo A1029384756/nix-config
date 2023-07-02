@@ -93,13 +93,14 @@
     dunst
     killall
     rustup
-    git
+    libsecret
   ];
 
   programs.waybar.enable = true;
   programs.firefox.enable = true;
   programs.fish.enable = true;
   programs.light.enable = true;
+  programs.seahorse.enable = true;
 
   users.defaultUserShell = pkgs.fish;
 

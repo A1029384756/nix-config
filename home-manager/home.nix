@@ -1,67 +1,56 @@
 { inputs, outputs, lib, config, pkgs, ... }: {
   imports = [
-    # If you want to use modules your own flake exports (from modules/home-manager):
-    # outputs.homeManagerModules.example
-
-    # Or modules exported from other flakes (such as nix-colors):
-    # inputs.nix-colors.homeManagerModules.default
-
-    # You can also split up your configuration and import pieces of it here:
-    # ./nvim.nix
   ];
 
   nixpkgs = {
-    # You can add overlays here
     overlays = [
-      # Add overlays your own flake exports (from overlays and pkgs dir):
       outputs.overlays.additions
       outputs.overlays.modifications
-
-      # You can also add overlays exported from other flakes:
-      # neovim-nightly-overlay.overlays.default
-
-      # Or define it inline, for example:
-      # (final: prev: {
-      #   hi = final.hello.overrideAttrs (oldAttrs: {
-      #     patches = [ ./change-hello-to-hi.patch ];
-      #   });
-      # })
     ];
-    # Configure your nixpkgs instance
     config = {
-      # Disable if you don't want unfree packages
       allowUnfree = true;
-      # Workaround for https://github.com/nix-community/home-manager/issues/2942
       allowUnfreePredicate = (_: true);
     };
   };
 
-  # TODO: Set your username
   home = {
     username = "haydengray";
     homeDirectory = "/home/haydengray";
   };
 
-  # Add stuff for your user as you see fit:
-  # programs.neovim.enable = true;
-  # home.packages = with pkgs; [ steam ];
+  home.packages = with pkgs; [ 
+    git-credential-oauth
+  ];
 
-  # Enable home-manager and git
   programs.home-manager.enable = true;
   programs.git = {
     enable = true;
-    # ...
     extraConfig = {
       credential = {
         credentialStore = "secretservice";
-        helper = "${config.nur.repos.utybo.git-credential-manager}/bin/git-credential-manager-core";
+        helper = "${pkgs.git-credential-oauth}/bin/git-credential-oauth";
       };
     };
   };
 
-  # Nicely reload system units when changing configs
-  systemd.user.startServices = "sd-switch";
+  programs.wezterm = {
+    enable = true;
+    extraConfig = ''
+      local wezterm = require 'wezterm'
+      local config = {}
+      
+      if wezterm.config_builder then
+        config = wezterm.config_builder()
+      end
+      
+      config.color_scheme = 'Catppuccin Mocha'
+      config.window_background_opacity = 0.9
+      config.use_fancy_tab_bar = true
+      
+      return config
+    '';
+  };
 
-  # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
+  systemd.user.startServices = "sd-switch";
   home.stateVersion = "23.05";
 }
