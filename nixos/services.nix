@@ -6,8 +6,14 @@
     xkbVariant = "";
   };
 
+  services.flatpak.enable = true;
+
+  services.gvfs.enable = true;
+  services.gnome.evolution-data-server.enable = true;
+  services.gnome.gnome-online-accounts.enable = true;
+  services.gnome.gnome-keyring.enable = true;
+
   services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
 
   services.supergfxd.enable = true;
   systemd.services.supergfxd.path = [ pkgs.pciutils ];
@@ -20,8 +26,8 @@
   hardware.pulseaudio.enable = false;
   services.pipewire = {
     enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
+    # alsa.enable = true;
+    # alsa.support32Bit = true;
     pulse.enable = true;
   };
 }
