@@ -10,8 +10,10 @@
 
   services.gvfs.enable = true;
   services.gnome.evolution-data-server.enable = true;
+  services.accounts-daemon.enable = true;
   services.gnome.gnome-online-accounts.enable = true;
   services.gnome.gnome-keyring.enable = true;
+  programs.dconf.enable = true;
 
   services.xserver.displayManager.gdm.enable = true;
 
@@ -26,8 +28,6 @@
   hardware.pulseaudio.enable = false;
   services.pipewire = {
     enable = true;
-    # alsa.enable = true;
-    # alsa.support32Bit = true;
     pulse.enable = true;
   };
 }

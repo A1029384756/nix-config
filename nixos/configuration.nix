@@ -2,10 +2,10 @@
 {
   imports =
     [ 
+    ./wm.nix
     ./host.nix
     ./nvidia.nix
     ./services.nix
-    ./hyprland.nix
     ./hardware-configuration.nix
     ];
 
