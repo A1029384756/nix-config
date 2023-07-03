@@ -20,6 +20,7 @@
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.supportedFilesystems = [ "ntfs" ];
 
   programs.fish.enable = true;
   programs.firefox.enable = true;

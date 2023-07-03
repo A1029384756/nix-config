@@ -22,6 +22,7 @@
     ripgrep
     unzip
     yuzu
+    gnome.nautilus
   ];
 
   programs.home-manager.enable = true;
