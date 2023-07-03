@@ -4,8 +4,10 @@ exec dex --autostart
 exec rog-control-center
 exec sh $HOME/.config/waybar/launch-waybar.sh 
 
-bindsym $mod+Space exec wofi --drun
+bindsym $mod+Space exec "wofi --drun"
 bindsym $mod+q exec wezterm
+bindsym $mod+Delete exec swaylock
+bindsym $mod+Shift+Delete exec "swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your session.' -B 'Yes, exit sway' 'swaymsg exit'"
 
 bindsym $mod+h focus left
 bindsym $mod+j focus down
@@ -50,7 +52,7 @@ bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
-bindsym h resize shrink width 10 px or 10 ppt
-bindsym j resize grow height 10 px or 10 ppt
-bindsym k resize shrink height 10 px or 10 ppt
-bindsym l resize grow width 10 px or 10 ppt
+bindsym $mod+Ctrl+h resize shrink width 10 px or 10 ppt
+bindsym $mod+Ctrl+j resize grow height 10 px or 10 ppt
+bindsym $mod+Ctrl+k resize shrink height 10 px or 10 ppt
+bindsym $mod+Ctrl+l resize grow width 10 px or 10 ppt
