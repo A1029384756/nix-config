@@ -17,5 +17,6 @@
     dunst
     wofi
     killall
+    dex
   ];
 }
