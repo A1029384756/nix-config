@@ -30,6 +30,8 @@
         extraSpecialArgs = { inherit inputs; };
         modules = [
           inputs.nur.nixosModules.nur
+          inputs.hyprland.homeManagerModules.default
+          {wayland.windowManager.hyprland.enable = true;}
             ./home-manager/home.nix
         ];
       };
