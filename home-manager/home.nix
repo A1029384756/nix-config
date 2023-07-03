@@ -4,6 +4,7 @@
     ./shell.nix
     ./wezterm.nix
     ./nvim/nvim.nix
+    ./sway/sway.nix
     ./wofi/wofi.nix
     ./waybar/waybar.nix
     ./hyprland/hyprland.nix
