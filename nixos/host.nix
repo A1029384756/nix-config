@@ -6,7 +6,7 @@
 
   users.users.haydengray = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "video" ];
+    extraGroups = [ "wheel" "video" "storage" ];
     initialPassword = "pw123";
     shell = pkgs.fish;
     packages = with pkgs; [

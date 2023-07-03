@@ -1,4 +1,5 @@
 { config, pkgs, ... }: {
+  services.gvfs.enable = true;
   services.printing.enable = true;
   services.supergfxd.enable = true;
   services.xserver.enable = true;
