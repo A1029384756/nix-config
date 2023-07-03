@@ -21,7 +21,6 @@
     bat
     ripgrep
     unzip
-    yuzu
     gnome.nautilus
   ];
 
