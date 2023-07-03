@@ -2,7 +2,6 @@
   imports = [
     ./git.nix
     ./shell.nix
-    ./wezterm.nix
     ./nvim/nvim.nix
     ./waybar/waybar.nix
     ./wofi/wofi.nix
@@ -21,7 +20,8 @@
     bat
     ripgrep
     unzip
-    gnome.nautilus
+    gcc
+    rustup
   ];
 
   programs.home-manager.enable = true;
