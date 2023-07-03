@@ -80,10 +80,6 @@ button:hover {
 #mode,
 #idle_inhibitor,
 #scratchpad,
-#mpd {
-  padding: 0 10px;
-  color: #ebdbb2;
-}
 
 #window,
 #workspaces {
@@ -186,24 +182,4 @@ label:focus {
 #tray > .needs-attention {
   -gtk-icon-effect: highlight;
   background-color: #fb4934;
-}
-
-#mpd {
-  box-shadow: inset 0 -3px #928374;
-  color: #ebdbb2;
-}
-
-#mpd.disconnected {
-  box-shadow: inset 0 -3px #282828;
-  color: #ebdbb2;
-}
-
-#mpd.stopped {
-  box-shadow: inset 0 -3px #fe8019;
-  color: #ebdbb2;
-}
-
-#mpd.paused {
-  box-shadow: inset 0 -3px #fabd2f;
-  color: #ebdbb2;
 }
