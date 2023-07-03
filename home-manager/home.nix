@@ -2,9 +2,10 @@
   imports = [
     ./git.nix
     ./shell.nix
+    ./wezterm.nix
     ./nvim/nvim.nix
-    ./waybar/waybar.nix
     ./wofi/wofi.nix
+    ./waybar/waybar.nix
     ./hyprland/hyprland.nix
   ];
 

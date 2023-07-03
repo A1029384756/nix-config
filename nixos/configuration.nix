@@ -15,16 +15,11 @@
   };
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  nix.gc.automatic = true;
-  nix.gc.options = "--delete-older-than 8d";
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.supportedFilesystems = [ "ntfs" ];
 
   programs.fish.enable = true;
-  programs.firefox.enable = true;
-  programs.seahorse.enable = true;
 
   environment.systemPackages = with pkgs; [
     gcc
