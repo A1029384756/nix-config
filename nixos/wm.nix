@@ -1,7 +1,16 @@
 { config, pkgs, ... }: {
-  programs.hyprland.enable = true;
-  programs.hyprland.xwayland.enable = true;
-  programs.hyprland.nvidiaPatches = true;
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+    nvidiaPatches = true;
+  };
+
+  programs.sway = {
+    enable = true;
+    wrapperFeatures.gtk = true;
+    extraOptions = [ "--unsupported-gpu" ];
+  };
+
   programs.waybar.enable = true;
   programs.light.enable = true;
 
@@ -19,10 +28,4 @@
     killall
     dex
   ];
-
-  programs.sway = {
-    enable = true;
-    wrapperFeatures.gtk = true;
-    extraOptions = [ "--unsupported-gpu" ];
-  };
 }
