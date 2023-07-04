@@ -14,7 +14,6 @@
     LC_TELEPHONE = "en_US.UTF-8";
     LC_TIME = "en_US.UTF-8";
   };
-
   users.users.haydengray = {
     isNormalUser = true;
     extraGroups = [ "wheel" "video" "storage" "networkmanager" ];
@@ -22,6 +21,7 @@
     shell = pkgs.fish;
     packages = with pkgs; [
       btop
+      dunst
       firefox
       gnome.eog
       gnome.geary
