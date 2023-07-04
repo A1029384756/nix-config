@@ -25,7 +25,6 @@
     });
   };
 
-
   programs.light.enable = true;
 
   fonts.fonts = with pkgs; [
@@ -44,5 +43,6 @@
     dex
     cliphist
     eww-wayland
+    hyprpaper
   ];
 }

@@ -4,7 +4,7 @@
   "height": 38,
 
   "margin-top": 5,
-  "margin-bottom": 5,
+  "margin-bottom": 0,
   "margin-left": 5,
   "margin-right": 5,
 
@@ -76,7 +76,7 @@
   ],
   "custom/launcher": {
     // "format": "󱗼",
-    "format": "  ",
+    "format": "󱄅",
     "on-click": "~/.config/tofi/scripts/drun.sh",
     "on-click-right": "~/.config/tofi/scripts/drun.sh",
     "tooltip": false

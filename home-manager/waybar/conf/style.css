@@ -21,14 +21,14 @@
 }
 
 window#waybar {
-  background-color: @black-transparent-7;
+  background-color: @black-transparent-2;
   color: @text;
   border-radius: 20px;
   border: 1px solid @black;
 }
 
 tooltip {
-  background: @black-transparent-9;
+  background: @black-transparent-4;
   border: 1px solid @darkgray;
   border-radius: 10px;
 }
