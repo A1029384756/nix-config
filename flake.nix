@@ -3,7 +3,6 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nur.url = "github:nix-community/NUR";
     home-manager.url = "github:nix-community/home-manager/release-23.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
@@ -17,7 +16,7 @@
       laptop = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs ; };
         modules = [
-            ./nixos/configuration.nix
+          ./nixos/configuration.nix
         ];
       };
     };
@@ -27,8 +26,7 @@
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = { inherit inputs; };
         modules = [
-          inputs.nur.nixosModules.nur
-            ./home-manager/home.nix
+          ./home-manager/home.nix
         ];
       };
     };

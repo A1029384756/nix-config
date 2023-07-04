@@ -1,13 +1,14 @@
 { inputs, lib, config, pkgs, ... }: {
   imports = [
+    ./btop/btop.nix
     ./git.nix
-    ./shell.nix
-    ./wezterm.nix
-    ./nvim/nvim.nix
-    ./sway/sway.nix
-    ./wofi/wofi.nix
-    ./waybar/waybar.nix
     ./hyprland/hyprland.nix
+    ./nvim/nvim.nix
+    ./shell.nix
+    ./sway/sway.nix
+    ./waybar/waybar.nix
+    ./wezterm.nix
+    ./wofi/wofi.nix
   ];
 
   home = {
