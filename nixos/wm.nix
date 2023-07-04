@@ -27,5 +27,6 @@
     wofi
     killall
     dex
+    cliphist
   ];
 }

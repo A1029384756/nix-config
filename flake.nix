@@ -3,7 +3,6 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    hyprland.url = "github:hyprwm/Hyprland";
     nur.url = "github:nix-community/NUR";
     home-manager.url = "github:nix-community/home-manager/release-23.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -18,7 +17,6 @@
       laptop = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs ; };
         modules = [
-          inputs.hyprland.nixosModules.default
             ./nixos/configuration.nix
         ];
       };
