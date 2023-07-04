@@ -23,7 +23,6 @@
       btop
       firefox
       gnome.eog
-      gnome.geary
       gnome.sushi
       gnome.totem
       gnome.nautilus
@@ -32,6 +31,7 @@
       gnome.gnome-software
       gnome.gnome-calculator
       gnome.adwaita-icon-theme
+      thunderbird
     ];
   };
 }
