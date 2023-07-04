@@ -21,7 +21,6 @@
     shell = pkgs.fish;
     packages = with pkgs; [
       btop
-      dunst
       firefox
       gnome.eog
       gnome.geary
