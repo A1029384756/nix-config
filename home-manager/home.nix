@@ -1,14 +1,15 @@
 { inputs, lib, config, pkgs, ... }: {
   imports = [
-    ./btop/btop.nix
+    ./btop
+    ./dunst
     ./git.nix
-    ./hyprland/hyprland.nix
-    ./nvim/nvim.nix
+    ./hyprland
+    ./nvim
     ./shell.nix
-    ./sway/sway.nix
-    ./waybar/waybar.nix
+    ./sway
+    ./waybar
     ./wezterm.nix
-    ./wofi/wofi.nix
+    ./wofi
   ];
 
   home = {
@@ -28,6 +29,14 @@
   ];
 
   programs.home-manager.enable = true;
+
+  gtk = {
+    enable = true;
+    theme = {
+        name = "Catppuccin-Mocha-Standard-Mocha-Dark";
+        package = pkgs.catppuccin-gtk;
+      };
+  };
 
   systemd.user.startServices = "sd-switch";
   home.stateVersion = "23.05";
