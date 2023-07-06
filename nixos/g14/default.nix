@@ -14,6 +14,13 @@
 
   programs.fish.enable = true;
 
+  services.supergfxd.enable = true;
+  systemd.services.supergfxd.path = [ pkgs.pciutils ];
+  services.asusd = {
+    enable = true;
+    enableUserService = true;
+  };
+
   environment.systemPackages = with pkgs; [
     gcc
     git
