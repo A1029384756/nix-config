@@ -23,6 +23,7 @@
     killall
     pamixer
     slurp
+    socat
     wl-clipboard
     wofi
   ];
