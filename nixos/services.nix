@@ -10,11 +10,8 @@
   services.flatpak.enable = true;
 
   services.gvfs.enable = true;
-  services.gnome.evolution-data-server.enable = true;
-  services.accounts-daemon.enable = true;
-  services.gnome.gnome-online-accounts.enable = true;
+  services.tumbler.enable = true;
   services.gnome.gnome-keyring.enable = true;
-  programs.dconf.enable = true;
 
   services.xserver.displayManager.gdm.enable = true;
 
