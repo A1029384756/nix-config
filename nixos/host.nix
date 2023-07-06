@@ -27,6 +27,9 @@
       xfce.orage
       xfce.parole
       xfce.thunar
+      xfce.thunar-archive-plugin
+      xfce.thunar-media-tags-plugin
+      xfce.thunar-volman
     ];
   };
 }
