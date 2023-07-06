@@ -15,7 +15,6 @@
       forEachSystem = f: lib.genAttrs systems (sys: f pkgsFor.${sys});
       pkgsFor = nixpkgs.legacyPackages;
     in {
-    settings.experimental-features = [ "nix-command" "flakes" ];
     packages = forEachSystem (pkgs: import ./pkgs { inherit pkgs; });
     overlays = import ./overlays { inherit inputs; };
 

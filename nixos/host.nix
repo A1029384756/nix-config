@@ -1,4 +1,5 @@
 { config, pkgs, ... }: {
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
   networking.hostName = "laptop";
   networking.networkmanager.enable = true;
   time.timeZone = "America/New_York";
