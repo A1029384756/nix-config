@@ -15,14 +15,21 @@
       forEachSystem = f: lib.genAttrs systems (sys: f pkgsFor.${sys});
       pkgsFor = nixpkgs.legacyPackages;
     in {
+    settings.experimental-features = [ "nix-command" "flakes" ];
     packages = forEachSystem (pkgs: import ./pkgs { inherit pkgs; });
     overlays = import ./overlays { inherit inputs; };
 
     nixosConfigurations = {
-      laptop = lib.nixosSystem {
+      g14 = lib.nixosSystem {
         specialArgs = { inherit inputs outputs; };
         modules = [
-          ./nixos/configuration.nix
+          ./nixos/g14
+        ];
+      };
+      x270 = lib.nixosSystem {
+        specialArgs = { inherit inputs outputs; };
+        modules = [
+          ./nixos/x270
         ];
       };
     };

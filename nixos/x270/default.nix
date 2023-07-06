@@ -1,20 +1,11 @@
-{ config, inputs, pkgs, ... }:
-{
+{ config, inputs, pkgs, ... }: {
   imports =
     [ 
-    ./wm.nix
-    ./host.nix
-    ./nvidia.nix
-    ./services.nix
+    ../wm.nix
+    ../host.nix
+    ../services.nix
     ./hardware-configuration.nix
     ];
-
-  nixpkgs.config = {
-    allowUnfree = true;
-    allowUnfreePredicate = (_: true);
-  };
-
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
