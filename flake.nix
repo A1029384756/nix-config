@@ -8,13 +8,19 @@
   };
 
   outputs = { self, nixpkgs, home-manager, ... }@inputs:
-  {
+    let
+      inherit (self) outputs;
+      lib = nixpkgs.lib // home-manager.lib;
+      systems = [ "x86_64-linux" "aarch64-linux" ];
+      forEachSystem = f: lib.genAttrs systems (sys: f pkgsFor.${sys});
+      pkgsFor = nixpkgs.legacyPackages;
+    in {
+    packages = forEachSystem (pkgs: import ./pkgs { inherit pkgs; });
     overlays = import ./overlays { inherit inputs; };
-    nixosModules = import ./modules/nixos;
 
     nixosConfigurations = {
-      laptop = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs ; };
+      laptop = lib.nixosSystem {
+        specialArgs = { inherit inputs outputs; };
         modules = [
           ./nixos/configuration.nix
         ];
@@ -22,9 +28,9 @@
     };
 
     homeConfigurations = {
-      "haydengray@laptop" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        extraSpecialArgs = { inherit inputs; };
+      "haydengray@laptop" = lib.homeManagerConfiguration {
+        pkgs = pkgsFor.x86_64-linux;
+        extraSpecialArgs = { inherit inputs outputs; };
         modules = [
           ./home-manager/home.nix
         ];

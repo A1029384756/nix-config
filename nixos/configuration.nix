@@ -30,6 +30,8 @@
     wget
     rustup
     pfetch-rs
+    p7zip
+    gtk-engine-murrine
   ];
 
   system.stateVersion = "23.05";

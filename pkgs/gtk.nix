@@ -1,22 +1,21 @@
-{ config, lib, pkgs, stdenv, ... }:
+{ lib, stdenv, fetchurl, p7zip, gtk-engine-murrine }:
 let
-themeName = "Catppuccin-Mocha-Standard-Mocha-Dark";
-version = "0.5.0";
-src = builtins.fetchurl {
+themeName = "Catppuccin-Mocha-Standard-Mauve-dark";
+version = "0.6.1";
+src = fetchurl {
   url =
-    "https://github.com/catppuccin/gtk/releases/download/v${version}/Catppuccin-Mocha-Standard-Mocha-Dark.zip";
-  sha256 = "03g9538w57b7q6mjxa3k5ibywvrslx86y4pxg5lfnmqy796kkc67";
+    "https://github.com/catppuccin/gtk/releases/download/v${version}/Catppuccin-Mocha-Standard-Mauve-Dark.zip";
+  sha256 = "hO2km+DlE+Dh3QemS4KI+BvfC47TuCi/oGy1K4iZ/0g=";
 };
-
 in stdenv.mkDerivation {
   pname = "catppuccin-gtk";
   inherit version;
 
   inherit src;
 
-  nativeBuildInputs = [ pkgs.p7zip ];
+  nativeBuildInputs = [ p7zip ];
 
-  propagatedUserEnvPkgs = [ pkgs.gtk-engine-murrine ];
+  propagatedUserEnvPkgs = [ gtk-engine-murrine ];
 
   unpackPhase = ''
     7z x $src
@@ -37,6 +36,6 @@ in stdenv.mkDerivation {
     homepage = "https://github.com/catppuccin/gtk";
     license = licenses.gpl3Plus;
     platforms = platforms.linux;
-    maintainers = with maintainers; [ haoxiangliew ];
+    maintainers = with maintainers; [ haydengray ];
   };
 }
