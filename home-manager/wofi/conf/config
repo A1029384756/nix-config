@@ -1,7 +1,7 @@
 show=drun
 height=600
 width=800
-term=kitty
+term=wezterm
 image_size=24
 insensitive=true
 allow_images=true

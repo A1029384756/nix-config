@@ -28,7 +28,10 @@
     rustup
   ];
 
-  programs.home-manager.enable = true;
+  home.sessionVariables = {
+    EDITOR = "nvim";
+    BROWSER = "firefox";
+  };
 
   gtk = {
     enable = true;
@@ -52,6 +55,7 @@
     };
   };
 
+  programs.home-manager.enable = true;
   systemd.user.startServices = "sd-switch";
   home.stateVersion = "23.05";
-                                    }
+}
