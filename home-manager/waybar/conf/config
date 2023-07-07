@@ -77,8 +77,6 @@
   "custom/launcher": {
     // "format": "󱗼",
     "format": "󱄅",
-    "on-click": "~/.config/tofi/scripts/drun.sh",
-    "on-click-right": "~/.config/tofi/scripts/drun.sh",
     "tooltip": false
   },
   "wlr/workspaces": {
@@ -168,6 +166,7 @@
     "on-click": ""
   },
   "pulseaudio#audio": {
+    "on-click": "pavucontrol",
     "format": "{icon} {volume}%",
     "format-bluetooth": "󰂯{icon} {volume}%",
     "format-bluetooth-muted": "󰂯󰖁 {volume}%",
@@ -181,9 +180,6 @@
       "car": "",
       "default": ["󰕿", "󰖀", "󰕾"]
     },
-    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle && ~/.config/dunst/scripts/show_mute.sh",
-    "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +1% && ~/.config/dunst/scripts/show_volume.sh",
-    "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -1% && ~/.config/dunst/scripts/show_volume.sh",
     "tooltip": true,
     "tooltip-format": "{icon} {desc}"
   },

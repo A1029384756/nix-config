@@ -22,6 +22,7 @@
     inotify-tools 
     killall
     pamixer
+    pavucontrol
     slurp
     socat
     wl-clipboard
