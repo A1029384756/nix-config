@@ -11,4 +11,8 @@
     recursive = true;
     target = "nvim";
   };
+
+  home.packages = with pkgs; [
+    nodejs_20
+  ];
 }
