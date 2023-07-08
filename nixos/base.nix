@@ -8,6 +8,4 @@
     unzip
     wget
   ];
-
-  environment.sessionVariables.LIBCLANG_PATH = lib.makeLibraryPath [ pkgs.llvmPackages_latest.libclang.lib ];
 }
