@@ -20,14 +20,11 @@
   };
 
   home.packages = with pkgs; [ 
+    bat
+    exa
     git-credential-manager
     jq
-    exa
-    bat
     ripgrep
-    unzip
-    gcc
-    rustup
   ];
 
   home.sessionVariables = {

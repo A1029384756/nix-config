@@ -7,12 +7,17 @@
   };
 
   xdg.configFile.nvim = {
-    source = ./config;
+    source = config.lib.file.mkOutOfStoreSymlink
+      "${config.home.homeDirectory}/Customization/nix-config/home-manager/nvim/config";
     recursive = true;
-    target = "nvim";
   };
 
   home.packages = with pkgs; [
+    clang
+    clang-tools
+    lua-language-server
+    nodePackages_latest.pyright
     nodejs_20
+    python312
   ];
 }

@@ -1,9 +1,10 @@
 { config, inputs, pkgs, ... }: {
   imports =
     [ 
-    ../wm.nix
+    ../base.nix
     ../host.nix
     ../services.nix
+    ../wm.nix
     ./hardware-configuration.nix
     ];
 
@@ -12,18 +13,6 @@
   boot.plymouth.enable = true;
 
   programs.fish.enable = true;
-
-  environment.systemPackages = with pkgs; [
-    gcc
-    git
-    glibc
-    sqlite
-    wget
-    rustup
-    pfetch-rs
-    p7zip
-    gtk-engine-murrine
-  ];
 
   system.stateVersion = "23.05";
 }

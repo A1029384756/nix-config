@@ -15,7 +15,5 @@
     driSupport32Bit = true;
   };
 
-  environment.sessionVariables = {
-    WLR_NO_HARDWARE_CURSORS = "1";
-  };
+  environment.sessionVariables.WLR_NO_HARDWARE_CURSORS = "1";
 }
