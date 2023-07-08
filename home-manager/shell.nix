@@ -6,6 +6,7 @@
       ls = "exa --icons -F -H --group-directories-first --git -h $argv";
       cat = "bat --theme base16-256";
       vi = "nvim $argv";
+      dev = "nix develop --command fish";
     };
   };
 
