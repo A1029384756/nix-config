@@ -13,6 +13,12 @@
     ./wezterm.nix
     ./wofi
   ];
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+      allowUnfreePredicate = (_: true);
+    };
+  };
 
   home = {
     username = "haydengray";
@@ -25,6 +31,7 @@
     git-credential-manager
     jq
     ripgrep
+    steam
   ];
 
   home.sessionVariables = {
