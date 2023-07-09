@@ -29,6 +29,7 @@
     bat
     exa
     git-credential-manager
+    heroic
     jq
     ripgrep
     steam
