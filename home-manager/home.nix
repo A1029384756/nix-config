@@ -8,6 +8,7 @@
     ./hyprland
     ./nvim
     ./shell.nix
+    ./steam
     ./sway
     ./waybar
     ./wezterm.nix
@@ -33,7 +34,6 @@
     heroic
     jq
     ripgrep
-    steam
   ];
 
   home.sessionVariables = {
