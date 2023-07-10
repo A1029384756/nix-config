@@ -1,5 +1,6 @@
-{ inputs, outputs, lib, config, pkgs, ... }: {
+{ inputs, outputs, config, pkgs, ... }: {
   imports = [
+    ./armcord
     ./btop
     ./dunst
     ./git.nix
@@ -9,7 +10,6 @@
     ./shell.nix
     ./sway
     ./waybar
-    ./webcord
     ./wezterm.nix
     ./wofi
   ];
