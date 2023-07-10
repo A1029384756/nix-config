@@ -1,18 +1,18 @@
 { inputs, outputs, config, pkgs, ... }: {
   imports = [
-    ./armcord
-    ./btop
-    ./dunst
-    ./git.nix
-    ./gtk.nix
-    ./hyprland
-    ./nvim
-    ./shell.nix
-    ./steam
-    ./sway
-    ./waybar
-    ./wezterm.nix
-    ./wofi
+    ../armcord
+    ../btop
+    ../dunst
+    ../git.nix
+    ../gtk.nix
+    ../hyprland
+    ../nvim
+    ../shell.nix
+    ../steam
+    ../sway
+    ../waybar
+    ../wezterm.nix
+    ../wofi
   ];
   nixpkgs = {
     overlays = builtins.attrValues outputs.overlays;
