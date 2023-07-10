@@ -22,11 +22,6 @@
   };
 
   home.packages = with pkgs; [
-    clang
-    clang-tools
     lua-language-server
-    nodePackages_latest.pyright
-    nodejs_20
-    python312
   ];
 }

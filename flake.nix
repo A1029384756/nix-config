@@ -35,7 +35,7 @@
         "haydengray@laptop" = lib.homeManagerConfiguration {
           pkgs = pkgsFor.x86_64-linux;
           extraSpecialArgs = { inherit inputs outputs; };
-          modules = [ ./home-manager/home.nix ];
+          modules = [ ./home-manager/laptop ];
         };
       };
   };
