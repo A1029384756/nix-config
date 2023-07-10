@@ -31,6 +31,7 @@
     ];
   };
 
+  nixpkgs.config.allowUnfree = true;
   hardware.steam-hardware.enable = true;
   programs.thunar = {
     enable = true;
