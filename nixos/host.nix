@@ -31,6 +31,7 @@
     ];
   };
 
+  hardware.steam-hardware.enable = true;
   programs.thunar = {
     enable = true;
     plugins = with pkgs.xfce; [
