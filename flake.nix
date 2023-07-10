@@ -14,35 +14,29 @@
       systems = [ "x86_64-linux" "aarch64-linux" ];
       forEachSystem = f: lib.genAttrs systems (sys: f pkgsFor.${sys});
       pkgsFor = nixpkgs.legacyPackages;
-    in {
-    templates = import ./templates;
+    in rec {
+      templates = import ./templates;
+      homeManagerModules = import ./modules/home-manager;
+      overlays = import ./overlays { inherit inputs; };
+      packages = forEachSystem (pkgs: import ./pkgs { inherit pkgs; });
 
-    packages = forEachSystem (pkgs: import ./pkgs { inherit pkgs; });
-    overlays = import ./overlays { inherit inputs; };
+      nixosConfigurations = {
+        g14 = lib.nixosSystem {
+          specialArgs = { inherit inputs outputs; };
+          modules = [ ./nixos/g14 ];
+        };
+        x270 = lib.nixosSystem {
+          specialArgs = { inherit inputs outputs; };
+          modules = [ ./nixos/x270 ];
+        };
+      };
 
-    nixosConfigurations = {
-      g14 = lib.nixosSystem {
-        specialArgs = { inherit inputs outputs; };
-        modules = [
-          ./nixos/g14
-        ];
+      homeConfigurations = {
+        "haydengray@laptop" = lib.homeManagerConfiguration {
+          pkgs = pkgsFor.x86_64-linux;
+          extraSpecialArgs = { inherit inputs outputs; };
+          modules = [ ./home-manager/home.nix ];
+        };
       };
-      x270 = lib.nixosSystem {
-        specialArgs = { inherit inputs outputs; };
-        modules = [
-          ./nixos/x270
-        ];
-      };
-    };
-
-    homeConfigurations = {
-      "haydengray@laptop" = lib.homeManagerConfiguration {
-        pkgs = pkgsFor.x86_64-linux;
-        extraSpecialArgs = { inherit inputs outputs; };
-        modules = [
-          ./home-manager/home.nix
-        ];
-      };
-    };
   };
 }

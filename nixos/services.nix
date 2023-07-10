@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ config, lib, pkgs, ... }: {
   services.printing.enable = true;
   services.xserver = {
     excludePackages = [ pkgs.xterm ];
@@ -9,7 +9,11 @@
 
   services.flatpak.enable = true;
 
-  services.gvfs.enable = true;
+  services.gvfs = {
+    enable = true;
+    package = lib.mkForce pkgs.gnome3.gvfs;
+  };
+  services.samba.enable = true;
   services.tumbler.enable = true;
   services.gnome.gnome-keyring.enable = true;
 

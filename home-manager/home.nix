@@ -1,4 +1,4 @@
-{ inputs, lib, config, pkgs, ... }: {
+{ inputs, outputs, lib, config, pkgs, ... }: {
   imports = [
     ./btop
     ./dunst
@@ -14,6 +14,7 @@
     ./wofi
   ];
   nixpkgs = {
+    overlays = builtins.attrValues outputs.overlays;
     config = {
       allowUnfree = true;
       allowUnfreePredicate = (_: true);
@@ -22,7 +23,7 @@
 
   home = {
     username = "haydengray";
-    homeDirectory = "/home/haydengray";
+    homeDirectory = "/home/${config.home.username}";
   };
 
   home.packages = with pkgs; [ 

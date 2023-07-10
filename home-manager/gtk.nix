@@ -1,4 +1,7 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }: 
+let
+  themePath = "${pkgs.catppuccin-gtk-mocha}/share/themes/Catppuccin-Mocha-Standard-Mauve-dark";
+in {
   gtk = {
     enable = true;
     font = {
@@ -13,11 +16,13 @@
     };
     theme = {
       name = "Catppuccin-Mocha-Standard-Mauve-dark";
-      package = pkgs.callPackage ../pkgs/gtk.nix { };
+      package = pkgs.catppuccin-gtk-mocha;
     };
     iconTheme = {
       name = "Papirus-Dark";
       package = pkgs.papirus-icon-theme;
     };
   };
+
+  xdg.configFile."gtk-4.0/gtk.css".text = (builtins.readFile "${themePath}/gtk-4.0/gtk-dark.css");
 }

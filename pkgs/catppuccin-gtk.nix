@@ -25,10 +25,10 @@ in stdenv.mkDerivation {
     runHook preInstall
 
     mkdir -p $out/share/themes/${themeName}
-  cd ${themeName}
-  cp -a {cinnamon,gnome-shell,gtk-2.0,gtk-3.0,gtk-4.0,index.theme,metacity-1,plank,xfwm4} $out/share/themes/${themeName}
+    cd ${themeName}
+    cp -a {cinnamon,gnome-shell,gtk-2.0,gtk-3.0,gtk-4.0,index.theme,metacity-1,plank,xfwm4} $out/share/themes/${themeName}
 
-  runHook postInstall
+    runHook postInstall
     '';
 
   meta = with lib; {

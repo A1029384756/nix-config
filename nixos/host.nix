@@ -22,12 +22,11 @@
     shell = pkgs.fish;
     packages = with pkgs; [
       btop
+      clapper
       firefox
       gnome.gnome-software
       networkmanagerapplet
       thunderbird
-      xfce.orage
-      xfce.parole
     ];
   };
 
