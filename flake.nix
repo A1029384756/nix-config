@@ -14,9 +14,9 @@
       systems = [ "x86_64-linux" "aarch64-linux" ];
       forEachSystem = f: lib.genAttrs systems (sys: f pkgsFor.${sys});
       pkgsFor = nixpkgs.legacyPackages;
-    in rec {
+    in {
+      inherit lib;
       templates = import ./templates;
-      homeManagerModules = import ./modules/home-manager;
       overlays = import ./overlays { inherit inputs; };
       packages = forEachSystem (pkgs: import ./pkgs { inherit pkgs; });
 
