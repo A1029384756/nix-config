@@ -37,6 +37,11 @@
           extraSpecialArgs = { inherit inputs outputs; };
           modules = [ ./home-manager/laptop ];
         };
+        "haydengray@wsl" = lib.homeManagerConfiguration {
+          pkgs = pkgsFor.x86_64-linux;
+          extraSpecialArgs = { inherit inputs outputs; };
+          modules = [ ./home-manager/wsl ];
+        };
       };
   };
 }
