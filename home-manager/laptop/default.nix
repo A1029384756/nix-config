@@ -3,12 +3,12 @@
     ../armcord
     ../btop
     ../dunst
+    ../games
     ../git.nix
     ../gtk.nix
     ../hyprland
     ../nvim
     ../shell.nix
-    ../steam
     ../sway
     ../waybar
     ../wezterm.nix
@@ -31,7 +31,6 @@
     bat
     exa
     git-credential-manager
-    heroic
     jq
     ripgrep
   ];

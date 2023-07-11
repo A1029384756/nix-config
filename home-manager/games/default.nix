@@ -8,5 +8,5 @@
     type = "Application";
   };
 
-  home.packages = with pkgs; [ steam ];
+  home.packages = with pkgs; [ heroic steam ];
 }
