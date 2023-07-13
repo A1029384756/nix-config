@@ -32,7 +32,11 @@
   };
 
   nixpkgs.config.allowUnfree = true;
+
   hardware.steam-hardware.enable = true;
+  hardware.logitech.wireless.enable = true;
+  hardware.logitech.wireless.enableGraphical = true;
+
   programs.thunar = {
     enable = true;
     plugins = with pkgs.xfce; [
