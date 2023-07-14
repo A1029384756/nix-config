@@ -51,6 +51,8 @@ lspconfig.rust_analyzer.setup({})
 
 lspconfig.clangd.setup{}
 
+lspconfig.pyright.setup{}
+
 lspconfig.tflint.setup{}
 
 require('luasnip.loaders.from_vscode').lazy_load()
