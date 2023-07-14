@@ -15,7 +15,6 @@
       forEachSystem = f: lib.genAttrs systems (sys: f pkgsFor.${sys});
       pkgsFor = nixpkgs.legacyPackages;
     in {
-      inherit lib;
       templates = import ./templates;
       overlays = import ./overlays { inherit inputs; };
       packages = forEachSystem (pkgs: import ./pkgs { inherit pkgs; });
