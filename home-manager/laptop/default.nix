@@ -11,7 +11,7 @@
     ../shell.nix
     ../sway
     ../waybar
-    ../wezterm.nix
+    ../wezterm
     ../wofi
   ];
   nixpkgs = {
