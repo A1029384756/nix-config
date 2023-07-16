@@ -3,6 +3,7 @@
     ../armcord
     ../btop
     ../dunst
+    ../firefox
     ../games
     ../git.nix
     ../gtk.nix

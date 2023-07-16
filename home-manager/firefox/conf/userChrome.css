@@ -1,0 +1,135 @@
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+#TabsToolbar {
+    visibility: collapse;
+}
+
+#titlebar {
+	visibility: collapse;
+}
+
+#main-window[sizemode="maximized"] {
+  margin-top: 8px;
+}
+
+#back-button, #forward-button {
+	display: none !important
+}
+
+#appMenu-library-pocket-button, .panel-subview-body toolbarseparator, .subview-subheader, #appMenu-library-recentHighlights {
+	display: none !important
+}
+.sidebar-header, #sidebar-header {
+	display: none !important
+}
+
+#PanelUI-menu-button {
+	display: none !important
+}
+
+#identity-icon-labels {
+	display: none !important
+}
+#urlbar-container {
+	margin: 0 10px 0 10px;
+}
+#pageAction-panel-pocket, #pageAction-panel-emailLink, #pageAction-panel-sendToDevice  {
+	display: none !important
+}
+
+#urlbar > #identity-box.notSecureText > #identity-icon-labels > #identity-icon-label {
+  color: rgba(255, 0, 0, 0.867) !important;
+}
+
+.browserContainer > findbar {
+    -moz-box-ordinal-group: 0;
+	border: 1px solid threedshadow !important;
+}
+
+#PlacesToolbarItems {
+	-moz-box-pack: center
+}
+
+#context-copyimage-contents, #context-sendimage, #context-setDesktopBackground, #context-viewimageinfo,
+#context-sep-navigation, #inspect-separator, #context-savepage, #context-pocket, #context-savelinktopocket, #context-viewinfo { 
+    display: none !important
+}
+
+#screenshots_mozilla_org-menuitem-_create-screenshot {
+	display: none !important
+}
+
+menuitem[label="LastPass"] {
+  display: none !important;
+}
+
+
+#main-window[tabsintitlebar="true"]:not([extradragspace="true"]) #TabsToolbar {
+  opacity: 0;
+  pointer-events: none;
+}
+#main-window:not([tabsintitlebar="true"]) #TabsToolbar {
+  visibility: collapse !important;
+}
+
+#sidebar {
+  max-width: none !important;
+  min-width: 0px !important;
+}
+
+#sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"] + #sidebar-splitter {
+  display: none !important;
+}
+
+#sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"] #sidebar-header {
+  visibility: collapse;
+}
+
+:root {
+  --thin-tab-width: 1px;
+  --wide-tab-width: 250px;
+}
+
+#sidebar-box:not([sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"]) {
+  min-width: var(--wide-tab-width) !important;
+  max-width: none !important;
+}
+#sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"] {
+  position: relative !important;
+  min-width: var(--thin-tab-width) !important;
+  max-width: var(--thin-tab-width) !important;
+}
+
+#sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"]:hover {
+    min-width: var(--wide-tab-width) !important;
+    max-width: var(--wide-tab-width) !important;
+    margin-right: calc((var(--wide-tab-width) - var(--thin-tab-width)) * -1) !important;
+    z-index:1;
+}
+
+#navigator-toolbox #PersonalToolbar {
+  position: absolute; display:block;
+  width: 100%;
+  transform: translateY(-200px);
+}
+
+#TabsToolbar, #nav-bar {
+  position: relative;
+  z-index: 99;
+}
+
+#navigator-toolbox #PersonalToolbar {
+  position: absolute; display:block;
+  width: 100%;
+  transform: translateY(-200px);
+  z-index:1;
+}
+
+#navigator-toolbox[inFullscreen] toolbar:not([collapsed="true"]) {
+  visibility:visible!important;
+}
+
+.tabbrowser-tab[pinned] {
+  padding-left: 20px;
+  padding-right: 20px;
+}
