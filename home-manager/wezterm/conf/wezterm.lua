@@ -1,6 +1,6 @@
 local wezterm = require 'wezterm'
 require("bar").setup({
-  dividers = "slant_right", -- or "slant_left", "arrows", "rounded", false
+  dividers = false, -- or "slant_left", "arrows", "rounded", false
   indicator = {
     leader = {
       enabled = true,
@@ -41,7 +41,7 @@ config = {
   window_background_opacity = 0.9,
   warn_about_missing_glyphs = false,
   enable_tab_bar = true,
-  hide_tab_bar_if_only_one_tab = false,
+  hide_tab_bar_if_only_one_tab = true,
   use_fancy_tab_bar = false,
   tab_max_width = 22,
   tab_bar_at_bottom = true,

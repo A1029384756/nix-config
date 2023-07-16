@@ -172,63 +172,6 @@ local roman_numerals = {
 wezterm.on(
   "format-tab-title",
   function(tab, tabs, panes, config, hover, max_width)
-    local colours = config.resolved_palette.tab_bar
-
-    local active_tab_index = 0
-    for _, t in ipairs(tabs) do
-      if t.is_active == true then
-        active_tab_index = t.tab_index
-      end
-    end
-
-    local rainbow = {
-      config.resolved_palette.ansi[2],
-      config.resolved_palette.indexed[16],
-      config.resolved_palette.ansi[4],
-      config.resolved_palette.ansi[3],
-      config.resolved_palette.ansi[5],
-      config.resolved_palette.ansi[1],
-    }
-
-    local i = tab.tab_index % 6
-    local active_bg = rainbow[i + 1]
-    local active_fg = colours.background
-    local inactive_bg = colours.inactive_tab.bg_color
-    local inactive_fg = colours.inactive_tab.fg_color
-    local new_tab_bg = colours.new_tab.bg_color
-
-    local s_bg, s_fg, e_bg, e_fg
-
-    -- the last tab
-    if tab.tab_index == #tabs - 1 then
-      if tab.is_active then
-        s_bg = active_bg
-        s_fg = active_fg
-        e_bg = new_tab_bg
-        e_fg = active_bg
-      else
-        s_bg = inactive_bg
-        s_fg = inactive_fg
-        e_bg = new_tab_bg
-        e_fg = inactive_bg
-      end
-    elseif tab.tab_index == active_tab_index - 1 then
-      s_bg = inactive_bg
-      s_fg = inactive_fg
-      e_bg = rainbow[(i + 1) % 6 + 1]
-      e_fg = inactive_bg
-    elseif tab.is_active then
-      s_bg = active_bg
-      s_fg = active_fg
-      e_bg = inactive_bg
-      e_fg = active_bg
-    else
-      s_bg = inactive_bg
-      s_fg = inactive_fg
-      e_bg = inactive_bg
-      e_fg = inactive_bg
-    end
-
     local pane_count = ""
     if C.tabs.pane_count_style then
       local tabi = wezterm.mux.get_tab(tab.tab_id)
@@ -272,11 +215,7 @@ wezterm.on(
     local title = string.format(" %s%s%s%s", index, tabtitle, pane_count, C.p)
 
     return {
-      { Background = { Color = s_bg } },
-      { Foreground = { Color = s_fg } },
       { Text = title },
-      { Background = { Color = e_bg } },
-      { Foreground = { Color = e_fg } },
       { Text = C.div.r },
     }
   end
