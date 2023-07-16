@@ -24,6 +24,7 @@
       btop
       clapper
       firefox
+      gnome.gnome-calculator
       gnome.gnome-software
       networkmanagerapplet
       thunderbird
