@@ -11,4 +11,8 @@
     path = ./c++;
     description = "A starter C++ project";
   };
+  python_3_11 = {
+    path = ./python_3_11;
+    description = "A starter Python 3.11 project";
+  };
 }
