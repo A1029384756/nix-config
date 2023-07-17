@@ -7,4 +7,8 @@
     path = ./terraform_0_13_3;
     description = "A starter Terraform 0.13.3 project";
   };
+  cpp = {
+    path = ./c++;
+    description = "A starter C++ project";
+  };
 }
