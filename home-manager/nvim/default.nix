@@ -22,6 +22,7 @@
   };
 
   home.packages = with pkgs; [
+    cargo
     clang-tools
     lua-language-server
     pyright
