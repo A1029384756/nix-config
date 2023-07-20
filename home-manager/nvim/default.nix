@@ -22,6 +22,9 @@
   };
 
   home.packages = with pkgs; [
+    clang-tools
     lua-language-server
+    pyright
+    rust-analyzer
   ];
 }
