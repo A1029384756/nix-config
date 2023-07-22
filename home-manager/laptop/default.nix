@@ -30,6 +30,7 @@
 
   home.packages = with pkgs; [ 
     bat
+    mate.engrampa
     exa
     git-credential-manager
     jq
