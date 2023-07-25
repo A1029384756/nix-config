@@ -1,5 +1,6 @@
 { inputs, config, pkgs, ... }: {
   programs.hyprland = {
+    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     enable = true;
     xwayland.enable = true;
     nvidiaPatches = true;
