@@ -28,5 +28,6 @@
     lua-language-server
     pyright
     rust-analyzer
+    tflint
   ];
 }
