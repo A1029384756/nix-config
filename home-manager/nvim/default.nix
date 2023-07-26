@@ -24,6 +24,7 @@
   home.packages = with pkgs; [
     cargo
     clang-tools
+    gcc
     lua-language-server
     pyright
     rust-analyzer
