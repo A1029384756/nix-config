@@ -8,7 +8,7 @@
 
   programs.light.enable = true;
 
-  fonts.fonts = with pkgs; [
+  fonts.packages = with pkgs; [
    (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
    material-symbols
    open-sans
