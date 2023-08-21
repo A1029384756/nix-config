@@ -8,5 +8,5 @@
     type = "Application";
   };
 
-  home.packages = with pkgs; [ heroic steam ];
+  home.packages = with pkgs; [ heroic protonhax protontricks scanmem steam ];
 }
