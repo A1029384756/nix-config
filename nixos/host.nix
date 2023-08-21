@@ -28,6 +28,7 @@
       networkmanagerapplet
       thunderbird
       vipsdisp
+      zoom-us
     ];
   };
 
