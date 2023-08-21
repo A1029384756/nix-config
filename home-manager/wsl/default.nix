@@ -1,6 +1,7 @@
 { inputs, outputs, config, pkgs, ... }: {
   imports = [
     ../btop
+    ../firefox
     ../git.nix
     ../nvim
     ../shell.nix
@@ -11,6 +12,11 @@
       allowUnfree = true;
       allowUnfreePredicate = (_: true);
     };
+  };
+
+  xdg.configFile.nix = {
+    text = "experimental-features = nix-command flakes";
+    target = "nix/nix.conf"; 
   };
 
   home = {
