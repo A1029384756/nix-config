@@ -3,7 +3,7 @@
     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     enable = true;
     xwayland.enable = true;
-    nvidiaPatches = true;
+    enableNvidiaPatches = true;
   };
 
   programs.light.enable = true;
