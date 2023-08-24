@@ -26,6 +26,7 @@
     clang-tools
     gcc
     lua-language-server
+    nodePackages.typescript-language-server
     pyright
     rust-analyzer
     tflint

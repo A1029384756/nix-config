@@ -19,4 +19,12 @@
     path = ./python_3_11;
     description = "A starter Python 3.11 project";
   };
+  javascript = {
+    path = ./javascript;
+    description = "A starter nodeJS project";
+  };
+  p5 = {
+    path = ./p5;
+    description = "A starter p5 project";
+  };
 }
