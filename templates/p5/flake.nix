@@ -1,5 +1,5 @@
 {
-  description = "Javascript Devshell";
+  description = "p5.js Devshell";
 
   inputs = {
     nixpkgs.url      = "github:NixOS/nixpkgs/nixos-unstable";
@@ -19,6 +19,9 @@
     in {
       devShells.default = pkgs.mkShell {
         buildInputs = with pkgs; [
+          nodejs
+          nodePackages.browser-sync
+          nodePackages.pnpm
           nodePackages.typescript-language-server
         ];
       };
