@@ -1,6 +1,7 @@
 { config, pkgs, ... }: {
   imports = [
     ../shell.nix
+    ../nvim
   ];
 
   home.packages = with pkgs; [
