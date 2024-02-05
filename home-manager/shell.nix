@@ -7,6 +7,7 @@
       cat = "bat --theme base16-256";
       vi = "nvim $argv";
       dev = "nix develop --command fish";
+      find = "fd $argv";
     };
   };
 

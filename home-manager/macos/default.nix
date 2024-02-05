@@ -11,6 +11,7 @@
     bat
     mise
     jq
+    fd
   ];
 
   programs.home-manager.enable = true;
