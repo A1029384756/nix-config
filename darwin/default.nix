@@ -14,6 +14,9 @@
 
   programs.zsh.enable = true;
   programs.fish.enable = true;
+  services.yabai.enable = true;
+  services.yabai.enableScriptingAddition = true;
+  services.skhd.enable = true;
 
   environment.systemPackages = with pkgs; [ ];
 
