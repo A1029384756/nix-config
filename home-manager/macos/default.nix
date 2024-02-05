@@ -10,6 +10,8 @@
     ripgrep
     eza
     bat
+    mise
+    jq
   ];
 
   programs.home-manager.enable = true;

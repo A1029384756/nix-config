@@ -14,9 +14,31 @@
 
   programs.zsh.enable = true;
   programs.fish.enable = true;
-  services.yabai.enable = true;
-  services.yabai.enableScriptingAddition = true;
-  services.skhd.enable = true;
+
+  homebrew = {
+    enable = true;
+    onActivation = {
+      cleanup = "zap";
+      autoUpdate = true;
+      upgrade = true;
+    };
+
+    brews = [
+    ];
+
+    casks = [
+      "arc"
+      "font-jetbrains-mono-nerd-font"
+      "iterm2"
+      "loop"
+      "microsoft-edge"
+    ];
+
+    taps = [
+      "homebrew/cask-fonts"
+      "mrkai77/cask"
+    ];
+  };
 
   environment.systemPackages = with pkgs; [ ];
 
