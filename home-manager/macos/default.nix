@@ -2,7 +2,6 @@
   imports = [
     ../shell.nix
     ../nvim
-    ../yabai
   ];
 
   home.packages = with pkgs; [
