@@ -24,6 +24,7 @@
     };
 
     brews = [
+      "autoraise"
     ];
 
     casks = [
@@ -36,6 +37,7 @@
     ];
 
     taps = [
+      "dimentium/autoraise"
       "homebrew/cask-fonts"
       "mrkai77/cask"
     ];
