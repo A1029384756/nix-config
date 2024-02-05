@@ -29,6 +29,7 @@
     casks = [
       "arc"
       "font-jetbrains-mono-nerd-font"
+      "git-credential-manager"
       "iterm2"
       "loop"
       "microsoft-edge"
