@@ -34,6 +34,7 @@
       "iterm2"
       "loop"
       "microsoft-edge"
+      "zed"
     ];
 
     taps = [
