@@ -34,6 +34,7 @@
       "iterm2"
       "loop"
       "microsoft-edge"
+      "warp"
       "zed"
     ];
 
