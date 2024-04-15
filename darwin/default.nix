@@ -36,6 +36,7 @@
       "microsoft-edge"
       "warp"
       "zed"
+      "zoom"
     ];
 
     taps = [
