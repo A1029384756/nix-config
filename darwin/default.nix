@@ -25,6 +25,7 @@
 
     brews = [
       "autoraise"
+      "docker-completion"
     ];
 
     casks = [
@@ -37,6 +38,7 @@
       "warp"
       "zed"
       "zoom"
+      "zulu@21"
     ];
 
     taps = [
