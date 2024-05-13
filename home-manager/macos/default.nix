@@ -12,7 +12,7 @@
     mise
     jq
     fd
-    nodejs_21
+    nodejs
   ];
 
   programs.home-manager.enable = true;
