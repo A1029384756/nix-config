@@ -26,6 +26,7 @@
     brews = [
       "autoraise"
       "docker-completion"
+      "llvm@18"
     ];
 
     casks = [
