@@ -1,4 +1,4 @@
-{ inputs, ... }: {
+{ inputs, pkgs, ... }: {
   gtk = {
     enable = true;
     catppuccin = {
@@ -8,6 +8,15 @@
       gnomeShellTheme = true;
     };
   };
+
+  home.packages = with pkgs.gnomeExtensions; [
+    alphabetical-app-grid
+    appindicator
+    blur-my-shell
+    forge
+    just-perfection
+    rounded-window-corners
+  ];
 
   dconf.settings = {
     "org/gnome/shell".enabled-extensions = [
