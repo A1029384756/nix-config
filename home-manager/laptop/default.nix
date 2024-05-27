@@ -1,6 +1,6 @@
 { inputs, outputs, config, pkgs, ... }: {
   imports = [
-    ../armcord
+    ../discord
     ../btop
     ../dunst
     ../firefox

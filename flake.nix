@@ -3,16 +3,20 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+
+    catppuccin.url = "github:catppuccin/nix";
+
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
     darwin.url = "github:lnl7/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
-    hyprland.url = "github:hyprwm/Hyprland";
+
     nix-index-database.url = "github:Mic92/nix-index-database";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, home-manager, darwin, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, darwin, catppuccin, ... }@inputs:
     let
       inherit (self) outputs;
       lib = nixpkgs.lib // home-manager.lib;
@@ -33,6 +37,23 @@
         x270 = lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
           modules = [ ./nixos/x270 ];
+        };
+        rev3 = lib.nixosSystem {
+          specialArgs = { inherit inputs outputs; };
+          modules = [
+	          ./nixos/rev3 
+	          home-manager.nixosModules.home-manager {
+	            home-manager.useGlobalPkgs = true;
+	            home-manager.useUserPackages = true;
+	            home-manager.users.haydengray = {
+                imports = [
+                  ./home-manager/rev3
+                  catppuccin.homeManagerModules.catppuccin
+                ];
+              };
+	            home-manager.backupFileExtension = "backup";
+	          }
+	        ];
         };
       };
 

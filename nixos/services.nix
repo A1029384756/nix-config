@@ -3,8 +3,10 @@
   services.xserver = {
     excludePackages = [ pkgs.xterm ];
     enable = true;
-    layout = "us";
-    xkbVariant = "";
+    xkb = {
+      layout = "us";
+      variant = "";
+    };
   };
 
   services.flatpak.enable = true;
@@ -16,8 +18,6 @@
   services.samba.enable = true;
   services.tumbler.enable = true;
   services.gnome.gnome-keyring.enable = true;
-
-  services.xserver.displayManager.gdm.enable = true;
 
   sound.enable = true;
   hardware.pulseaudio.enable = false;
