@@ -6,7 +6,7 @@
     ../firefox
     ../games
     ../git.nix
-    ../gtk.nix
+    ../gnome.nix
     ../hyprland
     ../nvim
     ../shell.nix

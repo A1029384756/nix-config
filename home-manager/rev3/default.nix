@@ -5,7 +5,7 @@
     ../firefox
     ../games
     ../git.nix
-    ../gtk.nix
+    ../gnome.nix
     ../nvim
     ../shell.nix
     ../wezterm

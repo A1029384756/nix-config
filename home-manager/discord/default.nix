@@ -1,3 +1,3 @@
 { config, pkgs, ... }: {
-  home.packages = with pkgs; [ armcord discord vesktop ];
+  home.packages = with pkgs; [ vesktop ];
 }

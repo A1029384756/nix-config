@@ -8,5 +8,5 @@
     type = "Application";
   };
 
-  home.packages = with pkgs; [ heroic protontricks scanmem ];
+  home.packages = with pkgs; [ heroic prismlauncher protontricks ];
 }
