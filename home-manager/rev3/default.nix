@@ -17,13 +17,14 @@
 
   home.packages = with pkgs; [
     awscli2
-    ripgrep
-    eza
     bat
-    mise
-    jq
+    eza
     fd
+    jq
+    mise
+    mission-center
     nodejs
+    ripgrep
   ];
 
   programs.home-manager.enable = true;
