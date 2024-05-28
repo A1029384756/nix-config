@@ -18,6 +18,7 @@
   home.packages = with pkgs; [
     awscli2
     bat
+    brave
     eza
     fd
     jq
