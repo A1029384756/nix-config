@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }: {
+{ pkgs, ... }: {
   services.xserver = {
     enable = true;
     desktopManager.gnome.enable = true;
@@ -7,7 +7,7 @@
   };
 
   environment = {
-    gnome.excludePackages = [ pkgs.gnome-tour ];
+    gnome.excludePackages = [ pkgs.gnome-tour pkgs.gnome.yelp ];
 
     systemPackages = with pkgs; [ gnome.dconf-editor ];
   };

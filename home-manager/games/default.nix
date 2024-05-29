@@ -8,5 +8,9 @@
     type = "Application";
   };
 
-  home.packages = with pkgs; [ heroic prismlauncher protontricks ];
+  home.packages = with pkgs; [
+    heroic
+    prismlauncher
+    protontricks
+  ];
 }
