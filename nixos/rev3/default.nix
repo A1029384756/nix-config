@@ -2,6 +2,7 @@
   imports =
     [ 
     ../base.nix
+    ../containers.nix
     ../fonts.nix
     ../gnome.nix
     ../host.nix
