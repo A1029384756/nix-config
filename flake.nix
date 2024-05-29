@@ -24,19 +24,19 @@
       forEachSystem = f: lib.genAttrs systems (sys: f pkgsFor.${sys});
       pkgsFor = nixpkgs.legacyPackages;
       nixosModules = { device, config }: [
-	          ./nixos/${device}
-	          home-manager.nixosModules.home-manager {
-	            home-manager.useGlobalPkgs = true;
-	            home-manager.useUserPackages = true;
-	            home-manager.users.haydengray = {
-                imports = [
-                  ./home-manager/${config}
-                  catppuccin.homeManagerModules.catppuccin
-                ];
-              };
-	            home-manager.backupFileExtension = "backup";
-	          }
-	        ];
+	        ./nixos/${device}
+	        home-manager.nixosModules.home-manager {
+	          home-manager.useGlobalPkgs = true;
+	          home-manager.useUserPackages = true;
+	          home-manager.users.haydengray = {
+              imports = [
+                ./home-manager/${config}
+                catppuccin.homeManagerModules.catppuccin
+              ];
+            };
+	          home-manager.backupFileExtension = "backup";
+	        }
+	      ];
     in
     {
       templates = import ./templates;
