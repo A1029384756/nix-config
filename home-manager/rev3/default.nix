@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ user, pkgs, ... }: {
   imports = [
     ../discord
     ../btop
@@ -13,8 +13,8 @@
     ../kitty.nix
   ];
 
-  home.username = "haydengray";
-  home.homeDirectory = "/home/haydengray";
+  home.username = user;
+  home.homeDirectory = "/home/${user}";
 
   home.packages = with pkgs; [
     awscli2

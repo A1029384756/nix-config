@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ user, pkgs, ... }: {
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   networking.hostName = "laptop";
   networking.networkmanager.enable = true;
@@ -15,7 +15,7 @@
     LC_TELEPHONE = "en_US.UTF-8";
     LC_TIME = "en_US.UTF-8";
   };
-  users.users.haydengray = {
+  users.users.${user} = {
     isNormalUser = true;
     extraGroups = [ "wheel" "video" "storage" "networkmanager" "libvirtd" ];
     initialPassword = "pw123";

@@ -1,4 +1,4 @@
-{ outputs, config, pkgs, ... }: {
+{ user, pkgs, ... }: {
   imports = [
     ../btop
     ../firefox
@@ -6,23 +6,9 @@
     ../nvim
     ../shell.nix
   ];
-  nixpkgs = {
-    overlays = builtins.attrValues outputs.overlays;
-    config = {
-      allowUnfree = true;
-      allowUnfreePredicate = (_: true);
-    };
-  };
 
-  xdg.configFile.nix = {
-    text = "experimental-features = nix-command flakes";
-    target = "nix/nix.conf"; 
-  };
-
-  home = {
-    username = "haydengray";
-    homeDirectory = "/home/${config.home.username}";
-  };
+  home.username = user;
+  home.homeDirectory = "/home/${user}";
 
   home.packages = with pkgs; [ 
     bat

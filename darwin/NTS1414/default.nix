@@ -1,11 +1,6 @@
-{ pkgs, ... }: {
-  users = {
-    users = {
-      hgray = {
-        home = "/Users/hgray";
-      };
-    };
-  };
+{ user, pkgs, ... }: {
+  users.users.${user}.home = "/Users/${user}";
+
   services.nix-daemon.enable = true;
   nix.settings.experimental-features = "nix-command flakes";
   nix.extraOptions = ''

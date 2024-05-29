@@ -1,4 +1,4 @@
-{ outputs, config, pkgs, ... }: {
+{ user, pkgs, ... }: {
   imports = [
     ../discord
     ../btop
@@ -15,18 +15,9 @@
     ../wezterm
     ../wofi
   ];
-  nixpkgs = {
-    overlays = builtins.attrValues outputs.overlays;
-    config = {
-      allowUnfree = true;
-      allowUnfreePredicate = (_: true);
-    };
-  };
 
-  home = {
-    username = "haydengray";
-    homeDirectory = "/home/${config.home.username}";
-  };
+  home.username = user;
+  home.homeDirectory = "/home/${user}";
 
   home.packages = with pkgs; [ 
     bat

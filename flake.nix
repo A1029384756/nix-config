@@ -16,84 +16,41 @@
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, home-manager, darwin, catppuccin, ... }@inputs:
+  outputs = { nixpkgs, home-manager, darwin, catppuccin, ... }:
     let
-      inherit (self) outputs;
       lib = nixpkgs.lib // home-manager.lib;
-      systems = [ "x86_64-linux" "aarch64-linux" "aarch64-darwin" ];
-      forEachSystem = f: lib.genAttrs systems (sys: f pkgsFor.${sys});
-      pkgsFor = nixpkgs.legacyPackages;
-      nixosModules = { device, config }: [
-	        ./nixos/${device}
-	        home-manager.nixosModules.home-manager {
-	          home-manager.useGlobalPkgs = true;
-	          home-manager.useUserPackages = true;
-	          home-manager.users.haydengray = {
-              imports = [
-                ./home-manager/${config}
-                catppuccin.homeManagerModules.catppuccin
-              ];
-            };
-	          home-manager.backupFileExtension = "backup";
-	        }
-	      ];
-    in
-    {
-      templates = import ./templates;
-      overlays = import ./overlays { inherit inputs; };
-      packages = forEachSystem (pkgs: import ./pkgs { inherit pkgs; });
+      systems = { nixos = lib.nixosSystem; darwin =  darwin.lib.darwinSystem; };
 
-      nixosConfigurations = {
-        g14 = lib.nixosSystem {
-          specialArgs = { inherit inputs outputs; };
-          modules = nixosModules( { device = "g14"; config = "laptop"; } );
-        };
-        x270 = lib.nixosSystem {
-          specialArgs = { inherit inputs outputs; };
-          modules = nixosModules( { device = "x270"; config = "laptop"; } );
-        };
-        rev3 = lib.nixosSystem {
-          specialArgs = { inherit inputs outputs; };
-          modules = nixosModules( { device = "rev3"; config = "rev3"; } );
-        };
-      };
-
-      darwinConfigurations = {
-        macos = darwin.lib.darwinSystem {
-          system = "aarch64-darwin";
+      nixSystem = { device, config, user, os }: 
+        systems.${os} {
+          specialArgs = { inherit user; };
           modules = [
-            ./darwin
-            home-manager.darwinModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-
-	            home-manager.users.hgray = {
+	          ./${os}/${device}
+	          home-manager."${os}Modules".home-manager {
+	            home-manager.useGlobalPkgs = true;
+	            home-manager.useUserPackages = true;
+	            home-manager.users.${user} = {
                 imports = [
-                  ./home-manager/macos
+                  ./home-manager/${config}
                   catppuccin.homeManagerModules.catppuccin
                 ];
               };
 	            home-manager.backupFileExtension = "backup";
-            }
-          ];
+	          }
+	        ];
         };
+    in
+    {
+      templates = import ./templates;
+
+      nixosConfigurations = {
+        g14 = nixSystem( { device = "g14"; config = "laptop"; user = "haydengray"; os = "nixos"; } );
+        x270 = nixSystem( { device = "x270"; config = "laptop"; user = "haydengray"; os = "nixos"; } );
+        rev3 = nixSystem( { device = "rev3"; config = "rev3"; user = "haydengray"; os = "nixos"; } );
       };
 
-      homeConfigurations = {
-        "haydengray@laptop" = lib.homeManagerConfiguration {
-          pkgs = pkgsFor.x86_64-linux;
-          extraSpecialArgs = { inherit inputs outputs; };
-          modules = [ ./home-manager/laptop ];
-        };
-        "haydengray@wsl" = lib.homeManagerConfiguration {
-          pkgs = pkgsFor.x86_64-linux;
-          extraSpecialArgs = { inherit inputs outputs; };
-          modules = [
-            inputs.nix-index-database.hmModules.nix-index
-            ./home-manager/wsl
-          ];
-        };
+      darwinConfigurations = {
+        nts1414 = nixSystem( { device = "NTS1414"; config = "macos"; user = "hgray"; os = "darwin"; } );
       };
     };
 }
