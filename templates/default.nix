@@ -1,4 +1,8 @@
 {
+  basic = {
+    path = ./basic;
+    description = "A basic devshell";
+  };
   rust = {
     path = ./rust;
     description = "A starter Rust/Cargo project";
