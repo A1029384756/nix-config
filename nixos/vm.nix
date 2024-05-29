@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ user, pkgs, ... }: {
+  users.extraGroups.libvirtd.members = [ user ];
   virtualisation = {
     libvirtd = {
       enable = true;

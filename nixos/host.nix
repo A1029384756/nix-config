@@ -17,7 +17,7 @@
   };
   users.users.${user} = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "video" "storage" "networkmanager" "libvirtd" ];
+    extraGroups = [ "wheel" "video" "storage" "networkmanager" ];
     initialPassword = "pw123";
     shell = pkgs.fish;
     packages = with pkgs; [
