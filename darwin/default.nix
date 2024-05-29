@@ -34,6 +34,7 @@
       "font-jetbrains-mono-nerd-font"
       "git-credential-manager"
       "iterm2"
+      "kitty"
       "loop"
       "microsoft-edge"
       "warp"

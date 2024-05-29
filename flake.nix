@@ -67,7 +67,14 @@
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.users.hgray = import ./home-manager/macos;
+
+	            home-manager.users.hgray = {
+                imports = [
+                  ./home-manager/macos
+                  catppuccin.homeManagerModules.catppuccin
+                ];
+              };
+	            home-manager.backupFileExtension = "backup";
             }
           ];
         };

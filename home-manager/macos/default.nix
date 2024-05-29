@@ -2,6 +2,7 @@
   imports = [
     ../shell.nix
     ../nvim
+    ../kitty.nix
   ];
 
   home.packages = with pkgs; [
