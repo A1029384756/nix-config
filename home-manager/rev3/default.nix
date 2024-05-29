@@ -10,6 +10,7 @@
     ../shell.nix
     ../wezterm
     ../git.nix
+    ../kitty.nix
   ];
 
   home.username = "haydengray";

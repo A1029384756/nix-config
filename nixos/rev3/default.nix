@@ -2,6 +2,7 @@
   imports =
     [ 
     ../base.nix
+    ../fonts.nix
     ../gnome.nix
     ../host.nix
     ../nvidia.nix

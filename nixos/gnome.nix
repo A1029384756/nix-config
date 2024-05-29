@@ -7,14 +7,14 @@
   };
 
   environment = {
-    gnome.excludePackages = with pkgs.gnome; [ pkgs.gnome-tour ];
+    gnome.excludePackages = [ pkgs.gnome-tour ];
 
     systemPackages = with pkgs; [ gnome.dconf-editor ];
   };
 
   programs.dconf.profiles = {
     user.databases = [{
-      settings = with lib.gvariant; {
+      settings = {
         "org/gnome/mutter".experimental-features = [ "variable-refresh-rate" ];
         "org/gnome/mutter".dynamic-workspaces = true;
         "org/gnome/desktop/peripherals/mouse".accel-profile = "flat";
