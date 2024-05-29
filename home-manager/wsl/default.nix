@@ -1,4 +1,4 @@
-{ user, pkgs, ... }: {
+{ pkgs, ... }: {
   imports = [
     ../btop
     ../firefox
@@ -6,9 +6,6 @@
     ../nvim
     ../shell.nix
   ];
-
-  home.username = user;
-  home.homeDirectory = "/home/${user}";
 
   home.packages = with pkgs; [ 
     bat

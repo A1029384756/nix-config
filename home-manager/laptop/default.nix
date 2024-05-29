@@ -1,4 +1,4 @@
-{ user, pkgs, ... }: {
+{ pkgs, ... }: {
   imports = [
     ../discord
     ../btop
@@ -15,9 +15,6 @@
     ../wezterm
     ../wofi
   ];
-
-  home.username = user;
-  home.homeDirectory = "/home/${user}";
 
   home.packages = with pkgs; [ 
     bat

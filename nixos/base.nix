@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ user, pkgs, ... }: {
   environment.systemPackages = with pkgs; [
     gcc
     git
@@ -9,4 +9,6 @@
     unzip
     wget
   ];
+
+  users.users.${user}.home = "/home/${user}";
 }

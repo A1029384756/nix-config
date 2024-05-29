@@ -19,7 +19,7 @@
   outputs = { nixpkgs, home-manager, darwin, catppuccin, ... }:
     let
       lib = nixpkgs.lib // home-manager.lib;
-      systems = { nixos = lib.nixosSystem; darwin =  darwin.lib.darwinSystem; };
+      systems = { nixos = lib.nixosSystem; darwin = darwin.lib.darwinSystem; };
 
       nixSystem = { device, config, user, os }: 
         systems.${os} {
