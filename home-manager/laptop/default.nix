@@ -1,17 +1,13 @@
 { pkgs, ... }: {
   imports = [
     ../discord
-    ../btop
-    ../dunst
+    ../btop.nix
     ../firefox
     ../games
     ../git.nix
     ../gnome.nix
-    ../hyprland
     ../nvim
     ../shell.nix
-    ../sway
-    ../waybar
     ../wezterm
     ../wofi
   ];

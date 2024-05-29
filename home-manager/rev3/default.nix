@@ -1,7 +1,7 @@
 { pkgs, ... }: {
   imports = [
     ../discord
-    ../btop
+    ../btop.nix
     ../firefox
     ../games
     ../git.nix

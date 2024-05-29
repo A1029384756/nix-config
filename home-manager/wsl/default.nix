@@ -1,6 +1,6 @@
 { pkgs, ... }: {
   imports = [
-    ../btop
+    ../btop.nix
     ../firefox
     ../git.nix
     ../nvim
