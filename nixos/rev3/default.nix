@@ -6,7 +6,8 @@
     ../host.nix
     ../nvidia.nix
     ../services.nix
-    ./hardware-configuration.nix
+    ../vm.nix
+    /etc/nixos/hardware-configuration.nix
     ];
   
   boot = {

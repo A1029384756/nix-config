@@ -17,7 +17,7 @@
   };
   users.users.haydengray = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "video" "storage" "networkmanager" ];
+    extraGroups = [ "wheel" "video" "storage" "networkmanager" "libvirtd" ];
     initialPassword = "pw123";
     shell = pkgs.fish;
     packages = with pkgs; [
