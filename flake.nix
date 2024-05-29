@@ -23,6 +23,20 @@
       systems = [ "x86_64-linux" "aarch64-linux" "aarch64-darwin" ];
       forEachSystem = f: lib.genAttrs systems (sys: f pkgsFor.${sys});
       pkgsFor = nixpkgs.legacyPackages;
+      nixosModules = { device, config }: [
+	          ./nixos/${device}
+	          home-manager.nixosModules.home-manager {
+	            home-manager.useGlobalPkgs = true;
+	            home-manager.useUserPackages = true;
+	            home-manager.users.haydengray = {
+                imports = [
+                  ./home-manager/${config}
+                  catppuccin.homeManagerModules.catppuccin
+                ];
+              };
+	            home-manager.backupFileExtension = "backup";
+	          }
+	        ];
     in
     {
       templates = import ./templates;
@@ -32,28 +46,15 @@
       nixosConfigurations = {
         g14 = lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
-          modules = [ ./nixos/g14 ];
+          modules = nixosModules( { device = "g14"; config = "laptop"; } );
         };
         x270 = lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
-          modules = [ ./nixos/x270 ];
+          modules = nixosModules( { device = "x270"; config = "laptop"; } );
         };
         rev3 = lib.nixosSystem {
           specialArgs = { inherit inputs outputs; };
-          modules = [
-	          ./nixos/rev3 
-	          home-manager.nixosModules.home-manager {
-	            home-manager.useGlobalPkgs = true;
-	            home-manager.useUserPackages = true;
-	            home-manager.users.haydengray = {
-                imports = [
-                  ./home-manager/rev3
-                  catppuccin.homeManagerModules.catppuccin
-                ];
-              };
-	            home-manager.backupFileExtension = "backup";
-	          }
-	        ];
+          modules = nixosModules( { device = "rev3"; config = "rev3"; } );
         };
       };
 
