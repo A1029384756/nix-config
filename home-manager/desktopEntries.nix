@@ -1,4 +1,4 @@
-{ config, ... }: {
+{ ... }: {
   xdg.desktopEntries.nvim =
     {
       name = "Neovim";

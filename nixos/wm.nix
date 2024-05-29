@@ -1,4 +1,4 @@
-{ inputs, config, pkgs, ... }: {
+{ pkgs, ... }: {
   programs.hyprland.enable = true;
 
   programs.light.enable = true;

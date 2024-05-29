@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ pkgs, ... }: {
   xdg.desktopEntries.steam = {
     name = "Steam";
     genericName = "Games";

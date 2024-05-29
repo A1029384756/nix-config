@@ -1,6 +1,5 @@
 { lib, stdenv, fetchzip, unzip }:
 let
-name = "terraform";
 version = "0.13.3";
 src = fetchzip {
   url = "https://releases.hashicorp.com/terraform/0.13.3/terraform_0.13.3_linux_amd64.zip";

@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ ... }: {
   xdg.configFile.wofi = {
     source = ./conf;
     recursive = true;

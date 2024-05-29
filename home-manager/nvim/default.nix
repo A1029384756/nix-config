@@ -12,13 +12,7 @@
   };
 
   home.packages = with pkgs; [
-    cargo
-    clang-tools
-    gcc
     lua-language-server
-    nodePackages.typescript-language-server
-    pyright
-    rust-analyzer
-    tflint
+    nil
   ];
 }

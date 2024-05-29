@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ pkgs, ... }: {
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   networking.hostName = "laptop";
   networking.networkmanager.enable = true;

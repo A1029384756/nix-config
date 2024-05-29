@@ -1,4 +1,4 @@
-{ inputs, outputs, config, pkgs, ... }: {
+{ outputs, config, pkgs, ... }: {
   imports = [
     ../btop
     ../firefox
