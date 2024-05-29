@@ -6,6 +6,9 @@
 
     catppuccin.url = "github:catppuccin/nix";
 
+    heroic-theme.url = "github:catppuccin/heroic";
+    heroic-theme.flake = false;
+
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -16,19 +19,20 @@
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { nixpkgs, home-manager, darwin, catppuccin, ... }:
+  outputs = inputs@{ nixpkgs, home-manager, darwin, catppuccin, ... }:
     let
       lib = nixpkgs.lib // home-manager.lib;
       systems = { nixos = lib.nixosSystem; darwin = darwin.lib.darwinSystem; };
 
       nixSystem = { device, config, user, os }: 
         systems.${os} {
-          specialArgs = { inherit user; };
+          specialArgs = { inherit user inputs; };
           modules = [
 	          ./${os}/${device}
 	          home-manager."${os}Modules".home-manager {
 	            home-manager.useGlobalPkgs = true;
 	            home-manager.useUserPackages = true;
+              home-manager.extraSpecialArgs = { inherit user inputs; };
 	            home-manager.users.${user} = {
                 imports = [
                   ./home-manager/${config}
