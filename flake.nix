@@ -24,7 +24,7 @@
       lib = nixpkgs.lib // home-manager.lib;
       systems = { nixos = lib.nixosSystem; darwin = darwin.lib.darwinSystem; };
 
-      nixSystem = { device, config, user, os }: 
+      nixSystem = { device, config, user, os }:
         systems.${os} {
           specialArgs = { inherit user inputs; };
           modules = [
