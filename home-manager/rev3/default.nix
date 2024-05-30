@@ -8,7 +8,6 @@
     ../gnome.nix
     ../nvim
     ../shell.nix
-    ../wezterm
     ../git.nix
     ../kitty.nix
   ];
