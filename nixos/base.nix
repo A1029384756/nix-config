@@ -8,6 +8,7 @@
     sqlite
     unzip
     wget
+    wl-clipboard
   ];
 
   users.users.${user}.home = "/home/${user}";
