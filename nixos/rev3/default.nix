@@ -15,7 +15,10 @@
   boot = {
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
-    plymouth.enable = true;
+    plymouth = {
+      enable = true;
+      catppuccin.enable = true;
+    };
     kernelParams = [ "nvidia_drm.fbdev=1" ];
     kernelPackages = pkgs.linuxPackages_latest;
   };

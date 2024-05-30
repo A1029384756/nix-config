@@ -29,6 +29,7 @@
           specialArgs = { inherit user inputs; };
           modules = [
 	          ./${os}/${device}
+            catppuccin.nixosModules.catppuccin
 	          home-manager."${os}Modules".home-manager {
 	            home-manager.useGlobalPkgs = true;
 	            home-manager.useUserPackages = true;

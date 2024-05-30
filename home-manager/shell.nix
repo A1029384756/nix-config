@@ -1,4 +1,4 @@
-{ ... }: {
+{ pkgs, ... }: {
   programs.fish = {
     enable = true;
     catppuccin.enable = true;
@@ -9,8 +9,7 @@
     '';
     shellAliases = {
       ls = "eza --icons -F -H --group-directories-first --git -h $argv";
-      cat = "bat --theme base16";
-      vi = "nvim $argv";
+      cat = "bat";
       dev = "nix develop --command fish";
       find = "fd $argv";
     };
@@ -25,4 +24,15 @@
     enable = true;
     enableFishIntegration = true;
   };
+
+  programs.bat = {
+    enable = true;
+    catppuccin.enable = true;
+  };
+
+  home.packages = with pkgs; [
+    fd
+    eza
+    ripgrep
+  ];
 }

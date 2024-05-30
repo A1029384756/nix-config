@@ -1,28 +1,19 @@
 { pkgs, ... }: {
   imports = [
     ../discord
-    ../btop.nix
     ../firefox
     ../games
     ../git.nix
     ../gnome.nix
+    ../kitty.nix
     ../nvim
     ../shell.nix
-    ../git.nix
-    ../kitty.nix
+    ../unix_alternatives.nix
   ];
 
   home.packages = with pkgs; [
-    awscli2
-    bat
     brave
-    eza
-    fd
-    jq
-    mise
     mission-center
-    nodejs
-    ripgrep
   ];
 
   programs.home-manager.enable = true;

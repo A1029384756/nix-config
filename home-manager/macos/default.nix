@@ -1,19 +1,8 @@
-{ pkgs, ... }: {
+{ ... }: {
   imports = [
     ../shell.nix
     ../nvim
     ../kitty.nix
-  ];
-
-  home.packages = with pkgs; [
-    awscli2
-    ripgrep
-    eza
-    bat
-    mise
-    jq
-    fd
-    nodejs
   ];
 
   programs.home-manager.enable = true;

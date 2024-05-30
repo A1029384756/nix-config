@@ -13,18 +13,8 @@
   ];
 
   home.packages = with pkgs; [ 
-    bat
     mate.engrampa
-    exa
-    git-credential-manager
-    jq
-    ripgrep
   ];
-
-  home.sessionVariables = {
-    EDITOR = "nvim";
-    BROWSER = "firefox";
-  };
 
   programs.home-manager.enable = true;
   systemd.user.startServices = "sd-switch";
