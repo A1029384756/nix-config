@@ -8,7 +8,6 @@
     ../kitty.nix
     ../nvim
     ../shell.nix
-    ../unix_alternatives.nix
   ];
 
   home.packages = with pkgs; [

@@ -30,8 +30,11 @@
     catppuccin.enable = true;
   };
 
+  programs.awscli.enable = true;
+
   home.packages = with pkgs; [
     fd
+    jq
     eza
     ripgrep
   ];
