@@ -23,13 +23,19 @@
     let
       lib = nixpkgs.lib // home-manager.lib;
       systems = { nixos = lib.nixosSystem; darwin = darwin.lib.darwinSystem; };
+      getOSMods = os: (
+        if os == "nixos" then
+          [ catppuccin.nixosModules.catppuccin ]
+        else if os == "darwin" then
+          []
+        else throw "Unsupported OS ${os}"
+      );
 
       nixSystem = { device, config, user, os }:
         systems.${os} {
           specialArgs = { inherit user inputs; };
           modules = [
 	          ./${os}/${device}
-            catppuccin.nixosModules.catppuccin
 	          home-manager."${os}Modules".home-manager {
 	            home-manager.useGlobalPkgs = true;
 	            home-manager.useUserPackages = true;
@@ -42,7 +48,7 @@
               };
 	            home-manager.backupFileExtension = "backup";
 	          }
-	        ];
+	        ] ++ getOSMods(os);
         };
     in
     {
