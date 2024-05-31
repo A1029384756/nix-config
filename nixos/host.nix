@@ -1,6 +1,20 @@
-{ user, pkgs, ... }: {
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  networking.hostName = "laptop";
+{ user, device, pkgs, ... }: {
+  nix.settings = {
+    experimental-features = [ "nix-command" "flakes" ];
+    trusted-users = [ user ];
+    substituters = [
+      "https://cache.nixos.org"
+
+      # nix community's cache server
+      "https://nix-community.cachix.org"
+    ];
+    trusted-public-keys = [
+      # nix community's cache server public key
+      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+    ];
+  };
+
+  networking.hostName = "${user}-${device}";
   networking.networkmanager.enable = true;
   time.timeZone = "America/New_York";
   i18n.defaultLocale = "en_US.UTF-8";

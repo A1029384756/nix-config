@@ -33,7 +33,7 @@
 
       nixSystem = { device, config, user, os }:
         systems.${os} {
-          specialArgs = { inherit user inputs; };
+          specialArgs = { inherit user device inputs; };
           modules = [
 	          ./${os}/${device}
 	          home-manager."${os}Modules".home-manager {
