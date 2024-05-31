@@ -1,7 +1,6 @@
 { pkgs, ... }: {
   imports = [
     ../discord
-    ../btop.nix
     ../firefox
     ../games
     ../git.nix
@@ -9,7 +8,6 @@
     ../nvim
     ../shell.nix
     ../wezterm
-    ../wofi
   ];
 
   home.packages = with pkgs; [ 
