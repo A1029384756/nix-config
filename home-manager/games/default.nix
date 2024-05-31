@@ -7,6 +7,7 @@
   home.packages = with pkgs; [
     gamescope
     heroic
+    osu-lazer
     prismlauncher
     protontricks
   ];
