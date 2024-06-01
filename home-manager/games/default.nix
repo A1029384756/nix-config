@@ -10,5 +10,6 @@
     osu-lazer
     prismlauncher
     protontricks
+    runelite
   ];
 }
