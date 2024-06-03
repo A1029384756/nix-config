@@ -20,6 +20,7 @@
 
     brews = [
       "autoraise"
+      "llvm@18"
     ];
 
     casks = [
