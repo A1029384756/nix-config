@@ -20,20 +20,15 @@
 
     brews = [
       "autoraise"
-      "docker-completion"
-      "llvm@18"
     ];
 
     casks = [
+      "aerospace"
       "arc"
       "font-jetbrains-mono-nerd-font"
       "git-credential-manager"
       "iterm2"
       "kitty"
-      "loop"
-      "microsoft-edge"
-      "warp"
-      "zed"
       "zoom"
       "zulu@21"
     ];
@@ -42,6 +37,7 @@
       "dimentium/autoraise"
       "homebrew/cask-fonts"
       "mrkai77/cask"
+      "nikitabobko/tap"
     ];
   };
 
