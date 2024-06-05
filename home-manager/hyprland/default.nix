@@ -1,11 +1,10 @@
 { pkgs, ... }: {
   imports = [
     ./waybar
+    ./wofi
   ];
 
   home.packages = with pkgs; [ gnome.gnome-control-center ];
-  programs.wofi.enable = true;
-  programs.rofi.catppuccin.enable = true;
 
   wayland.windowManager.hyprland = {
     enable = true;
