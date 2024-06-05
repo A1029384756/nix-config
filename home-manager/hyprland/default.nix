@@ -50,6 +50,7 @@
 
       windowrulev2 = [
         "tile,class:(kitty)"
+        "float,class:(pavucontrol)"
       ];
 
       monitor = [
@@ -62,6 +63,8 @@
 
       "$mod" = "SUPER";
       bind = [
+        "CTRL,Q,killactive," 
+
         "$mod, R, exec, wofi --show drun"
 
         "$mod, F, exec, firefox"
@@ -92,6 +95,11 @@
           ) 
         10)
       );
+
+      bindm = [
+        "$mod,mouse:272,movewindow"
+        "$mod SHIFT,mouse:272,resizewindow"
+      ];
     };
   };
 }
