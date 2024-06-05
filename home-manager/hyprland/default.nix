@@ -4,7 +4,9 @@
     ./wofi
   ];
 
-  home.packages = with pkgs; [ gnome.gnome-control-center ];
+  home.packages = with pkgs; [
+    gnome.gnome-control-center
+  ];
 
   wayland.windowManager.hyprland = {
     enable = true;
