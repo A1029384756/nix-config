@@ -1,11 +1,11 @@
 { ... }: {
   imports =
     [ 
-    ../base.nix
-    ../host.nix
-    ../services.nix
-    ../wm.nix
-    /etc/nixos/hardware-configuration.nix
+      ../base.nix
+      ../host.nix
+      ../services.nix
+      ../wm.nix
+      /etc/nixos/hardware-configuration.nix
     ];
 
   boot.loader.systemd-boot.enable = true;

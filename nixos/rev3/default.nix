@@ -19,11 +19,11 @@
       enable = true;
       catppuccin.enable = true;
     };
-    kernelParams = [ "nvidia_drm.fbdev=1" ];
     kernelPackages = pkgs.linuxPackages_latest;
   };
 
   programs.fish.enable = true;
+  programs.hyprland.enable = true;
 
   system.stateVersion = "23.11";
 }

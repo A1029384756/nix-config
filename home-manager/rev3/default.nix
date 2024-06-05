@@ -5,6 +5,7 @@
     ../games
     ../git.nix
     ../gnome.nix
+    ../hyprland
     ../kitty.nix
     ../nvim
     ../shell.nix

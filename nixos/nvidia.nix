@@ -14,4 +14,6 @@
     driSupport = true;
     driSupport32Bit = true;
   };
+
+  boot.kernelParams = [ "nvidia_drm.fbdev=1" ];
 }
