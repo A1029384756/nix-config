@@ -18,7 +18,6 @@
       tab_powerline_style = "slanted";
       hide_window_decorations = "no";
       map = "ctrl+t new_tab_with_cwd";
-      linux_display_server = "x11";
     };
   };
 }

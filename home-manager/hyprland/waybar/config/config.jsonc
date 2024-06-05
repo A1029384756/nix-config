@@ -2,7 +2,7 @@
   "layer": "top", "position": "top",
   "modules-left": ["custom/logo", "clock",  "custom/weather", "disk", "memory", "cpu", "temperature", "hyprland/window" ],
   "modules-center": [  "hyprland/workspaces"],
-  "modules-right": ["tray",  "custom/clipboard", "bluetooth", "pulseaudio", "network",  "battery" ],
+  "modules-right": ["tray",  "bluetooth", "pulseaudio", "network",  "battery" ],
   "reload_style_on_change":true,
 
   "custom/logo": {
@@ -35,13 +35,6 @@
   "on-click": "firefox https://wttr.in"
 },
 
-"custom/clipboard":{
-  "format":"",
-  "on-click": "cliphist list | wofi -dmenu | cliphist decode | wl-copy",
-  "interval":86400
-},
-
-
 "clock": {
       "format": "{:%I:%M:%S %p}",
       "interval":1,
@@ -58,12 +51,10 @@
   "format-off": "",
   "format-disabled": "󰂲",
   "format-connected": "󰂴",
-  "format-connected-battery": "{device_battery_percentage}% 󰂴",
   "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
   "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
   "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
-  "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
-  "on-click": "rofi-bluetooth",
+  "on-click": "env XDG_CURRENT_DESKTOP=gnome gnome-control-center bluetooth",
  }, 
 
 "network": {
@@ -73,27 +64,7 @@
       "tooltip-format": "{ipaddr}",
       "tooltip-format-wifi": "{essid} ({signalStrength}%)  | {ipaddr}",
       "tooltip-format-ethernet": "{ifname} 🖧 | {ipaddr}",
-    },
-
-"battery": {
-    "interval":1,
-        "states": {
-            "good": 95,
-            "warning": 30,
-            "critical": 20
-        },
-        "format": "{capacity}%  {icon} ",
-        "format-charging": "{capacity}% 󰂄 ",
-        "format-plugged": "{capacity}% 󰂄 ",
-        "format-alt": "{time} {icon}",
-            "format-icons": [
-          "󰁻",
-          "󰁼",
-          "󰁾",
-          "󰂀",
-          "󰂂",
-          "󰁹"
-        ],
+       "on-click": "env XDG_CURRENT_DESKTOP=gnome gnome-control-center wifi",
     },
 
  "disk": {
@@ -127,7 +98,7 @@
     "format-critical": " {temperatureC}°C",
     "interval": 1,
     "critical-threshold": 80,
-    "on-click": "foot btop",
+    "on-click": "kitty btop",
    },
   
   "pulseaudio": {
@@ -145,7 +116,7 @@
       "default": ["","",""]
     },
     "justify": "center",
-    "on-click": "pavucontrol",
+     "on-click": "env XDG_CURRENT_DESKTOP=gnome gnome-control-center sound",
     "tooltip-format": "{icon}  {volume}%"
   },
   

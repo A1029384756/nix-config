@@ -2,12 +2,12 @@
   programs.waybar.enable = true;
 
   home.packages = with pkgs; [
-    cliphist
-    hyprpicker
     killall
-    pavucontrol
     wl-clipboard
     wofi
+
+    # todo: add color picker
+    hyprpicker
   ];
 
   home.file.".config/waybar" = {

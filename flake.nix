@@ -6,6 +6,8 @@
 
     catppuccin.url = "github:catppuccin/nix";
 
+    walker.url = "github:abenz1267/walker";
+
     heroic-theme.url = "github:catppuccin/heroic";
     heroic-theme.flake = false;
 

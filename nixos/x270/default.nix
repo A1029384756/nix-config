@@ -4,7 +4,7 @@
       ../base.nix
       ../host.nix
       ../services.nix
-      ../wm.nix
+      ../gnome.nix
       /etc/nixos/hardware-configuration.nix
     ];
 
