@@ -7,6 +7,8 @@
     catppuccin.url = "github:catppuccin/nix";
 
     walker.url = "github:abenz1267/walker";
+    ags.url = "github:Aylur/ags";
+    matugen.url = "github:InioX/matugen?ref=v2.2.0";
 
     heroic-theme.url = "github:catppuccin/heroic";
     heroic-theme.flake = false;

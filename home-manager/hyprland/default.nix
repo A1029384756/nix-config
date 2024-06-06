@@ -1,5 +1,6 @@
 { pkgs, ... }: {
   imports = [
+    ./ags
     ./walker
     ./waybar
   ];
@@ -77,7 +78,7 @@
       xwayland.force_zero_scaling = true;
 
       exec-once = [
-        "waybar"
+        "ags -b hypr"
       ];
 
       env = [
@@ -85,7 +86,6 @@
         "XDG_SESSION_TYPE,wayland"
         "GBM_BACKEND,nvidia-drm"
         "__GLX_VENDOR_LIBRARY_NAME,nvidia"
-        "ELECTRON_OZONE_PLATFORM_HINT,auto"
       ];
 
       windowrulev2 = [
