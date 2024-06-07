@@ -2,7 +2,6 @@
   imports = [
     ./ags
     ./walker
-    ./waybar
   ];
 
   home.sessionVariables = {
