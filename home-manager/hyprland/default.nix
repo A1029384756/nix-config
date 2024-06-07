@@ -10,7 +10,7 @@
   };
 
   xdg.desktopEntries."org.gnome.Settings" = {
-    name = "Settings";
+    name = "Gnome Settings";
     comment = "Gnome Control Center";
     icon = "org.gnome.Settings";
     exec = "env XDG_CURRENT_DESKTOP=gnome ${pkgs.gnome.gnome-control-center}/bin/gnome-control-center";
@@ -29,7 +29,9 @@
     size = 16;
   };
 
-  wayland.windowManager.hyprland = {
+  wayland.windowManager.hyprland = let 
+    mod = "SUPER";
+  in {
     enable = true;
     catppuccin.enable = true;
     settings = {
@@ -93,29 +95,36 @@
       ];
 
       monitor = [
-        "DP-1,2560x1440@144,0x0,1"
-        "DP-3,2560x1080,2560x-650,1,transform,3"
+        "DP-1,2560x1440@144,0x650,1"
+        "DP-3,2560x1080@60,2560x0,1,transform,3"
       ];
 
-      "$mod" = "SUPER";
-      bind = [
+      bind = let 
+        e = "exec, ags -b hypr";
+      in [
         "CTRL,Q,killactive," 
+        "CTRL SHIFT, R, ${e} quit; ags -b hypr"
 
-        "$mod, R, exec, walker"
+        "${mod}, Print, ${e} -r 'recorder.start()'"
+        ", Print, ${e} -r 'recorder.screenshot()'"
+        "SHIFT, Print, ${e} -r 'recorder.screenshot(true)'"
 
-        "$mod, F, exec, firefox"
-        "$mod, T, exec, kitty"
-        "$mod, mouse:272, movewindow"
-        "$mod, V, togglefloating"
+        "${mod}, R, exec, walker"
 
-        "$mod, h, movefocus, l"
-        "$mod, j, movefocus, d"
-        "$mod, k, movefocus, u"
-        "$mod, l, movefocus, r"
-        "$mod SHIFT, h, movewindow, l"
-        "$mod SHIFT, j, movewindow, d"
-        "$mod SHIFT, k, movewindow, u"
-        "$mod SHIFT, l, movewindow, r"
+        "${mod} SHIFT, R, exec, hyprctl reload"
+        "${mod}, F, exec, firefox"
+        "${mod}, T, exec, kitty"
+        "${mod}, mouse:272, movewindow"
+        "${mod}, V, togglefloating"
+
+        "${mod}, h, movefocus, l"
+        "${mod}, j, movefocus, d"
+        "${mod}, k, movefocus, u"
+        "${mod}, l, movefocus, r"
+        "${mod} SHIFT, h, movewindow, l"
+        "${mod} SHIFT, j, movewindow, d"
+        "${mod} SHIFT, k, movewindow, u"
+        "${mod} SHIFT, l, movewindow, r"
       ] ++ (
         builtins.concatLists (
           builtins.genList (
@@ -125,16 +134,16 @@
                 in
                 builtins.toString (x + 1 - (c * 10));
             in [
-              "$mod, ${ws}, workspace, ${toString (x + 1)}"
-              "$mod SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}"
+              "${mod}, ${ws}, workspace, ${toString (x + 1)}"
+              "${mod} SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}"
             ]
           ) 
         10)
       );
 
       bindm = [
-        "$mod,mouse:272,movewindow"
-        "$mod SHIFT,mouse:272,resizewindow"
+        "${mod},mouse:272,movewindow"
+        "${mod} SHIFT,mouse:272,resizewindow"
       ];
     };
   };

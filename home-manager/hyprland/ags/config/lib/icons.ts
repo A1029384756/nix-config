@@ -4,6 +4,7 @@ export const substitutes = {
     "Caprine": "facebook-messenger",
     "com.raggesilver.BlackBox-symbolic": "terminal-symbolic",
     "org.wezfurlong.wezterm-symbolic": "terminal-symbolic",
+    "kitty-symbolic": "term-symbolic",
     "audio-headset-bluetooth": "audio-headphones-symbolic",
     "audio-card-analog-usb": "audio-speakers-symbolic",
     "audio-card-analog-pci": "audio-card-symbolic",
@@ -18,7 +19,7 @@ export default {
         nix: "nix-snowflake-symbolic",
     },
     app: {
-        terminal: "terminal-symbolic",
+        terminal: "term-symbolic",
     },
     fallback: {
         executable: "application-x-executable",
