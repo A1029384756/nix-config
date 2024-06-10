@@ -6,6 +6,11 @@
 
     catppuccin.url = "github:catppuccin/nix";
 
+    hyprland = {
+      type = "git";
+      url = "https://github.com/hyprwm/Hyprland";
+      submodules = true;
+    };
     walker.url = "github:abenz1267/walker";
     ags.url = "github:Aylur/ags";
     matugen.url = "github:InioX/matugen?ref=v2.2.0";
@@ -23,13 +28,15 @@
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, darwin, catppuccin, ... }:
+  outputs = inputs@{ nixpkgs, home-manager, darwin, catppuccin, hyprland, ... }:
     let
       lib = nixpkgs.lib // home-manager.lib;
       systems = { nixos = lib.nixosSystem; darwin = darwin.lib.darwinSystem; };
       getOSMods = os: (
         if os == "nixos" then
-          [ catppuccin.nixosModules.catppuccin ]
+          [
+            catppuccin.nixosModules.catppuccin
+          ]
         else if os == "darwin" then
           []
         else throw "Unsupported OS ${os}"

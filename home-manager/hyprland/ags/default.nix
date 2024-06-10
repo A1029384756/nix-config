@@ -7,13 +7,13 @@
     bun
     dart-sass
     fd
+    fzf
     brightnessctl
     swww
     inputs.matugen.packages.${system}.default
-    slurp
     wf-recorder
     wl-clipboard
-    wayshot
+    grimblast
     swappy
     hyprpicker
     pavucontrol

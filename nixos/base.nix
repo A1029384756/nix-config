@@ -10,7 +10,7 @@
     wget
     wl-clipboard
   ];
-
+  
   boot.loader.systemd-boot.configurationLimit = 10;
   users.users.${user}.home = "/home/${user}";
 }

@@ -6,6 +6,7 @@
 
   home.sessionVariables = {
     TERMINAL = "kitty";
+    ELECTRON_OZONE_PLATFORM_HINT = "auto";
   };
 
   xdg.desktopEntries."org.gnome.Settings" = {
@@ -96,6 +97,8 @@
       monitor = [
         "DP-1,2560x1440@144,0x650,1"
         "DP-3,2560x1080@60,2560x0,1,transform,3"
+        "DP-4,2560x1440@144,0x650,1"
+        "DP-6,2560x1080@60,2560x0,1,transform,3"
       ];
 
       bind = let 

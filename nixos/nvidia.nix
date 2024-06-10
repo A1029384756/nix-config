@@ -4,8 +4,9 @@
   services.xserver.videoDrivers = ["nvidia"];
 
   hardware.nvidia = {
-    package = config.boot.kernelPackages.nvidiaPackages.stable; 
+    package = config.boot.kernelPackages.nvidiaPackages.beta; 
     modesetting.enable = true;
+    powerManagement.enable = true;
     open = false;
   };
 
@@ -15,5 +16,8 @@
     driSupport32Bit = true;
   };
 
-  boot.kernelParams = [ "nvidia_drm.fbdev=1" ];
+  boot.kernelParams = [
+    "nvidia_drm.fbdev=1"
+    "nvidia.NVreg_PreserveVideoMemoryAllocations=1"
+  ];
 }

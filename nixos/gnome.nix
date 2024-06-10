@@ -7,7 +7,35 @@
   };
 
   environment = {
-    gnome.excludePackages = [ pkgs.gnome-tour pkgs.gnome.yelp ];
+    gnome.excludePackages =
+      (with pkgs; [
+        # gnome-text-editor
+        gnome-console
+        gnome-photos
+        gnome-tour
+        gnome-connections
+        snapshot
+        gedit
+      ])
+      ++ (with pkgs.gnome; [
+        cheese # webcam tool
+        gnome-music
+        epiphany # web browser
+        geary # email reader
+        evince # document viewer
+        gnome-characters
+        totem # video player
+        tali # poker game
+        iagno # go game
+        hitori # sudoku game
+        atomix # puzzle game
+        yelp # Help view
+        gnome-contacts
+        gnome-initial-setup
+        gnome-shell-extensions
+        gnome-maps
+        gnome-font-viewer
+      ]);
 
     systemPackages = with pkgs; [ gnome.dconf-editor ];
   };
