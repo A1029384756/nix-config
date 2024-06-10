@@ -9,6 +9,7 @@
 
   programs.zsh.enable = true;
   programs.fish.enable = true;
+  security.pam.enableSudoTouchIdAuth = true;
 
   homebrew = {
     enable = true;
@@ -19,7 +20,6 @@
     };
 
     brews = [
-      "autoraise"
       "llvm@18"
     ];
 
@@ -35,7 +35,6 @@
     ];
 
     taps = [
-      "dimentium/autoraise"
       "homebrew/cask-fonts"
       "mrkai77/cask"
       "nikitabobko/tap"
