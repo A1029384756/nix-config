@@ -1,8 +1,13 @@
 { user, pkgs, ... }: {
   users.extraGroups.docker.members = [ user ];
-  virtualisation.containers.enable = true;
+  hardware.nvidia-container-toolkit.enable = true;
+
   virtualisation = {
-    docker.enable = true;
+    containers.enable = true;
+    docker = {
+      enable = true;
+      enableNvidia = true;
+    };
     podman = {
       enable = true;
       defaultNetwork.settings.dns_enabled = true;

@@ -20,6 +20,7 @@
 
   home.packages = with pkgs; [
     gnome.gnome-control-center
+    hyprnome
   ];
 
   home.pointerCursor= {
@@ -31,6 +32,7 @@
 
   wayland.windowManager.hyprland = let 
     mod = "SUPER";
+    mov = "ALT";
   in {
     enable = true;
     catppuccin.enable = true;
@@ -107,45 +109,36 @@
         "CTRL,Q,killactive," 
         "CTRL SHIFT, R, ${e} quit; ags -b hypr"
 
-        "${mod}, Print, ${e} -r 'recorder.start()'"
+        "${mov}, Print, ${e} -r 'recorder.start()'"
         ", Print, ${e} -r 'recorder.screenshot()'"
         "SHIFT, Print, ${e} -r 'recorder.screenshot(true)'"
 
-        "${mod}, R, exec, walker"
+        "${mov}, R, exec, walker"
 
-        "${mod} SHIFT, R, exec, hyprctl reload"
-        "${mod}, F, exec, firefox"
-        "${mod}, T, exec, kitty"
-        "${mod}, mouse:272, movewindow"
-        "${mod}, V, togglefloating"
+        "${mov} SHIFT, R, exec, hyprctl reload"
+        "${mov}, F, exec, firefox"
+        "${mov}, T, exec, kitty"
+        "${mov}, mouse:272, movewindow"
+        "${mov}, V, togglefloating"
 
-        "${mod}, h, movefocus, l"
-        "${mod}, j, movefocus, d"
-        "${mod}, k, movefocus, u"
-        "${mod}, l, movefocus, r"
-        "${mod} SHIFT, h, movewindow, l"
-        "${mod} SHIFT, j, movewindow, d"
-        "${mod} SHIFT, k, movewindow, u"
-        "${mod} SHIFT, l, movewindow, r"
-      ] ++ (
-        builtins.concatLists (
-          builtins.genList (
-            x: let
-              ws = let
-                c = (x + 1) / 10;
-                in
-                builtins.toString (x + 1 - (c * 10));
-            in [
-              "${mod}, ${ws}, workspace, ${toString (x + 1)}"
-              "${mod} SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}"
-            ]
-          ) 
-        10)
-      );
+        "${mov}, h, movefocus, l"
+        "${mov}, j, movefocus, d"
+        "${mov}, k, movefocus, u"
+        "${mov}, l, movefocus, r"
+        "${mov} SHIFT, h, movewindow, l"
+        "${mov} SHIFT, j, movewindow, d"
+        "${mov} SHIFT, k, movewindow, u"
+        "${mov} SHIFT, l, movewindow, r"
+
+        "ALT, Tab, exec, hyprnome --previous"
+        "ALT, Return, exec, hyprnome"
+        "ALT SHIFT, Tab, exec, hyprnome --previous --move"
+        "ALT SHIFT, Return, exec, hyprnome --move"
+      ];
 
       bindm = [
-        "${mod},mouse:272,movewindow"
-        "${mod} SHIFT,mouse:272,resizewindow"
+        "${mov},mouse:272,movewindow"
+        "${mov} SHIFT,mouse:272,resizewindow"
       ];
     };
   };

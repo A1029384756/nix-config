@@ -15,6 +15,9 @@
     ags.url = "github:Aylur/ags";
     matugen.url = "github:InioX/matugen?ref=v2.2.0";
 
+    nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
+    nixos-cosmic.inputs.nixpkgs.follows = "nixpkgs";
+
     heroic-theme.url = "github:catppuccin/heroic";
     heroic-theme.flake = false;
 
@@ -28,7 +31,7 @@
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, darwin, catppuccin, hyprland, ... }:
+  outputs = inputs@{ nixpkgs, home-manager, darwin, catppuccin, hyprland, nixos-cosmic, ... }:
     let
       lib = nixpkgs.lib // home-manager.lib;
       systems = { nixos = lib.nixosSystem; darwin = darwin.lib.darwinSystem; };
@@ -36,6 +39,7 @@
         if os == "nixos" then
           [
             catppuccin.nixosModules.catppuccin
+            nixos-cosmic.nixosModules.default
           ]
         else if os == "darwin" then
           []

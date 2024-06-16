@@ -8,7 +8,7 @@
       fish_add_path ~/ols
     '';
     shellAliases = {
-      ls = "eza --icons -F -H --group-directories-first --git -h $argv";
+      ls = "eza --icons -F -H --group-directories-first --git -h";
       cat = "bat";
       dev = "nix develop --command fish";
       find = "fd $argv";

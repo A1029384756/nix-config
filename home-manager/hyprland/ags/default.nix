@@ -14,6 +14,7 @@
     wf-recorder
     wl-clipboard
     grimblast
+    slurp
     swappy
     hyprpicker
     pavucontrol
