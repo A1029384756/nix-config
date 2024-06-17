@@ -2,9 +2,10 @@
   users.users.${user}.home = "/Users/${user}";
 
   services.nix-daemon.enable = true;
-  nix.settings.experimental-features = "nix-command flakes";
+  nix.settings.experimental-features = "nix-command flakes impure-derivations";
   nix.extraOptions = ''
     extra-platforms = x86_64-darwin aarch64-darwin
+    trusted-users = root ${user}
   '';
 
   programs.zsh.enable = true;
@@ -29,7 +30,8 @@
       "font-jetbrains-mono-nerd-font"
       "git-credential-manager"
       "iterm2"
-      "kitty"
+      "raycast"
+      "vmware-fusion"
       "zoom"
       "zulu@21"
     ];
