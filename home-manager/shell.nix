@@ -11,6 +11,8 @@
       cat = "bat";
       dev = "nix develop --command fish";
       ls = "eza --icons -F -H --group-directories-first --git -h";
+      vi = "nvim";
+      vim = "nvim";
     };
   };
 
