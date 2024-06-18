@@ -6,10 +6,13 @@
       set fish_greeting
       fish_add_path ~/Odin
       fish_add_path ~/ols
+
+      function dev 
+        nix develop $argv --command fish
+      end
     '';
     shellAliases = {
       cat = "bat";
-      dev = "nix develop --command fish";
       ls = "eza --icons -F -H --group-directories-first --git -h";
       vi = "nvim";
       vim = "nvim";
