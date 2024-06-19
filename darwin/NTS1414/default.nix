@@ -32,6 +32,7 @@
     };
 
     brews = [
+      "borders"
       "llvm@18"
     ];
 
@@ -49,6 +50,7 @@
     ];
 
     taps = [
+      "FelixKratz/formulae"
       "homebrew/cask-fonts"
       "mrkai77/cask"
       "nikitabobko/tap"
