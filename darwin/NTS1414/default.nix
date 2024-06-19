@@ -31,6 +31,7 @@
       "git-credential-manager"
       "iterm2"
       "raycast"
+      "spotify"
       "vmware-fusion"
       "zoom"
       "zulu@21"
