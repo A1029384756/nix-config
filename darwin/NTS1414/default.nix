@@ -12,6 +12,17 @@
   programs.fish.enable = true;
   security.pam.enableSudoTouchIdAuth = true;
 
+  system.defaults = {
+    dock.autohide = true;
+    NSGlobalDomain = {
+      AppleFontSmoothing = 0;
+      AppleInterfaceStyle = "Dark";
+      NSWindowShouldDragOnGesture = true;
+    };
+    SoftwareUpdate.AutomaticallyInstallMacOSUpdates = true;
+    ".GlobalPreferences"."com.apple.mouse.scaling" = -1.0;
+  };
+
   homebrew = {
     enable = true;
     onActivation = {
