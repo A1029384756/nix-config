@@ -19,27 +19,29 @@
     };
   };
 
-  programs.starship = {
-    enable = true;
-    catppuccin.enable = true;
+  programs = {
+    direnv = {
+      enable = true;
+      nix-direnv.enable = true;
+    };
+    starship = {
+      enable = true;
+      catppuccin.enable = true;
+    };
+    nix-index = {
+      enable = true;
+      enableFishIntegration = true;
+    };
+    fzf = {
+      enable = true;
+      enableFishIntegration = true;
+    };
+    bat = {
+      enable = true;
+      catppuccin.enable = true;
+    };
+    awscli.enable = true;
   };
-
-  programs.nix-index = {
-    enable = true;
-    enableFishIntegration = true;
-  };
-
-  programs.fzf = {
-    enable = true;
-    enableFishIntegration = true;
-  };
-
-  programs.bat = {
-    enable = true;
-    catppuccin.enable = true;
-  };
-
-  programs.awscli.enable = true;
 
   home.packages = with pkgs; [
     fd
