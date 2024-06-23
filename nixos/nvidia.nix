@@ -3,17 +3,18 @@
 
   services.xserver.videoDrivers = ["nvidia"];
 
-  hardware.nvidia = {
-    package = config.boot.kernelPackages.nvidiaPackages.beta; 
-    modesetting.enable = true;
-    powerManagement.enable = true;
-    open = false;
-  };
+  hardware = {
+    nvidia = {
+      package = config.boot.kernelPackages.nvidiaPackages.beta; 
+      modesetting.enable = true;
+      powerManagement.enable = true;
+      open = false;
+    };
 
-  hardware.opengl = {
-    enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
+    graphics = {
+      enable = true;
+      enable32Bit = true;
+    };
   };
 
   boot.kernelParams = [
