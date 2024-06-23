@@ -4,8 +4,8 @@
     ../base.nix
     ../containers.nix
     ../fonts.nix
-    ../gnome.nix
     ../host.nix
+    ../hyprland.nix
     ../nautilus.nix
     ../nvidia.nix
     ../services.nix
