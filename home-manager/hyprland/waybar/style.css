@@ -1,0 +1,122 @@
+* {
+  border: none;
+  font-family: JetBrainsMono Nerd Font, sans-serif;
+  font-size: 14px;
+}
+
+window#waybar {
+  background: rgba(0, 0, 0, 0);
+}
+
+tooltip {
+  background: #1e1e2e;
+}
+
+#workspaces,
+#mode,
+#window,
+#cpu,
+#memory,
+#temperature,
+#custom-wmname,
+#clock,
+#pulseaudio,
+#backlight,
+#battery,
+#tray {
+  background: #1e1e2e;
+  padding: 0 10px;
+  color: #fab387;
+  margin: 5px 4px 6px 4px;
+  border: none;
+  border-radius: 12px;
+  background-clip: padding-box;
+}
+
+#workspaces {
+  background-color: #1e1e2e;
+  padding: 4px 4px;
+  margin: 5px 4px 6px 4px;
+}
+
+#workspaces button {
+  min-width: 20px;
+  color: #83a598;
+  padding: 0 10px;
+  margin: 0px 4px;
+}
+
+#workspaces button:hover {
+  background-color: rgba(31, 31, 45, 0.5)
+}
+
+#workspaces button.active {
+  color: rgba(40, 40, 40, 1);
+  color: #fab387;
+}
+
+#workspaces button.urgent {
+  color: #cc241d;
+}
+
+#cpu {
+  padding: 0 10px;
+  color: #83a589;
+  border-right: none;
+  border-radius: 12px 0px 0px 12px;
+  margin: 5px -2px 6px 4px;          
+}
+
+#memory {
+  padding: 0 10px;
+  color: #83a589;
+  border-left: none;
+  border-radius: 0px 12px 12px 0px;
+  margin: 5px 4px 6px -2px;
+}
+
+#temperature {
+  padding: 0 10px;
+  color: #83a589;
+  margin: 5px -2px 6px -2px;
+  border-right: none;
+  border-left: none;
+  border-radius: 0px 0px 0px 0px;
+}
+
+#temperature.critical {
+  padding: 0 10px;
+  color: #cc241d;
+  margin: 5px -2px 6px -2px;
+  border-right: none;
+  border-left: none;
+  border-radius: 0px 0px 0px 0px;
+}
+
+#clock {
+  padding: 0 10px;
+  color: #eba0ac;
+}
+
+#pulseaudio {
+  padding: 0 10px;
+  color: #fab387;
+  border-left: none;
+  border-radius: 12px 12px 12px 12px;
+  margin: 5px 10px 6px -2px;
+}
+
+#pulseaudio.muted {
+  padding: 0 10px;
+  color: #f38ba8;
+  border-left: none;
+  border-radius: 12px 12px 12px 12px;
+}
+
+#custom-wmname {
+  color: #b4befe;
+  background-color: #1e1e2e;
+  font-size: 23px;
+  padding: 1px 1px 1px 5px;
+  margin: 5px 4px 6px 10px;
+}

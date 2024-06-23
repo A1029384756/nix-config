@@ -1,12 +1,5 @@
 { pkgs, ... }: {
-  gtk = {
-    enable = true;
-    catppuccin = {
-      enable = true;
-      icon.enable = true;
-      gnomeShellTheme = true;
-    };
-  };
+  gtk.enable = true;
 
   home.packages = with pkgs.gnomeExtensions; [
     alphabetical-app-grid

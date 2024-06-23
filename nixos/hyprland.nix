@@ -1,8 +1,34 @@
-{ inputs, pkgs, ... }: {
+{ config, inputs, pkgs, ... }: {
   programs.hyprland = {
     enable = true;
     package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     xwayland.enable = true;
+  };
+
+  stylix = {
+    enable = true;
+    image = ../assets/bg.png;
+    polarity = "dark";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
+
+    fonts = {
+      monospace = {
+        package = (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; });
+        name = "JetBrainsMono Nerd Font";
+      };
+
+      serif = config.stylix.fonts.monospace;
+      sansSerif = config.stylix.fonts.monospace;
+      emoji = config.stylix.fonts.monospace;
+    };
+
+    cursor = {
+      package = pkgs.bibata-cursors;
+      name = "Bibata-Original-Classic";
+      size = 16;
+    };
+
+    
   };
 
   xdg = {
@@ -29,7 +55,6 @@
     gnome-calendar
     gnome-boxes
     gnome-system-monitor
-    gnome-control-center
     gnome-weather
     gnome-calculator
     gnome-clocks
@@ -40,6 +65,13 @@
     pavucontrol
     brightnessctl
     swww
+    blueman
+    udiskie
+    networkmanagerapplet
+    grimblast
+    cliphist
+    pulseaudio
+    lm_sensors
   ];
 
   systemd = {
@@ -68,9 +100,7 @@
     };
   };
 
-  security = {
-    polkit.enable = true; pam.services.ags = {};
-  };
+  security.polkit.enable = true;
 
   system.stateVersion = "23.11";
 }

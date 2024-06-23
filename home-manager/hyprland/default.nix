@@ -1,7 +1,10 @@
 { pkgs, ... }: {
   imports = [
-    ./ags
-    ./walker
+    ../walker.nix
+    ./rofi
+    ./waybar
+    ./swaync
+    ./hyprlock
   ];
 
   home.sessionVariables = {
@@ -9,40 +12,32 @@
     ELECTRON_OZONE_PLATFORM_HINT = "auto";
   };
 
-  xdg.desktopEntries."org.gnome.Settings" = {
-    name = "Gnome Settings";
-    comment = "Gnome Control Center";
-    icon = "org.gnome.Settings";
-    exec = "env XDG_CURRENT_DESKTOP=gnome ${pkgs.gnome.gnome-control-center}/bin/gnome-control-center";
-    categories = ["X-Preferences"];
-    terminal = false;
-  };
-
   home.packages = with pkgs; [
-    gnome.gnome-control-center
     hyprnome
   ];
 
-  home.pointerCursor= {
+  stylix.targets = {
     gtk.enable = true;
-    package = pkgs.gnome.adwaita-icon-theme;
-    name = "Adwaita";
-    size = 16;
+    firefox.enable = true;
+    vim.enable = false;
+    kitty.enable = false;
+    waybar.enable = false;
+  };
+  
+  gtk.iconTheme = {
+    name = "Papirus";
+    package = pkgs.papirus-icon-theme;
   };
 
   wayland.windowManager.hyprland = let 
-    mod = "SUPER";
     mov = "ALT";
   in {
     enable = true;
-    catppuccin.enable = true;
     settings = {
       general = {
         gaps_in = 5;
         gaps_out = 10;
         border_size = 2;
-        "col.inactive_border" = "$surface2";
-        "col.active_border" = "$lavender";
         layout = "dwindle";
       };
 
@@ -82,18 +77,31 @@
       xwayland.force_zero_scaling = true;
 
       exec-once = [
-        "ags -b hypr"
+        "swaync"
+        "waybar"
+        "blueman-applet"
+        "udiskie"
+        "nm-applet"
+        "wl-paste --watch cliphist store"
       ];
 
       env = [
         "LIBVA_DRIVER_NAME,nvidia"
-        "XDG_SESSION_TYPE,wayland"
         "GBM_BACKEND,nvidia-drm"
         "__GLX_VENDOR_LIBRARY_NAME,nvidia"
+        "XDG_SESSION_TYPE,wayland"
+        "XDG_CURRENT_DESKTOP, Hyprland"
+        "XDG_SESSION_DESKTOP, Hyprland"
       ];
 
       windowrulev2 = [
         "tile,class:(kitty)"
+        "suppressevent maximize, class:.*"
+        "float,class:(org.gnome.Calculator),title:(Calculator)"
+        "float,class:(pavucontrol)"
+        "float,class:(Yad_v13_0)"
+        "float,class:(.blueman-manager-wrapped)"
+        "float,class:(blueberry.py)"
       ];
 
       monitor = [
@@ -103,19 +111,16 @@
         "DP-6,2560x1080@60,2560x0,1,transform,3"
       ];
 
-      bind = let 
-        e = "exec, ags -b hypr";
-      in [
+      bind = [
         "CTRL,Q,killactive," 
-        "CTRL SHIFT, R, ${e} quit; ags -b hypr"
+        "CTRL SHIFT, R, exec, pkill waybar && hyprctl dispatch exec waybar"
 
-        "${mov}, Print, ${e} -r 'recorder.start()'"
-        ", Print, ${e} -r 'recorder.screenshot()'"
-        "SHIFT, Print, ${e} -r 'recorder.screenshot(true)'"
+        ", Print, exec, grimblast copysave area"
+        "SHIFT, Print, exec, grimblast copysave screen"
 
         "${mov}, R, exec, walker"
+        "${mov} SHIFT, R, exec, rofi-menu"
 
-        "${mov} SHIFT, R, exec, hyprctl reload"
         "${mov}, F, exec, firefox"
         "${mov}, T, exec, kitty"
         "${mov}, mouse:272, movewindow"

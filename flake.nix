@@ -14,6 +14,7 @@
     walker.url = "github:abenz1267/walker";
     ags.url = "github:Aylur/ags";
     matugen.url = "github:InioX/matugen?ref=v2.2.0";
+    stylix.url = "github:danth/stylix";
 
     nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
     nixos-cosmic.inputs.nixpkgs.follows = "nixpkgs";
@@ -31,7 +32,7 @@
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, darwin, catppuccin, hyprland, nixos-cosmic, ... }:
+  outputs = inputs@{ nixpkgs, home-manager, darwin, catppuccin, hyprland, nixos-cosmic, stylix, ... }:
     let
       lib = nixpkgs.lib // home-manager.lib;
       systems = { nixos = lib.nixosSystem; darwin = darwin.lib.darwinSystem; };
@@ -40,6 +41,7 @@
           [
             catppuccin.nixosModules.catppuccin
             nixos-cosmic.nixosModules.default
+            stylix.nixosModules.stylix
           ]
         else if os == "darwin" then
           []
@@ -55,13 +57,13 @@
 	            home-manager.useGlobalPkgs = true;
 	            home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = { inherit user inputs; };
+	            home-manager.backupFileExtension = "backup";
 	            home-manager.users.${user} = {
                 imports = [
                   ./home-manager/${config}
                   catppuccin.homeManagerModules.catppuccin
                 ];
               };
-	            home-manager.backupFileExtension = "backup";
 	          }
 	        ] ++ getOSMods(os);
         };

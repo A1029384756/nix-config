@@ -24,10 +24,6 @@
       enable = true;
       nix-direnv.enable = true;
     };
-    starship = {
-      enable = true;
-      catppuccin.enable = true;
-    };
     nix-index = {
       enable = true;
       enableFishIntegration = true;
@@ -36,10 +32,8 @@
       enable = true;
       enableFishIntegration = true;
     };
-    bat = {
-      enable = true;
-      catppuccin.enable = true;
-    };
+    starship.enable = true;
+    bat.enable = true;
     awscli.enable = true;
   };
 

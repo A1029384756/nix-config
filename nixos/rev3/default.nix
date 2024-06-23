@@ -16,10 +16,7 @@
   boot = {
     loader.systemd-boot.enable = true;
     loader.efi.canTouchEfiVariables = true;
-    plymouth = {
-      enable = true;
-      catppuccin.enable = true;
-    };
+    plymouth.enable = true;
     kernelPackages = pkgs.linuxPackages_latest;
   };
   programs.fish.enable = true;
