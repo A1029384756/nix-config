@@ -95,6 +95,8 @@
       ];
 
       layerrule = [
+        "blur, wofi"
+        "blur, rofi"
         "blur, swaync-control-center"
         "blur, swaync-notification-window"
         "ignorezero, swaync-control-center"
