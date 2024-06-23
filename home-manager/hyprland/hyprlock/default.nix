@@ -1,6 +1,5 @@
 { config, ... }: {
   programs.hyprlock = {
-  
     enable = true;
     settings = {
       background = [
@@ -15,8 +14,8 @@
           monitor = "";
           size = "300, 50";
           outline_thickness = 0;
-          inner_color = "rgb(458588)";
-          font_color  = "rgb(282828)";
+          inner_color = "rgb(585b70)";
+          font_color  = "rgb(cdd6f4)";
           fade_on_empty = false;
           placeholder_text = ''Password:'';
           dots_spacing = 0.3;
@@ -30,13 +29,12 @@
           monitor = "";
           text = "$TIME";
           font_size = 50;
-          color = "rgb(83a598)";
+          color = "rgb(b4befe)";
           position = "0, 440";
           valign = "center";
           halign = "center";
         }
       ];
     };
-    
   };
 }

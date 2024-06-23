@@ -8,7 +8,7 @@
       
       modules-left   = ["custom/wmname" "tray" "hyprland/workspaces"];
       modules-center = ["clock"];
-      modules-right  = ["cpu" "temperature" "memory" "pulseaudio" ];
+      modules-right  = ["cpu" "temperature" "memory" "pulseaudio" "custom/notification" ];
       
       "hyprland/workspaces" = {
         active-only = "false";
@@ -52,7 +52,6 @@
             today  = "<span color='#cc241d'><b>{}</b></span>";
           };
         };
-        on-click = "swaync-client -t -sw";
       };
       
       "cpu" = {
@@ -90,6 +89,27 @@
         format = " ";
         tooltip = "false";
         on-click = "wallpaper";
+      };
+
+      "custom/notification" = {
+        tooltip =  false;
+        format =  "{icon}";
+        format-icons = {
+          notification =  "<span foreground='red'><sup></sup></span>";
+          none =  "";
+          dnd-notification =  "<span foreground='red'><sup></sup></span>";
+          dnd-none =  "";
+          inhibited-notification =  "<span foreground='red'><sup></sup></span>";
+          inhibited-none =  "";
+          dnd-inhibited-notification =  "<span foreground='red'><sup></sup></span>";
+          dnd-inhibited-none = "";
+        };
+        return-type =  "json";
+        exec-if =  "which swaync-client";
+        exec =  "swaync-client -swb";
+        on-click =  "swaync-client -t -sw";
+        on-click-right =  "swaync-client -d -sw";
+        escape = true;
       };
     };
   };
