@@ -26,7 +26,7 @@
   
   gtk.iconTheme = {
     name = "Papirus";
-    package = pkgs.papirus-icon-theme;
+    package = (pkgs.catppuccin-papirus-folders.override { accent = "mauve"; });
   };
 
   wayland.windowManager.hyprland = let 
@@ -48,6 +48,10 @@
 
       decoration = {
         rounding = 10;
+        blur = {
+          size = 4;
+          passes = 2;
+        };
       };
 
       input = {

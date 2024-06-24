@@ -17,9 +17,13 @@
         name = "JetBrainsMono Nerd Font";
       };
 
-      serif = config.stylix.fonts.monospace;
-      sansSerif = config.stylix.fonts.monospace;
-      emoji = config.stylix.fonts.monospace;
+      sansSerif = {
+        package = (pkgs.nerdfonts.override { fonts = [ "Ubuntu" ]; });
+        name = "Ubuntu Nerd Font";
+      };
+
+      serif = config.stylix.fonts.sansSerif;
+      emoji = config.stylix.fonts.sansSerif;
     };
 
     cursor = {
@@ -27,8 +31,6 @@
       name = "Bibata-Original-Classic";
       size = 16;
     };
-
-    
   };
 
   xdg = {
