@@ -39,6 +39,7 @@
     casks = [
       "aerospace"
       "arc"
+      "element"
       "font-jetbrains-mono-nerd-font"
       "git-credential-manager"
       "iterm2"
