@@ -1,8 +1,0 @@
- {
-  "compilerOptions": {
-    "checkJs": true,
-    "lib": "es2022",
-    "target": "es6"
-  },
-  "exclude": ["node_modules", "**/node_modules/*"]
-}

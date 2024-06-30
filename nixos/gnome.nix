@@ -20,8 +20,6 @@
       ++ (with pkgs.gnome; [
         cheese # webcam tool
         gnome-music
-        epiphany # web browser
-        geary # email reader
         evince # document viewer
         gnome-characters
         totem # video player

@@ -5,6 +5,7 @@
     ../containers.nix
     ../fonts.nix
     ../host.nix
+    ../hyprland.nix
     ../gnome.nix
     ../nautilus.nix
     ../nvidia.nix
@@ -41,6 +42,7 @@
     };
   };
 
+  environment.systemPackages = with pkgs; [ obsidian ];
 
   boot = {
     loader.systemd-boot.enable = true;
