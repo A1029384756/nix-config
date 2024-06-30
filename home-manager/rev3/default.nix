@@ -4,6 +4,7 @@
     ../firefox
     ../games
     ../git.nix
+    ../gnome.nix
     ../hyprland
     ../kitty.nix
     ../nvim
