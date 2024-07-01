@@ -1,4 +1,5 @@
-{ ... }: {
+{ ... }:
+{
   xdg.configFile.wezterm = {
     source = ./conf;
     recursive = true;

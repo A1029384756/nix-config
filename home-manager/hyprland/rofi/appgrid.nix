@@ -1,18 +1,19 @@
-{ ... }: {
+{ ... }:
+{
   home.file = {
     ".config/rofi/launchers/type-1/launcher.sh" = {
       executable = true;
       text = ''
         dir="$HOME/.config/rofi/launchers/type-1"
         theme='style-1'
-  
+
         rofi \
           -show drun \
           -theme ''${dir}/''${theme}.rasi
       '';
     };
-    
-    ".config/rofi/launchers/type-1/shared/colors.rasi".text = '' 
+
+    ".config/rofi/launchers/type-1/shared/colors.rasi".text = ''
       * {
         background:     #282828FF;
         background-alt: #353535FF;
@@ -22,15 +23,15 @@
         urgent:         #FB4934FF;
       }
     '';
-  
+
     ".config/rofi/launchers/type-1/shared/fonts.rasi".text = ''
       * {
         font: "JetBrains Mono Nerd Font 10";
       }
     '';
-  
+
     ".config/rofi/launchers/type-1/style-1.rasi".text = ''
-  
+
       /*****----- Configuration -----*****/
       configuration {
         modi:                        "drun";
@@ -38,11 +39,11 @@
         display-drun:                " ";
         drun-display-format:         "{name}";
       }
-      
+
       /*****----- Global Properties -----*****/
         @import                      "shared/colors.rasi"
         @import                      "shared/fonts.rasi"
-      
+
       /*****----- Main Window -----*****/
       window {
         transparency:                "real";
@@ -63,7 +64,7 @@
         background-color:            black / 80%;
         cursor:                      "default";
       }
-      
+
       /*****----- Main Box -----*****/
       mainbox {
         enabled:                     true;
@@ -76,7 +77,7 @@
         background-color:            transparent;
         children:                    [ "inputbar", "listview" ];
       }
-  
+
       /*****----- Inputbar -----*****/
       inputbar {
         enabled:                     true;
@@ -110,7 +111,7 @@
         placeholder:                 "Search";
         placeholder-color:           inherit;
       }
-  
+
       /*****----- Listview -----*****/
       listview {
         enabled:                     true;
@@ -140,7 +141,7 @@
         border-radius:               0px;
         background-color:            @background-alt;
       }
-  
+
       /*****----- Elements -----*****/
       element {
         enabled:                     true;
@@ -177,7 +178,7 @@
         vertical-align:              0.5;
         horizontal-align:            0.5;
       }
-  
+
       /*****----- Message -----*****/
       error-message {
         padding:                     100px;

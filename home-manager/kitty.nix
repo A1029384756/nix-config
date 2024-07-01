@@ -1,4 +1,5 @@
-{ ... }: {
+{ ... }:
+{
   programs.kitty = {
     enable = true;
     catppuccin.enable = true;
@@ -17,7 +18,7 @@
       tab_bar_style = "powerline";
       tab_powerline_style = "slanted";
       hide_window_decorations = "no";
-      linux_display_server= "x11";
+      linux_display_server = "x11";
     };
   };
 }

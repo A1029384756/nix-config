@@ -1,13 +1,13 @@
-{ pkgs, ... }: {
-  imports =
-    [ 
+{ pkgs, ... }:
+{
+  imports = [
     ../base.nix
     ../host.nix
     ../nvidia.nix
     ../services.nix
     ../gnome.nix
     /etc/nixos/hardware-configuration.nix
-    ];
+  ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;

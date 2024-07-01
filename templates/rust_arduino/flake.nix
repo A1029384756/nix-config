@@ -2,8 +2,8 @@
   description = "Rust Devshell and Builds";
 
   inputs = {
-    nixpkgs.url      = "github:NixOS/nixpkgs/nixos-unstable";
-    flake-utils.url  = "github:numtide/flake-utils";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    flake-utils.url = "github:numtide/flake-utils";
     rust-overlay = {
       url = "github:oxalica/rust-overlay";
       inputs = {
@@ -13,15 +13,21 @@
     };
   };
 
-  outputs = { self, nixpkgs, rust-overlay, flake-utils, ... }:
-    flake-utils.lib.eachDefaultSystem (system:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      rust-overlay,
+      flake-utils,
+      ...
+    }:
+    flake-utils.lib.eachDefaultSystem (
+      system:
       let
         overlays = [ (import rust-overlay) ];
-        pkgs = import nixpkgs {
-          inherit system overlays;
-        };
+        pkgs = import nixpkgs { inherit system overlays; };
         toolchain = pkgs.rust-bin.fromRustupToolchainFile ./rust-toolchain.toml;
-        nativeBuildInputs = with pkgs; [ 
+        nativeBuildInputs = with pkgs; [
           pkg-config
           rust-analyzer-unwrapped
           toolchain
@@ -34,7 +40,9 @@
           ravedude
           #put your runtime and build dependencies here
         ];
-        commonArgs = { inherit buildInputs nativeBuildInputs; };
+        commonArgs = {
+          inherit buildInputs nativeBuildInputs;
+        };
       in
       with pkgs;
       {

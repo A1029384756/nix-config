@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   imports = [
     ../discord
     ../firefox
@@ -10,9 +11,7 @@
     ../wezterm
   ];
 
-  home.packages = with pkgs; [ 
-    mate.engrampa
-  ];
+  home.packages = with pkgs; [ mate.engrampa ];
 
   programs.home-manager.enable = true;
   systemd.user.startServices = "sd-switch";

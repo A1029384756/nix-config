@@ -1,4 +1,5 @@
-{ lib, pkgs, ... }: {
+{ lib, pkgs, ... }:
+{
   services.printing.enable = true;
   services.xserver = {
     excludePackages = [ pkgs.xterm ];

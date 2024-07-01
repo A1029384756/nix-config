@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   services.xserver = {
     enable = true;
     desktopManager.gnome.enable = true;
@@ -9,7 +10,6 @@
   environment = {
     gnome.excludePackages =
       (with pkgs; [
-        # gnome-text-editor
         gnome-console
         gnome-photos
         gnome-tour
@@ -18,16 +18,16 @@
         gedit
       ])
       ++ (with pkgs.gnome; [
-        cheese # webcam tool
+        cheese
         gnome-music
-        evince # document viewer
+        evince
         gnome-characters
-        totem # video player
-        tali # poker game
-        iagno # go game
-        hitori # sudoku game
-        atomix # puzzle game
-        yelp # Help view
+        totem
+        tali
+        iagno
+        hitori
+        atomix
+        yelp
         gnome-contacts
         gnome-initial-setup
         gnome-shell-extensions
@@ -39,12 +39,14 @@
   };
 
   programs.dconf.profiles = {
-    user.databases = [{
-      settings = {
-        "org/gnome/mutter".experimental-features = [ "variable-refresh-rate" ];
-        "org/gnome/mutter".dynamic-workspaces = true;
-        "org/gnome/desktop/peripherals/mouse".accel-profile = "flat";
-      };
-    }];
+    user.databases = [
+      {
+        settings = {
+          "org/gnome/mutter".experimental-features = [ "variable-refresh-rate" ];
+          "org/gnome/mutter".dynamic-workspaces = true;
+          "org/gnome/desktop/peripherals/mouse".accel-profile = "flat";
+        };
+      }
+    ];
   };
 }

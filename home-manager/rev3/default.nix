@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   imports = [
     ../discord
     ../firefox
@@ -9,6 +10,7 @@
     ../kitty.nix
     ../nvim
     ../shell.nix
+    ../theme.nix
   ];
 
   home.packages = with pkgs; [

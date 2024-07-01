@@ -1,4 +1,5 @@
-{ inputs, pkgs, ... }: {
+{ inputs, pkgs, ... }:
+{
   home.file.".config/heroic-themes" = {
     source = inputs.heroic-theme;
     recursive = true;

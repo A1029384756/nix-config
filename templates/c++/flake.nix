@@ -2,18 +2,25 @@
   description = "C++ Devshell and Builds";
 
   inputs = {
-    nixpkgs.url      = "github:NixOS/nixpkgs/nixos-unstable";
-    flake-utils.url  = "github:numtide/flake-utils";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    flake-utils.url = "github:numtide/flake-utils";
   };
 
-  outputs = { self, nixpkgs, flake-utils, ... }:
-    flake-utils.lib.eachDefaultSystem (system:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      flake-utils,
+      ...
+    }:
+    flake-utils.lib.eachDefaultSystem (
+      system:
       let
         pkgs = import nixpkgs { inherit system; };
 
         llvm = pkgs.llvmPackages_latest;
 
-        nativeBuildInputs = with pkgs; [ 
+        nativeBuildInputs = with pkgs; [
           catch2
           clang-tools
           cmake
@@ -27,7 +34,9 @@
         buildInputs = with pkgs; [
           #put your runtime and build dependencies here
         ];
-        commonArgs = { inherit buildInputs nativeBuildInputs; };
+        commonArgs = {
+          inherit buildInputs nativeBuildInputs;
+        };
       in
       with pkgs;
       {

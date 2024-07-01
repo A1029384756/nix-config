@@ -1,4 +1,5 @@
-{ config, ... }: {
+{ config, ... }:
+{
   programs.hyprlock = {
     enable = true;
     settings = {
@@ -8,14 +9,14 @@
           path = "${config.home.homeDirectory}/nix-config/assets/bg.png";
         }
       ];
-  
+
       input-field = [
         {
           monitor = "";
           size = "300, 50";
           outline_thickness = 0;
           inner_color = "rgb(585b70)";
-          font_color  = "rgb(cdd6f4)";
+          font_color = "rgb(cdd6f4)";
           fade_on_empty = false;
           placeholder_text = ''Password:'';
           dots_spacing = 0.3;
@@ -23,7 +24,7 @@
           position = "0, -440";
         }
       ];
-  
+
       label = [
         {
           monitor = "";

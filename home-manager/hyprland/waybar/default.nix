@@ -1,15 +1,26 @@
-{ ... }: {
+{ ... }:
+{
   programs.waybar = {
     enable = true;
     style = builtins.readFile (./style.css);
     settings.mainBar = {
       margin = "0px 0px -10px 0px";
       layer = "top";
-      
-      modules-left   = ["custom/wmname" "tray" "hyprland/workspaces"];
-      modules-center = ["clock"];
-      modules-right  = ["cpu" "temperature" "memory" "pulseaudio" "custom/notification" ];
-      
+
+      modules-left = [
+        "custom/wmname"
+        "tray"
+        "hyprland/workspaces"
+      ];
+      modules-center = [ "clock" ];
+      modules-right = [
+        "cpu"
+        "temperature"
+        "memory"
+        "pulseaudio"
+        "custom/notification"
+      ];
+
       "hyprland/workspaces" = {
         active-only = "false";
         on-scroll-up = "hyprctl dispatch workspace e+1";
@@ -30,14 +41,14 @@
           "class<nemo>" = "";
           "class<com.usebottles.bottles>" = "󰡔󱌐";
           "class<localsend_app>" = "󱗿";
-         };
-         on-click = "activate";
+        };
+        on-click = "activate";
       };
-      
+
       "tray" = {
         spacing = 8;
       };
-      
+
       "clock" = {
         tooltip-format = "<tt><small>{calendar}</small></tt>";
         format = "{:%a %b %d %H:%M}";
@@ -47,27 +58,27 @@
           on-scroll = 1;
           format = {
             months = "<span color='#458588'><b>{}</b></span>";
-            days   = "<span color='#ebdbb2'><b>{}</b></span>";
-            weeks  = "<span color='#458588'><b>{}</b></span>";
-            today  = "<span color='#cc241d'><b>{}</b></span>";
+            days = "<span color='#ebdbb2'><b>{}</b></span>";
+            weeks = "<span color='#458588'><b>{}</b></span>";
+            today = "<span color='#cc241d'><b>{}</b></span>";
           };
         };
       };
-      
+
       "cpu" = {
         format = " {usage}%";
         tooltip = "false";
       };
-      
+
       "temperature" = {
         format = "󰔐 {temperatureC}°C";
         critical-threshold = 50;
       };
-      
+
       "memory" = {
         format = " {}%";
       };
-      
+
       "pulseaudio" = {
         format = "{icon}{volume}% {format_source}";
         format-bluetooth = "{icon} {volume}%";
@@ -77,14 +88,18 @@
         format-muted = " {volume}% {format_source}";
         format-icons = {
           headphone = " ";
-          default   = [" " " " " "];
+          default = [
+            " "
+            " "
+            " "
+          ];
         };
         tooltip-format = "{desc} {volume}%";
         on-click = "pactl set-sink-mute @DEFAULT_SINK@ toggle";
         on-click-right = "pactl set-source-mute @DEFAULT_SOURCE@ toggle";
         on-click-middle = "pavucontrol";
       };
-      
+
       "custom/wmname" = {
         format = " ";
         tooltip = "false";
@@ -92,23 +107,23 @@
       };
 
       "custom/notification" = {
-        tooltip =  false;
-        format =  "{icon}";
+        tooltip = false;
+        format = "{icon}";
         format-icons = {
-          notification =  "<span foreground='red'><sup></sup></span>";
-          none =  "";
-          dnd-notification =  "<span foreground='red'><sup></sup></span>";
-          dnd-none =  "";
-          inhibited-notification =  "<span foreground='red'><sup></sup></span>";
-          inhibited-none =  "";
-          dnd-inhibited-notification =  "<span foreground='red'><sup></sup></span>";
+          notification = "<span foreground='red'><sup></sup></span>";
+          none = "";
+          dnd-notification = "<span foreground='red'><sup></sup></span>";
+          dnd-none = "";
+          inhibited-notification = "<span foreground='red'><sup></sup></span>";
+          inhibited-none = "";
+          dnd-inhibited-notification = "<span foreground='red'><sup></sup></span>";
           dnd-inhibited-none = "";
         };
-        return-type =  "json";
-        exec-if =  "which swaync-client";
-        exec =  "swaync-client -swb";
-        on-click =  "swaync-client -t -sw";
-        on-click-right =  "swaync-client -d -sw";
+        return-type = "json";
+        exec-if = "which swaync-client";
+        exec = "swaync-client -swb";
+        on-click = "swaync-client -t -sw";
+        on-click-right = "swaync-client -d -sw";
         escape = true;
       };
     };

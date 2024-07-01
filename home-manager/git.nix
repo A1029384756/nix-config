@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   programs.git = {
     enable = true;
     userName = "A1029384756";
@@ -11,5 +12,8 @@
     };
   };
 
-  home.packages = with pkgs; [ gh git-credential-manager ];
+  home.packages = with pkgs; [
+    gh
+    git-credential-manager
+  ];
 }

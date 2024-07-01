@@ -1,7 +1,6 @@
-{ inputs, pkgs, ... }: {
-  imports = [
-    inputs.walker.homeManagerModules.walker
-  ];
+{ inputs, pkgs, ... }:
+{
+  imports = [ inputs.walker.homeManagerModules.walker ];
 
   home.packages = with pkgs; [ wl-clipboard ];
 
@@ -26,7 +25,7 @@
         excludes = [ "rm" ];
       };
 
-      hyprland =  {
+      hyprland = {
         context_aware_history = false;
       };
 
@@ -86,19 +85,19 @@
       * {
         color: #cdd6f4;
       }
-      
+
       #window {
         border-radius: 10px;
       }
-      
+
       #box {
         background: #1e1e2e;
         padding: 10px;
       }
-      
+
       #searchwrapper {
       }
-      
+
       #search,
       #typeahead {
         border-radius: 5px;
@@ -113,61 +112,61 @@
         padding-top: 0px;
         padding-bottom: 0px;
       }
-      
+
       #spinner {
         opacity: 0;
       }
-      
+
       #spinner.visible {
         opacity: 1;
       }
-      
+
       #typeahead {
         background: none;
         opacity: 0.5;
       }
-      
+
       #search placeholder {
         opacity: 0.5;
       }
-      
+
       #list {
         padding-top: 5px;
       }
-      
+
       row:selected {
         background: #585b70;
         border-radius: 5px;
       }
-      
+
       .item {
         padding: 5px;
         border-radius: 5px;
       }
-      
+
       .icon {
         padding-right: 5px;
       }
-      
+
       .textwrapper {
       }
-      
+
       .label {
       }
-      
+
       .sub {
         opacity: 0.5;
       }
-      
+
       .activationlabel {
         opacity: 0.25;
       }
-      
+
       .activation .activationlabel {
         opacity: 1;
         color: #b4befe;
       }
-      
+
       .activation .textwrapper,
       .activation .icon,
       .activation .search {

@@ -1,6 +1,15 @@
-{ user, device, pkgs, ... }: {
+{
+  user,
+  device,
+  pkgs,
+  ...
+}:
+{
   nix.settings = {
-    experimental-features = [ "nix-command" "flakes" ];
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
     trusted-users = [ user ];
     substituters = [
       "https://cache.nixos.org"
@@ -36,7 +45,12 @@
   };
   users.users.${user} = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "video" "storage" "networkmanager" ];
+    extraGroups = [
+      "wheel"
+      "video"
+      "storage"
+      "networkmanager"
+    ];
     initialPassword = "pw123";
     shell = pkgs.fish;
     packages = with pkgs; [

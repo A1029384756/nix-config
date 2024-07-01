@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   gtk.enable = true;
 
   home.packages = with pkgs.gnomeExtensions; [

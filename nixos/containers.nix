@@ -1,4 +1,5 @@
-{ user, pkgs, ... }: {
+{ user, pkgs, ... }:
+{
   users.extraGroups.docker.members = [ user ];
   hardware.nvidia-container-toolkit.enable = true;
 

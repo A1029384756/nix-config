@@ -1,12 +1,18 @@
-{ lib, stdenv, fetchzip, unzip }:
+{
+  lib,
+  stdenv,
+  fetchzip,
+  unzip,
+}:
 let
-version = "0.13.3";
-src = fetchzip {
-  url = "https://releases.hashicorp.com/terraform/0.13.3/terraform_0.13.3_linux_amd64.zip";
-  sha256 = "sha256-yzLXwAcEnkJLtvcUJJVJsNPTObE6ziGB5RITQcG398Q=";
-};
+  version = "0.13.3";
+  src = fetchzip {
+    url = "https://releases.hashicorp.com/terraform/0.13.3/terraform_0.13.3_linux_amd64.zip";
+    sha256 = "sha256-yzLXwAcEnkJLtvcUJJVJsNPTObE6ziGB5RITQcG398Q=";
+  };
 
-in stdenv.mkDerivation {
+in
+stdenv.mkDerivation {
   pname = "terraform";
   inherit version;
 

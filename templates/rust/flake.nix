@@ -2,8 +2,8 @@
   description = "Rust Devshell and Builds";
 
   inputs = {
-    nixpkgs.url      = "github:NixOS/nixpkgs/nixos-unstable";
-    flake-utils.url  = "github:numtide/flake-utils";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    flake-utils.url = "github:numtide/flake-utils";
     rust-overlay = {
       url = "github:oxalica/rust-overlay";
       inputs = {
@@ -21,17 +21,24 @@
     };
   };
 
-  outputs = { self, nixpkgs, rust-overlay, flake-utils, crane, ... }:
-    flake-utils.lib.eachDefaultSystem (system:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      rust-overlay,
+      flake-utils,
+      crane,
+      ...
+    }:
+    flake-utils.lib.eachDefaultSystem (
+      system:
       let
         overlays = [ (import rust-overlay) ];
-        pkgs = import nixpkgs {
-          inherit system overlays;
-        };
+        pkgs = import nixpkgs { inherit system overlays; };
         toolchain = pkgs.rust-bin.fromRustupToolchainFile ./rust-toolchain.toml;
         craneLib = (crane.mkLib pkgs).overrideToolchain toolchain;
         src = craneLib.cleanCargoSource ./.;
-        nativeBuildInputs = with pkgs; [ 
+        nativeBuildInputs = with pkgs; [
           pkg-config
           rust-analyzer-unwrapped
           toolchain
@@ -40,12 +47,12 @@
         buildInputs = with pkgs; [
           #put your runtime and build dependencies here
         ];
-        commonArgs = { inherit src buildInputs nativeBuildInputs; };
+        commonArgs = {
+          inherit src buildInputs nativeBuildInputs;
+        };
 
         cargoArtifacts = craneLib.buildDepsOnly commonArgs;
-        bin = craneLib.buildPackage (commonArgs // {
-          inherit cargoArtifacts;
-        });
+        bin = craneLib.buildPackage (commonArgs // { inherit cargoArtifacts; });
       in
       with pkgs;
       {

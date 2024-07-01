@@ -1,7 +1,8 @@
-{ config, ... }: {
+{ config, ... }:
+{
   nixpkgs.config.allowUnfree = true;
 
-  services.xserver.videoDrivers = ["nvidia"];
+  services.xserver.videoDrivers = [ "nvidia" ];
 
   hardware.nvidia = {
     package = config.boot.kernelPackages.nvidiaPackages.latest;
