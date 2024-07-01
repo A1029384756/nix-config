@@ -1,8 +1,6 @@
-{ inputs, pkgs, ... }:
+{ inputs, ... }:
 {
   imports = [ inputs.walker.homeManagerModules.walker ];
-
-  home.packages = with pkgs; [ wl-clipboard ];
 
   programs.walker = {
     enable = true;

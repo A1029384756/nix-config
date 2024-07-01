@@ -35,7 +35,10 @@
         gnome-font-viewer
       ]);
 
-    systemPackages = with pkgs; [ gnome.dconf-editor ];
+    systemPackages = with pkgs; [
+      clapper
+      gnome.dconf-editor 
+    ];
   };
 
   programs.dconf.profiles = {

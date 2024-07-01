@@ -3,7 +3,6 @@
   imports = [
     ../base.nix
     ../containers.nix
-    ../fonts.nix
     ../host.nix
     ../hyprland.nix
     ../gnome.nix
@@ -16,8 +15,11 @@
   ];
 
   boot = {
-    loader.systemd-boot.enable = true;
-    loader.efi.canTouchEfiVariables = true;
+    loader = {
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+      systemd-boot.configurationLimit = 10;
+    };
     plymouth.enable = true;
     kernelPackages = pkgs.linuxPackages_latest;
   };

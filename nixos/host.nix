@@ -45,6 +45,7 @@
   };
   users.users.${user} = {
     isNormalUser = true;
+    home = "/home/${user}";
     extraGroups = [
       "wheel"
       "video"
@@ -53,18 +54,12 @@
     ];
     initialPassword = "pw123";
     shell = pkgs.fish;
-    packages = with pkgs; [
-      btop
-      clapper
-      thunderbird
-    ];
+    packages = with pkgs; [ kitty ];
   };
 
   nixpkgs.config.allowUnfree = true;
 
+  programs.steam.enable = true;
   hardware.steam-hardware.enable = true;
   hardware.logitech.wireless.enable = true;
-  hardware.logitech.wireless.enableGraphical = true;
-
-  programs.steam.enable = true;
 }

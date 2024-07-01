@@ -3,8 +3,9 @@
   stylix = {
     enable = true;
     image = ../assets/bg.png;
+    base16Scheme = ../assets/catppuccin-mocha-base16.yaml;
+
     polarity = "dark";
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
 
     fonts = {
       monospace = {
@@ -27,5 +28,4 @@
       size = 16;
     };
   };
-
 }

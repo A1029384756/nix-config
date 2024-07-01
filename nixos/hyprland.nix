@@ -20,6 +20,7 @@
       loupe
       nautilus
       baobab
+      clapper
       gnome-disk-utility
       gnome-text-editor
       gnome-calendar
@@ -31,10 +32,7 @@
       gnome-software
       wl-gammactl
       wl-clipboard
-      wayshot
       pavucontrol
-      brightnessctl
-      swww
       blueman
       udiskie
       networkmanagerapplet
