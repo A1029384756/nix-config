@@ -2,7 +2,7 @@
 {
   imports = [
     ../shell.nix
-    ../nvim
+    ../nvim.nix
     ../kitty.nix
   ];
 

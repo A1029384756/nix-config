@@ -3,7 +3,7 @@
   imports = [
     ../firefox
     ../git.nix
-    ../nvim
+    ../nvim.nix
     ../shell.nix
   ];
 

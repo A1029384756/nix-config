@@ -27,10 +27,6 @@
     path = ./javascript;
     description = "A starter nodeJS project";
   };
-  p5 = {
-    path = ./p5;
-    description = "A starter p5 project";
-  };
   odin = {
     path = ./odin;
     description = "A starter odin project";

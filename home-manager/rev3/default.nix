@@ -8,7 +8,7 @@
     ../gnome.nix
     ../hyprland
     ../kitty.nix
-    ../nvim
+    ../nvim.nix
     ../shell.nix
     ../theme.nix
   ];

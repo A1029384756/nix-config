@@ -10,12 +10,19 @@
       type = "git";
       url = "https://github.com/hyprwm/Hyprland";
       submodules = true;
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     walker.url = "github:abenz1267/walker";
+    walker.inputs.nixpkgs.follows = "nixpkgs";
+
     stylix.url = "github:danth/stylix";
+    stylix.inputs.nixpkgs.follows = "nixpkgs";
 
     nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
     nixos-cosmic.inputs.nixpkgs.follows = "nixpkgs";
+
+    nixGL.url = "github:nix-community/nixGL";
+    nixGL.inputs.nixpkgs.follows = "nixpkgs";
 
     heroic-theme.url = "github:catppuccin/heroic";
     heroic-theme.flake = false;
@@ -37,6 +44,7 @@
       darwin,
       catppuccin,
       hyprland,
+      nixGL,
       nixos-cosmic,
       stylix,
       ...
@@ -124,6 +132,26 @@
           user = "hgray";
           os = "darwin";
         });
+      };
+
+      homeConfigurations = {
+      	fedora = lib.homeManagerConfiguration {
+	        extraSpecialArgs = { inherit inputs; };
+	        pkgs = import nixpkgs {
+            system = "x86_64-linux";
+            overlays = [ nixGL.overlay ];
+          };
+	        modules = [ 
+	          catppuccin.homeManagerModules.catppuccin
+	          ./home-manager/rev3-fedora.nix 
+
+            # remove when https://github.com/nix-community/home-manager/pull/5355 is merged
+            (builtins.fetchurl {
+              url = "https://raw.githubusercontent.com/Smona/home-manager/nixgl-compat/modules/misc/nixgl.nix";
+              sha256 = "sha256:0g5yk54766vrmxz26l3j9qnkjifjis3z2izgpsfnczhw243dmxz9";
+            })
+	        ];
+      	};
       };
     };
 }
