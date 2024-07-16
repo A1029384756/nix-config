@@ -63,4 +63,9 @@
     awscli.enable = true;
     home-manager.enable = true;
   };
+
+  home.file.".config/fish" = {
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nix-config/dotfiles/config/fish";
+    recursive = true;
+  };
 }
