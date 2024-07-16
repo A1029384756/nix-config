@@ -6,7 +6,8 @@
   };
 
   home.packages = with pkgs; [
-    (config.lib.nixGL.wrap wezterm) 
+    (config.lib.nixGL.wrap wezterm)
+    # [TODO] update with CN when in nixpkgs
     maple-mono-NF
   ];
 }

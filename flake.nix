@@ -38,16 +38,15 @@
   };
 
   outputs =
-    inputs@{
-      nixpkgs,
-      home-manager,
-      darwin,
-      catppuccin,
-      hyprland,
-      nixGL,
-      nixos-cosmic,
-      stylix,
-      ...
+    inputs@{ nixpkgs
+    , home-manager
+    , darwin
+    , catppuccin
+    , hyprland
+    , nixGL
+    , nixos-cosmic
+    , stylix
+    , ...
     }:
     let
       lib = nixpkgs.lib // home-manager.lib;
@@ -71,11 +70,11 @@
         );
 
       nixSystem =
-        {
-          device,
-          config,
-          user,
-          os,
+        { device
+        , config
+        , user
+        , os
+        ,
         }:
         systems.${os} {
           specialArgs = {
@@ -93,6 +92,12 @@
               home-manager.backupFileExtension = "backup";
               home-manager.users.${user} = {
                 imports = [
+                  # [TODO] remove when https://github.com/nix-community/home-manager/pull/5355 is merged
+                  (builtins.fetchurl {
+                    url = "https://raw.githubusercontent.com/Smona/home-manager/nixgl-compat/modules/misc/nixgl.nix";
+                    sha256 = "sha256:0g5yk54766vrmxz26l3j9qnkjifjis3z2izgpsfnczhw243dmxz9";
+                  })
+
                   ./home-manager/${config}
                   catppuccin.homeManagerModules.catppuccin
                 ];
@@ -135,23 +140,23 @@
       };
 
       homeConfigurations = {
-      	fedora = lib.homeManagerConfiguration {
-	        extraSpecialArgs = { inherit inputs; };
-	        pkgs = import nixpkgs {
+        fedora = lib.homeManagerConfiguration {
+          extraSpecialArgs = { inherit inputs; };
+          pkgs = import nixpkgs {
             system = "x86_64-linux";
             overlays = [ nixGL.overlay ];
           };
-	        modules = [ 
-	          catppuccin.homeManagerModules.catppuccin
-	          ./home-manager/rev3-fedora.nix 
+          modules = [
+            catppuccin.homeManagerModules.catppuccin
+            ./home-manager/rev3-fedora.nix
 
-            # remove when https://github.com/nix-community/home-manager/pull/5355 is merged
+            # [TODO] remove when https://github.com/nix-community/home-manager/pull/5355 is merged
             (builtins.fetchurl {
               url = "https://raw.githubusercontent.com/Smona/home-manager/nixgl-compat/modules/misc/nixgl.nix";
               sha256 = "sha256:0g5yk54766vrmxz26l3j9qnkjifjis3z2izgpsfnczhw243dmxz9";
             })
-	        ];
-      	};
+          ];
+        };
       };
     };
 }

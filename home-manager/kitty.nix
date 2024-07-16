@@ -5,7 +5,7 @@
     catppuccin.enable = true;
 
     font = {
-      name = "JetBrainsMono Nerd Font";
+      name = "Maple Mono NF CN";
       size = 11.0;
     };
 
