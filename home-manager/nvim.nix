@@ -16,5 +16,6 @@
     lua-language-server
     nil
     rustc
+    nodejs
   ];
 }
