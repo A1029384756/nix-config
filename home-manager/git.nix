@@ -17,7 +17,7 @@ in
   config = {
     programs.git = {
       enable = true;
-      userName = if isWork then "hgray" else "A1029384756";
+      userName = if isWork then "Hayden Gray" else "A1029384756";
       userEmail = if isWork then "hgray@northwindstech.com" else "hayden.gray104@gmail.com";
       extraConfig = {
         credential = {

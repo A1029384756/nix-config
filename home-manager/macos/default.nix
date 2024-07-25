@@ -8,10 +8,12 @@
     ../git.nix
   ];
 
-  home.file.".config/aerospace/aerospace.toml".source = ./aerospace.toml;
-  isWork = true;
+  config = {
+    home.file.".config/aerospace/aerospace.toml".source = ./aerospace.toml;
+    isWork = true;
 
-  fonts.fontconfig.enable = true;
-  programs.home-manager.enable = true;
-  home.stateVersion = "23.11";
+    fonts.fontconfig.enable = true;
+    programs.home-manager.enable = true;
+    home.stateVersion = "23.11";
+  };
 }
