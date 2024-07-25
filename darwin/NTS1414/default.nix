@@ -44,6 +44,7 @@
       "font-jetbrains-mono-nerd-font"
       "git-credential-manager"
       "iterm2"
+      "keymapp"
       "raycast"
       "spotify"
       "vmware-fusion"
