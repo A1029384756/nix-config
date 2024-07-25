@@ -5,9 +5,9 @@
     recursive = true;
   };
 
-  home.packages = with pkgs; [
+  home.packages = with pkgs; if config.nixGL.prefix == "" then [
     (config.lib.nixGL.wrap wezterm)
     # [TODO] update with CN when in nixpkgs
     maple-mono-NF
-  ];
+  ] else [ wezterm ];
 }
