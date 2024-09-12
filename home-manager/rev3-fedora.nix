@@ -17,7 +17,6 @@
     lua-language-server
     nil
     rustc
-    rustup
     fd
     jq
     eza
