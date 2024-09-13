@@ -92,12 +92,6 @@
               home-manager.backupFileExtension = "backup";
               home-manager.users.${user} = {
                 imports = [
-                  # [TODO] remove when https://github.com/nix-community/home-manager/pull/5355 is merged
-                  (builtins.fetchurl {
-                    url = "https://raw.githubusercontent.com/Smona/home-manager/nixgl-compat/modules/misc/nixgl.nix";
-                    sha256 = "sha256:0g5yk54766vrmxz26l3j9qnkjifjis3z2izgpsfnczhw243dmxz9";
-                  })
-
                   ./home-manager/${config}
                   catppuccin.homeManagerModules.catppuccin
                 ];
@@ -149,12 +143,6 @@
           modules = [
             catppuccin.homeManagerModules.catppuccin
             ./home-manager/rev3-fedora.nix
-
-            # [TODO] remove when https://github.com/nix-community/home-manager/pull/5355 is merged
-            (builtins.fetchurl {
-              url = "https://raw.githubusercontent.com/Smona/home-manager/nixgl-compat/modules/misc/nixgl.nix";
-              sha256 = "sha256:0g5yk54766vrmxz26l3j9qnkjifjis3z2izgpsfnczhw243dmxz9";
-            })
           ];
         };
       };

@@ -2,10 +2,8 @@
 {
   imports = [
     ./git.nix
-    ./wezterm.nix
     ./nvim.nix
   ];
-  nixGL.prefix = "${pkgs.nixgl.auto.nixGLDefault}/bin/nixGL";
 
   home = {
     username = "haydengray";
@@ -21,7 +19,6 @@
     jq
     eza
     ripgrep
-    nixgl.auto.nixGLDefault
   ];
 
   fonts.fontconfig.enable = true;
