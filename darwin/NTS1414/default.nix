@@ -63,6 +63,7 @@
   environment.systemPackages = with pkgs; [
     git
     go
+    rustc
   ];
 
   nixpkgs.config.allowUnfree = true;
