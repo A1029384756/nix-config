@@ -35,6 +35,7 @@
     brews = [
       "borders"
       "llvm@18"
+      "sdl2"
     ];
 
     casks = [
