@@ -6,6 +6,9 @@
 
     catppuccin.url = "github:catppuccin/nix";
 
+    disko.url = "github:nix-community/disko";
+    disko.inputs.nixpkgs.follows = "nixpkgs";
+
     hyprland = {
       type = "git";
       url = "https://github.com/hyprwm/Hyprland";
@@ -41,6 +44,7 @@
     inputs@{ nixpkgs
     , home-manager
     , darwin
+    , disko
     , catppuccin
     , hyprland
     , nixGL
@@ -62,6 +66,7 @@
               catppuccin.nixosModules.catppuccin
               nixos-cosmic.nixosModules.default
               stylix.nixosModules.stylix
+              disko.nixosModules.disko
             ]
           else if os == "darwin" then
             [ ]
@@ -119,6 +124,12 @@
         rev3 = nixSystem ({
           device = "rev3";
           config = "rev3";
+          user = "haydengray";
+          os = "nixos";
+        });
+        vista-main = nixSystem ({
+          device = "vista-main";
+          config = "vista-main";
           user = "haydengray";
           os = "nixos";
         });
