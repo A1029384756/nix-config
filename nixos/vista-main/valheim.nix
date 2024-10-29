@@ -38,7 +38,7 @@ in
         "-savedir"
         "/var/lib/valheim/save"
         "-name"
-        "The Frennz"
+        "Frennz"
         "-port"
         "2456"
         "-world"
