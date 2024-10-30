@@ -67,7 +67,6 @@
           if os == "nixos" then
             [
               catppuccin.nixosModules.catppuccin
-              foundryvtt.nixosModules.foundryvtt
               nixos-cosmic.nixosModules.default
               stylix.nixosModules.stylix
               disko.nixosModules.disko
