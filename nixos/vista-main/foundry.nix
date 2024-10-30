@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }: {
+{ inputs, ... }: {
   containers.theros = {
     autoStart = true;
     privateNetwork = true;
