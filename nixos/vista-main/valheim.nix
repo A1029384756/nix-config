@@ -10,6 +10,7 @@ in
 
   users.users.valheim = {
     isSystemUser = true;
+    # [TODO] remove key
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIC/ZbPqfUBjnhwW859snOnvqmuvaVtfNq5kuSpn/zOmV haydengray@fedora"
     ];

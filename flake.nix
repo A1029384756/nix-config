@@ -24,6 +24,8 @@
     nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
     nixos-cosmic.inputs.nixpkgs.follows = "nixpkgs";
 
+    foundryvtt.url = "github:reckenrode/nix-foundryvtt";
+
     nixGL.url = "github:nix-community/nixGL";
     nixGL.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -46,6 +48,7 @@
     , darwin
     , disko
     , catppuccin
+    , foundryvtt
     , hyprland
     , nixGL
     , nixos-cosmic
@@ -64,6 +67,7 @@
           if os == "nixos" then
             [
               catppuccin.nixosModules.catppuccin
+              foundryvtt.nixosModules.foundryvtt
               nixos-cosmic.nixosModules.default
               stylix.nixosModules.stylix
               disko.nixosModules.disko
