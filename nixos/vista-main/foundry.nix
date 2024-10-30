@@ -18,7 +18,7 @@
         hostName = "cstring.dev";
         proxySSL = true;
         proxyPort = 443;
-        package = foundryvtt.packages.x86_64-linux.foundryvtt_11.overrideAttrs {
+        package = foundryvtt.packages.x86_64-linux.foundryvtt.overrideAttrs {
           version = "12.0.0+331";
         };
       };
@@ -49,7 +49,7 @@
         hostName = "cstring.dev";
         proxySSL = true;
         proxyPort = 443;
-        package = foundryvtt.packages.x86_64-linux.foundryvtt_11.overrideAttrs {
+        package = foundryvtt.packages.x86_64-linux.foundryvtt.overrideAttrs {
           version = "12.0.0+331";
         };
       };
