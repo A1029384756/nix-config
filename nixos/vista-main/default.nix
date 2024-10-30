@@ -5,6 +5,7 @@
       (modulesPath + "/profiles/qemu-guest.nix")
       ./disko-config.nix
       ./valheim.nix
+      ./foundry.nix
     ];
 
   nixpkgs.config.allowUnfree = true;
@@ -56,7 +57,7 @@
     enable = true;
     allowedTCPPorts = [ 80 443 ];
     allowedUDPPortRanges = [
-      # allow valheim through
+      # valheim
       { from = 2456; to = 2458; }
     ];
   };
