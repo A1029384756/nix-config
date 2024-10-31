@@ -12,9 +12,9 @@ let
         inherit localAddress;
 
         bindMounts.foundrydata = {
-          mountPoint = /var/lib/foundryvtt;
+          mountPoint = "/var/lib/foundryvtt";
           isReadOnly = false;
-          hostPath = /home/haydengray/${name};
+          hostPath = "/home/haydengray/${name}";
         };
 
         config = with inputs; {
@@ -33,6 +33,8 @@ let
             enable = true;
             allowedTCPPorts = [ 30000 ];
           };
+
+          system.stateVersion = "24.11";
         };
       };
 
