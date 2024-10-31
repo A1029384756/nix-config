@@ -48,8 +48,11 @@ in
         "frennz"
         "-public"
         "0"
+        "-modifier"
+        "raids"
+        "none"
       ];
-      Nice = "-5";
+      Nice = "-10";
       PrivateTmp = true;
       Restart = "always";
       User = "valheim";
