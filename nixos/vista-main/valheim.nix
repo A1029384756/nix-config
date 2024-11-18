@@ -10,10 +10,6 @@ in
 
   users.users.valheim = {
     isSystemUser = true;
-    # [TODO] remove key
-    openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIC/ZbPqfUBjnhwW859snOnvqmuvaVtfNq5kuSpn/zOmV haydengray@fedora"
-    ];
     # Valheim puts save data in the home directory.
     home = "/var/lib/valheim";
     createHome = true;
@@ -35,7 +31,6 @@ in
         "/var/lib/steam-app-${steam-app}/valheim_server.x86_64"
         "-nographics"
         "-batchmode"
-        # "-crossplay"
         "-savedir"
         "/var/lib/valheim/save"
         "-name"
@@ -51,6 +46,13 @@ in
         "-modifier"
         "raids"
         "none"
+        "-modifier"
+        "deathpenalty"
+        "easy"
+        "-setkey"
+        "playerevents"
+        "-setkey"
+        "dungeonbuild"
       ];
       Nice = "-10";
       PrivateTmp = true;
