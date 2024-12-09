@@ -22,11 +22,6 @@
     extraAppsEnable = true;
     extraApps = {
       inherit (config.services.nextcloud.package.packages.apps) news contacts calendar tasks;
-      guests = pkgs.fetchNextcloudApp {
-        sha256 = "84481695a3b318e01f0e00416ebf60c379079b6b39f7e28ce7e2395ec41d1afc";
-        url = "https://github.com/nextcloud/guests/archive/refs/tags/v4.0.1.tar.gz";
-        license = "gpl3";
-      };
     };
 
     webserver = "caddy";
