@@ -58,11 +58,4 @@ in
       localAddress = "192.168.100.13";
     }))
   ];
-
-  services.caddy.enable = true;
-  networking.nat = {
-    enable = true;
-    internalInterfaces = [ "ve-+" ];
-    externalInterface = "eth0";
-  };
 }

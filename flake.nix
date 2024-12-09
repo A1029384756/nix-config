@@ -4,6 +4,8 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
+    agenix.url = "github:ryantm/agenix";
+
     catppuccin.url = "github:catppuccin/nix";
 
     disko.url = "github:nix-community/disko";
@@ -45,6 +47,7 @@
   outputs =
     inputs@{ nixpkgs
     , home-manager
+    , agenix
     , darwin
     , disko
     , catppuccin
@@ -68,6 +71,7 @@
             [
               catppuccin.nixosModules.catppuccin
               nixos-cosmic.nixosModules.default
+              agenix.nixosModules.default
               stylix.nixosModules.stylix
               disko.nixosModules.disko
             ]
