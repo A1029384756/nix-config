@@ -14,6 +14,7 @@ in
     enable = true;
     https = true;
     package = pkgs.nextcloud30;
+    configureRedis = true;
     hostName = hostname;
     config.adminpassFile = config.age.secrets.nextcloud_admin.path;
 
