@@ -123,11 +123,11 @@
     "blog": {
       "flake": false,
       "locked": {
-        "lastModified": 1735070133,
-        "narHash": "sha256-vboODsaIIlyyxKfmMXmjpL4sFaKPMTe+mrOC63EcOoU=",
+        "lastModified": 1735089515,
+        "narHash": "sha256-EsuQNAKJ6vNOem0vfTSg3a2BVv9OJcdIMBmQ13oHZsg=",
         "owner": "A1029384756",
         "repo": "cstring.dev.blog",
-        "rev": "ef21bc0c9fa669f6d9bcf7f3178b6d9de71d9ebb",
+        "rev": "c4bc8b62766f9fdd5dcb67f873b681cf249d555c",
         "type": "github"
       },
       "original": {
@@ -1053,11 +1053,11 @@
     "wedding": {
       "flake": false,
       "locked": {
-        "lastModified": 1735086749,
-        "narHash": "sha256-Lt/sf1e3tws5WOlY3wYmhQuyBH7ddTnHL1eipTAbtRk=",
+        "lastModified": 1735091751,
+        "narHash": "sha256-Ad7gENB1+32FgHs0X2jVS4tRlH/HnaP7yNon7xS+ExY=",
         "owner": "A1029384756",
         "repo": "hayden_anna_wedding",
-        "rev": "8397fc6af4a4089a21bce119c8b71d1d3e653bb5",
+        "rev": "84b23683ecc43bd086cb5abd3f32df0619232f70",
         "type": "github"
       },
       "original": {

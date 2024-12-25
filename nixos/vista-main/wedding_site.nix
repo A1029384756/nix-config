@@ -28,6 +28,7 @@ in
         script = ''
           cp -r /etc/wedding/site/* /root
           cd /root
+
           ${pkgs.lib.getExe pkgs.deno} task preview
         '';
         wantedBy = [ "multi-user.target" ];
