@@ -57,5 +57,11 @@ in
       hostAddress = "192.168.100.12";
       localAddress = "192.168.100.13";
     }))
+    (foundry_instance ({
+      name = "winters";
+      version = "12.0.0+331";
+      hostAddress = "192.168.100.14";
+      localAddress = "192.168.100.15";
+    }))
   ];
 }
