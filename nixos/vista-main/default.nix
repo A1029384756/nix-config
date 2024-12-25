@@ -8,6 +8,8 @@
       ./foundry.nix
       ./caddy.nix
       ./nextcloud.nix
+      ./wedding_site.nix
+      ./blog.nix
     ];
 
   nixpkgs.config.allowUnfree = true;

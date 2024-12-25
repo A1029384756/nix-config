@@ -8,6 +8,11 @@
 
     catppuccin.url = "github:catppuccin/nix";
 
+    wedding.url = "github:A1029384756/hayden_anna_wedding";
+    wedding.flake = false;
+    blog.url = "github:A1029384756/cstring.dev.blog";
+    blog.flake = false;
+
     disko.url = "github:nix-community/disko";
     disko.inputs.nixpkgs.follows = "nixpkgs";
 
