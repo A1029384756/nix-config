@@ -1,6 +1,5 @@
 { inputs, pkgs, ... }:
 let
-  site = inputs.wedding.packages.x86_64-linux.hayden_anna_wedding;
   basepath = "/wedding";
 in
 {
@@ -25,7 +24,7 @@ in
 
       systemd.services.wedding = {
         enable = true;
-        environment.BASE_PATH = "/wedding";
+        environment.BASE_PATH = basepath;
         script = ''
           cp -r /etc/wedding/site/* /root
           cd /root
