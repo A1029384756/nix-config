@@ -49,6 +49,7 @@
       "raycast"
       "spotify"
       "vmware-fusion"
+      "zen-browser"
       "zoom"
       "zulu@21"
     ];
