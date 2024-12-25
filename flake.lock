@@ -123,11 +123,11 @@
     "blog": {
       "flake": false,
       "locked": {
-        "lastModified": 1735089515,
-        "narHash": "sha256-EsuQNAKJ6vNOem0vfTSg3a2BVv9OJcdIMBmQ13oHZsg=",
+        "lastModified": 1735099802,
+        "narHash": "sha256-oZkVSyoq7xK+NN9XTs75Wfr98NARNYQMSgsKBGBi9g8=",
         "owner": "A1029384756",
         "repo": "cstring.dev.blog",
-        "rev": "c4bc8b62766f9fdd5dcb67f873b681cf249d555c",
+        "rev": "c034b169c0e6557e241b87f7d7042ee0552ecb3e",
         "type": "github"
       },
       "original": {
