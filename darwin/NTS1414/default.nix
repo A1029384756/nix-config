@@ -66,6 +66,7 @@
     git
     go
     rustc
+    tenv
   ];
 
   nixpkgs.config.allowUnfree = true;
