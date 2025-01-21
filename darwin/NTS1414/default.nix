@@ -21,7 +21,7 @@
       NSWindowShouldDragOnGesture = true;
     };
     SoftwareUpdate.AutomaticallyInstallMacOSUpdates = true;
-    ".GlobalPreferences"."com.apple.mouse.scaling" = -1.0;
+    CustomSystemPreferences.NSGlobalDomain."com.apple.mouse.linear" = true;
   };
 
   homebrew = {
