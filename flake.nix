@@ -33,6 +33,8 @@
 
     foundryvtt.url = "github:reckenrode/nix-foundryvtt";
 
+    nix-minecraft.url = "github:Infinidoge/nix-minecraft";
+
     nixGL.url = "github:nix-community/nixGL";
     nixGL.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -59,6 +61,7 @@
     , foundryvtt
     , hyprland
     , nixGL
+    , nix-minecraft
     , nixos-cosmic
     , stylix
     , ...
@@ -79,6 +82,10 @@
               agenix.nixosModules.default
               stylix.nixosModules.stylix
               disko.nixosModules.disko
+              nix-minecraft.nixosModules.minecraft-servers
+              {
+                nixpkgs.overlays = [ inputs.nix-minecraft.overlay ];
+              }
             ]
           else if os == "darwin" then
             [ ]
