@@ -1,8 +1,8 @@
 { pkgs, ... }:
 {
+  catppuccin.fish.enable = true;
   programs.fish = {
     enable = true;
-    catppuccin.enable = true;
     interactiveShellInit = ''
       set fish_greeting
       fish_add_path ~/Odin
