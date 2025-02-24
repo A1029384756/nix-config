@@ -44,6 +44,7 @@
       "arc"
       "element"
       "font-jetbrains-mono-nerd-font"
+      "ghostty"
       "git-credential-manager"
       "iterm2"
       "keymapp"
