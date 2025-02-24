@@ -8,6 +8,8 @@
       fish_add_path ~/Odin
       fish_add_path ~/ols
 
+      # set SSL_CERT_FILE ""
+
       function dev 
         nix develop $argv --command fish
       end
