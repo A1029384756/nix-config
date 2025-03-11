@@ -9,7 +9,6 @@
   ];
 
   config = {
-    home.file.".config/aerospace/aerospace.toml".source = ./aerospace.toml;
     home.file.".config/ghostty/config".source = ./ghosty_config;
     isWork = true;
 
