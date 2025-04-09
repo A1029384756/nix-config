@@ -59,6 +59,7 @@
     git
     go
     rustc
+    vesktop
     tenv
   ];
 
