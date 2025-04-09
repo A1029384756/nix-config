@@ -1,8 +1,8 @@
 { ... }:
 {
+  catppuccin.kitty.enable = true;
   programs.kitty = {
     enable = true;
-    catppuccin.enable = true;
 
     font = {
       name = "Maple Mono NF CN";
