@@ -59,8 +59,8 @@
     git
     go
     rustc
-    vesktop
     tenv
+    vesktop
   ];
 
   nixpkgs.config.allowUnfree = true;
