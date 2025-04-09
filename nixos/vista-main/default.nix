@@ -7,6 +7,7 @@
       ./valheim.nix
       ./foundry.nix
       ./caddy.nix
+      ./minecraft.nix
       ./nextcloud.nix
       ./wedding_site.nix
       ./blog.nix
