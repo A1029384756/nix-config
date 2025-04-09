@@ -1,8 +1,8 @@
 { user, pkgs, ... }:
 {
   users.users.${user}.home = "/Users/${user}";
+  ids.gids.nixbld = 350;
 
-  services.nix-daemon.enable = true;
   nix.settings.experimental-features = "nix-command flakes impure-derivations";
   nix.extraOptions = ''
     extra-platforms = x86_64-darwin aarch64-darwin
