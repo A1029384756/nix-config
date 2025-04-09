@@ -154,6 +154,12 @@
           user = "hgray";
           os = "darwin";
         });
+        minibubbles = nixSystem ({
+          device = "MINIBUBBLES";
+          config = "macos";
+          user = "haydengray";
+          os = "darwin";
+        });
       };
 
       homeConfigurations = {
