@@ -1,5 +1,8 @@
 { user, pkgs, ... }:
 {
+  imports = [
+    ../modules/window_tiling
+  ];
   users.users.${user}.home = "/Users/${user}";
   ids.gids.nixbld = 350;
 
@@ -32,13 +35,11 @@
     };
 
     brews = [
-      "borders"
       "llvm@18"
       "sdl2"
     ];
 
     casks = [
-      "aerospace"
       "bluebubbles"
       "font-jetbrains-mono-nerd-font"
       "git-credential-manager"
