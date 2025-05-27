@@ -45,7 +45,7 @@
       "git-credential-manager"
       "iterm2"
       "raycast"
-      "zen-browser"
+      "zen"
     ];
 
     taps = [
