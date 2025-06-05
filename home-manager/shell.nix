@@ -7,6 +7,7 @@
       set fish_greeting
       fish_add_path ~/Odin
       fish_add_path ~/ols
+      fish_add_path ~/.local/bin
 
       # set SSL_CERT_FILE ""
 
