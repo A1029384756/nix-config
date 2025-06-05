@@ -51,7 +51,7 @@
       "raycast"
       "spotify"
       "vmware-fusion"
-      "zen-browser"
+      "zen"
       "zoom"
       "zulu@21"
     ];
@@ -69,6 +69,7 @@
     go
     rustc
     tenv
+    uv
   ];
 
   nixpkgs.config.allowUnfree = true;
