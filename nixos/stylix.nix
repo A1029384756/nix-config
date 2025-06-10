@@ -9,12 +9,12 @@
 
     fonts = {
       monospace = {
-        package = (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; });
+        package = pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; };
         name = "JetBrainsMono Nerd Font";
       };
 
       sansSerif = {
-        package = (pkgs.nerdfonts.override { fonts = [ "Ubuntu" ]; });
+        package = pkgs.nerdfonts.override { fonts = [ "Ubuntu" ]; };
         name = "Ubuntu Nerd Font";
       };
 

@@ -58,8 +58,6 @@
     , darwin
     , disko
     , catppuccin
-    , foundryvtt
-    , hyprland
     , nixGL
     , nix-minecraft
     , nixos-cosmic
@@ -108,65 +106,67 @@
             ./${os}/${device}
             home-manager."${os}Modules".home-manager
             {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.extraSpecialArgs = {
-                inherit user inputs;
-              };
-              home-manager.backupFileExtension = "backup";
-              home-manager.users.${user} = {
-                imports = [
-                  ./home-manager/${config}
-                  catppuccin.homeManagerModules.catppuccin
-                ];
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                extraSpecialArgs = {
+                  inherit user inputs;
+                };
+                backupFileExtension = "backup";
+                users.${user} = {
+                  imports = [
+                    ./home-manager/${config}
+                    catppuccin.homeManagerModules.catppuccin
+                  ];
+                };
               };
             }
-          ] ++ getOSMods (os);
+          ] ++ getOSMods os;
         };
     in
     {
       templates = import ./templates;
 
       nixosConfigurations = {
-        g14 = nixSystem ({
+        g14 = nixSystem {
           device = "g14";
           config = "laptop";
           user = "haydengray";
           os = "nixos";
-        });
-        x270 = nixSystem ({
+        };
+        x270 = nixSystem {
           device = "x270";
           config = "laptop";
           user = "haydengray";
           os = "nixos";
-        });
-        rev3 = nixSystem ({
+        };
+        rev3 = nixSystem {
           device = "rev3";
           config = "rev3";
           user = "haydengray";
           os = "nixos";
-        });
-        vista-main = nixSystem ({
+        };
+        vista-main = nixSystem {
           device = "vista-main";
           config = "vista-main";
           user = "haydengray";
           os = "nixos";
-        });
+        };
       };
 
       darwinConfigurations = {
-        nts1414 = nixSystem ({
+        nts1414 = nixSystem {
           device = "NTS1414";
           config = "macos";
           user = "hgray";
           os = "darwin";
-        });
-        minibubbles = nixSystem ({
+        };
+        minibubbles = nixSystem {
           device = "MINIBUBBLES";
           config = "macos";
           user = "haydengray";
           os = "darwin";
-        });
+        };
       };
 
       homeConfigurations = {

@@ -10,6 +10,6 @@
 
   gtk.iconTheme = {
     name = "Papirus";
-    package = (pkgs.catppuccin-papirus-folders.override { accent = "mauve"; });
+    package = pkgs.catppuccin-papirus-folders.override { accent = "mauve"; };
   };
 }
