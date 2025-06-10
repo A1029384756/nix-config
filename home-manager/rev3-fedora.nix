@@ -19,6 +19,7 @@
     jq
     eza
     ripgrep
+    uv
   ];
 
   fonts.fontconfig.enable = true;
