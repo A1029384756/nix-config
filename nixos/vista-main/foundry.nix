@@ -45,23 +45,26 @@ let
 in
 {
   imports = [
-    (foundry_instance ({
-      name = "theros";
-      version = "12.0.0+331";
-      hostAddress = "192.168.100.10";
-      localAddress = "192.168.100.11";
-    }))
-    (foundry_instance ({
-      name = "ewington";
-      version = "13.0.0+342";
-      hostAddress = "192.168.100.12";
-      localAddress = "192.168.100.13";
-    }))
-    (foundry_instance ({
-      name = "winters";
-      version = "12.0.0+331";
-      hostAddress = "192.168.100.14";
-      localAddress = "192.168.100.15";
-    }))
+    (foundry_instance
+      {
+        name = "theros";
+        version = "12.0.0+331";
+        hostAddress = "192.168.100.10";
+        localAddress = "192.168.100.11";
+      })
+    (foundry_instance
+      {
+        name = "ewington";
+        version = "13.0.0+342";
+        hostAddress = "192.168.100.12";
+        localAddress = "192.168.100.13";
+      })
+    (foundry_instance
+      {
+        name = "winters";
+        version = "12.0.0+331";
+        hostAddress = "192.168.100.14";
+        localAddress = "192.168.100.15";
+      })
   ];
 }

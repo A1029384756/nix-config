@@ -7,18 +7,14 @@
   };
 
   outputs =
-    {
-      self,
-      nixpkgs,
-      flake-utils,
-      ...
+    { nixpkgs
+    , flake-utils
+    , ...
     }:
     flake-utils.lib.eachDefaultSystem (
       system:
       let
         pkgs = import nixpkgs { inherit system; };
-
-        llvm = pkgs.llvmPackages_latest;
 
         nativeBuildInputs = with pkgs; [
           catch2
@@ -34,9 +30,6 @@
         buildInputs = with pkgs; [
           #put your runtime and build dependencies here
         ];
-        commonArgs = {
-          inherit buildInputs nativeBuildInputs;
-        };
       in
       with pkgs;
       {

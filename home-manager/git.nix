@@ -1,6 +1,6 @@
 { config, pkgs, lib, ... }:
 let
-  isWork = config.isWork;
+  inherit isWork;
 in
 {
   options = {

@@ -4,7 +4,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
   };
   outputs =
-    { self, nixpkgs }:
+    { nixpkgs }:
     let
       pkgs = import nixpkgs { inherit system; };
       system = "x86_64-linux";

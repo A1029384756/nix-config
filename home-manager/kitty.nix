@@ -1,4 +1,3 @@
-{ ... }:
 {
   catppuccin.kitty.enable = true;
   programs.kitty = {

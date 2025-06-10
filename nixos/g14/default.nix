@@ -9,18 +9,22 @@
     /etc/nixos/hardware-configuration.nix
   ];
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.plymouth.enable = true;
+  boot = {
+    loader.systemd-boot.enable = true;
+    loader.efi.canTouchEfiVariables = true;
+    plymouth.enable = true;
+  };
 
   programs.fish.enable = true;
 
-  services.supergfxd.enable = true;
-  systemd.services.supergfxd.path = [ pkgs.pciutils ];
-  services.asusd = {
-    enable = true;
-    enableUserService = true;
+  services = {
+    supergfxd.enable = true;
+    asusd = {
+      enable = true;
+      enableUserService = true;
+    };
   };
+  systemd.services.supergfxd.path = [ pkgs.pciutils ];
 
   system.stateVersion = "23.11";
 }
