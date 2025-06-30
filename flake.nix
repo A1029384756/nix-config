@@ -116,7 +116,7 @@
                 users.${user} = {
                   imports = [
                     ./home-manager/${config}
-                    catppuccin.homeManagerModules.catppuccin
+                    catppuccin.homeModules.catppuccin
                   ];
                 };
               };

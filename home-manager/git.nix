@@ -1,7 +1,4 @@
 { config, pkgs, lib, ... }:
-let
-  inherit isWork;
-in
 {
   options = {
     isWork = lib.mkOption {
@@ -17,8 +14,8 @@ in
   config = {
     programs.git = {
       enable = true;
-      userName = if isWork then "Hayden Gray" else "A1029384756";
-      userEmail = if isWork then "hgray@northwindstech.com" else "hayden.gray104@gmail.com";
+      userName = if config.isWork then "Hayden Gray" else "A1029384756";
+      userEmail = if config.isWork then "hgray@northwindstech.com" else "hayden.gray104@gmail.com";
       extraConfig = {
         credential = {
           credentialStore = if pkgs.stdenv.isDarwin then "keychain" else "secretservice";
