@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 let
-  hostname = "cloud.cstring.dev";
-  office = "office.cstring.dev";
+  nextcloud = "cloud.cstring.dev";
+  collabora = "office.cstring.dev";
 in
 {
   age.secrets.nextcloud_admin = {
@@ -16,7 +16,7 @@ in
       https = true;
       package = pkgs.nextcloud31;
       configureRedis = true;
-      hostName = hostname;
+      hostName = nextcloud;
 
       config.adminpassFile = config.age.secrets.nextcloud_admin.path;
       config.dbtype = "sqlite";
@@ -26,7 +26,7 @@ in
         inherit (config.services.nextcloud.package.packages.apps)
           calendar
           contacts
-          onlyoffice
+          richdocuments
           tasks
           ;
       };
@@ -37,11 +37,11 @@ in
       "listen.group" = config.services.caddy.group;
     };
 
-    caddy.virtualHosts."https://${hostname}" = {
+    caddy.virtualHosts."https://${nextcloud}" = {
       extraConfig = ''
         encode zstd gzip
 
-        root * ${config.services.nginx.virtualHosts.${hostname}.root}
+        root * ${config.services.nginx.virtualHosts.${nextcloud}.root}
 
         redir /.well-known/carddav /remote.php/dav 301
         redir /.well-known/caldav /remote.php/dav 301
@@ -61,7 +61,7 @@ in
         }
 
         php_fastcgi unix/${config.services.phpfpm.pools.nextcloud.socket} {
-          root ${config.services.nginx.virtualHosts.${hostname}.root}
+          root ${config.services.nginx.virtualHosts.${nextcloud}.root}
           env front_controller_active true
           env modHeadersAvailable true
         }
@@ -98,22 +98,68 @@ in
       '';
     };
 
-    # disable nginx but allow onlyoffice to start
-    nginx.enable = lib.mkForce false;
-
-    caddy.virtualHosts."https://${office}" = {
+    caddy.virtualHosts."https://${collabora}" = {
       extraConfig = ''
-        reverse_proxy http://127.0.0.1:21835 {
-          header_up X-Forwarded-Proto https
-        }
+        encode zstd gzip
+        reverse_proxy http://[::1]:12841
       '';
     };
 
-    onlyoffice = {
+    collabora-online = {
       enable = true;
-      hostname = "localhost";
-      port = 21835;
+      port = 12841;
+      settings = {
+        ssl = {
+          enable = false;
+          termination = true;
+        };
+
+        net = {
+          listen = "loopback";
+          post_allow.host = [ "::1" ];
+        };
+
+        storage.wopi = {
+          "@allow" = true;
+          host = [ "nextcloud.example.com" ];
+        };
+
+        server_name = collabora;
+      };
     };
+
+    nginx.enable = lib.mkForce false;
+  };
+
+  systemd.services.nextcloud-config-collabora =
+    let
+      inherit (config.services.nextcloud) occ;
+      wopi_url = "http://[::1]:${toString config.services.collabora-online.port}";
+      public_wopi_url = collabora;
+      wopi_allowlist = lib.concatStringsSep "," [
+        "127.0.0.1"
+        "::1"
+      ];
+    in
+    {
+      wantedBy = [ "multi-user.target" ];
+      after = [ "nextcloud-setup.service" "coolwsd.service" ];
+      requires = [ "coolwsd.service" ];
+
+      script = ''
+        ${occ}/bin/nextcloud-occ config:app:set richdocuments wopi_url --value ${lib.escapeShellArg wopi_url}
+        ${occ}/bin/nextcloud-occ config:app:set richdocuments public_wopi_url --value ${lib.escapeShellArg public_wopi_url}
+        ${occ}/bin/nextcloud-occ config:app:set richdocuments wopi_allowlist --value ${lib.escapeShellArg wopi_allowlist}
+        ${occ}/bin/nextcloud-occ richdocuments:setup
+      '';
+      serviceConfig = {
+        Type = "oneshot";
+      };
+    };
+
+  networking.hosts = {
+    "127.0.0.1" = [ nextcloud collabora ];
+    "::1" = [ nextcloud collabora ];
   };
 
   users.users.nginx = {
