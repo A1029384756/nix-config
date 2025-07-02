@@ -177,7 +177,7 @@
             overlays = [ nixGL.overlay ];
           };
           modules = [
-            catppuccin.homeManagerModules.catppuccin
+            catppuccin.homeModules.catppuccin
             ./home-manager/rev3-fedora.nix
           ];
         };
