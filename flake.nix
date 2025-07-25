@@ -181,6 +181,17 @@
             ./home-manager/rev3-fedora.nix
           ];
         };
+        fedora-anna = lib.homeManagerConfiguration {
+          extraSpecialArgs = { inherit inputs; };
+          pkgs = import nixpkgs {
+            system = "x86_64-linux";
+            overlays = [ nixGL.overlay ];
+          };
+          modules = [
+            catppuccin.homeModules.catppuccin
+            ./home-manager/g14-fedora.nix
+          ];
+        };
       };
     };
 }
