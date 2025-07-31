@@ -20,7 +20,7 @@
       };
 
       whitelist = {
-        Boundingfeather= "50306b88-5a3f-4baa-bf38-ebc76ac0c446";
+        Boundingfeather = "50306b88-5a3f-4baa-bf38-ebc76ac0c446";
         Nexington = "03b60a06-c99d-4dd5-9c0d-085eec84e385";
         Thag_Iceman = "e44015ef-b47b-4537-a4ca-b5f8700f953f";
         Lucazoyde = "4512d4a7-d7d3-4e55-834b-41645445228f";
@@ -29,7 +29,7 @@
       };
 
       jvmOpts = "-Xms4092M -Xmx4092M";
-      package = pkgs.papermcServers.papermc-1_21_5;
+      package = pkgs.papermcServers.papermc-1_21_8;
 
       symlinks = {
         "server-icon.png" = ./minecraft_assets/server-icon.png;
