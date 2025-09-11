@@ -4,7 +4,7 @@
       enable = true;
       settings = {
         after-startup-command = [
-          "workspace 1"
+          "layout tiles"
         ];
 
         gaps = {
@@ -45,12 +45,12 @@
         } // builtins.listToAttrs (
           builtins.concatLists (builtins.genList
             (i:
-              let ws = toString i;
+              let ws = toString (i + 1);
               in
               [
                 { name = "alt-${ws}"; value = "workspace ${ws}"; }
                 { name = "alt-shift-${ws}"; value = "move-node-to-workspace ${ws}"; }
-              ]) 9));
+              ]) 8));
 
         mode.service.binding = {
           esc = [ "reload-config" "mode main" ];
