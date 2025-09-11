@@ -3,6 +3,10 @@
     aerospace = {
       enable = true;
       settings = {
+        after-startup-command = [
+          "workspace 1"
+        ];
+
         gaps = {
           inner = {
             horizontal = 8;
