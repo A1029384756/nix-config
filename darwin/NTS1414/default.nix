@@ -25,7 +25,13 @@
         NSWindowShouldDragOnGesture = true;
       };
       SoftwareUpdate.AutomaticallyInstallMacOSUpdates = true;
-      CustomSystemPreferences.NSGlobalDomain."com.apple.mouse.linear" = true;
+      CustomSystemPreferences = {
+        NSGlobalDomain."com.apple.mouse.linear" = true;
+        "com.apple.loginwindow" = {
+          "com.apple.loginwindow.TALLogoutSavesState" = false;
+          "com.apple.loginwindow.LoginWindowLaunchesRelaunchApps" = false;
+        };
+      };
     };
   };
 
