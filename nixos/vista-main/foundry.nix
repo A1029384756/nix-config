@@ -55,7 +55,7 @@ in
     (foundry_instance
       {
         name = "ewington";
-        version = "13.0.0+342";
+        version = "13.0.0+348";
         hostAddress = "192.168.100.12";
         localAddress = "192.168.100.13";
       })
