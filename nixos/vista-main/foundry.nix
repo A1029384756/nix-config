@@ -25,6 +25,7 @@ let
             proxySSL = true;
             proxyPort = 443;
             package = foundryvtt.packages.x86_64-linux.foundryvtt.overrideAttrs {
+              __intentionallyOverridingVersion = true;
               inherit version;
             };
           };
