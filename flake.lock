@@ -1322,11 +1322,11 @@
     "wedding": {
       "flake": false,
       "locked": {
-        "lastModified": 1758997781,
-        "narHash": "sha256-01RYHzgiTXatAUhxCxaTOKna8VTsdiF72Ahkre2kx3Q=",
+        "lastModified": 1760400245,
+        "narHash": "sha256-h12Zjxgf5o7VlF6gDO1jAJf4dq1+LGSc3JSdj9Fo+PM=",
         "owner": "A1029384756",
         "repo": "hayden_anna_wedding",
-        "rev": "f1fe5d30335da11addc1caf1f1937c08026321af",
+        "rev": "0763fe26007eece8a2f5668076d0b7df67bc7908",
         "type": "github"
       },
       "original": {
