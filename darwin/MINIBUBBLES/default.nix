@@ -15,15 +15,18 @@
   programs.zsh.enable = true;
   programs.fish.enable = true;
 
-  system.defaults = {
-    dock.autohide = true;
-    NSGlobalDomain = {
-      AppleFontSmoothing = 0;
-      AppleInterfaceStyle = "Dark";
-      NSWindowShouldDragOnGesture = true;
+  system = {
+    primaryUser = user;
+    defaults = {
+      dock.autohide = true;
+      NSGlobalDomain = {
+        AppleFontSmoothing = 0;
+        AppleInterfaceStyle = "Dark";
+        NSWindowShouldDragOnGesture = true;
+      };
+      SoftwareUpdate.AutomaticallyInstallMacOSUpdates = true;
+      CustomSystemPreferences.NSGlobalDomain."com.apple.mouse.linear" = true;
     };
-    SoftwareUpdate.AutomaticallyInstallMacOSUpdates = true;
-    CustomSystemPreferences.NSGlobalDomain."com.apple.mouse.linear" = true;
   };
 
   homebrew = {
