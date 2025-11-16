@@ -1,4 +1,18 @@
+let
+  btrfsOpts = [
+    "compress=zstd"
+    "noatime"
+    "space_cache=v2"
+  ];
+in
 {
+  fileSystems."/mnt/data" = {
+    device = "/dev/sda";
+    fsType = "btrfs";
+    options = btrfsOpts;
+  };
+
+  # this only runs at installation
   disko.devices.disk.os = {
     device = "/dev/disk/by-id/nvme-Samsung_SSD_990_EVO_2TB_S7M4NL0Y507519T";
     type = "disk";
@@ -6,10 +20,9 @@
       type = "gpt";
       partitions = {
         ESP = {
-          priority = 1;
+          label = "boot";
           name = "ESP";
-          start = "1M";
-          end = "512M";
+          size = "512M";
           type = "EF00";
           content = {
             type = "filesystem";
@@ -24,40 +37,23 @@
             type = "btrfs";
             extraArgs = [ "-f" ];
             subvolumes = {
-              "/@root" = {
-                mountOptions = [
-                  "defaults"
-                  "compress=zstd"
-                  "noatime"
-                ];
+              "@root" = {
+                mountOptions = btrfsOpts;
                 mountpoint = "/";
               };
-              "/@home" = {
-                mountOptions = [
-                  "defaults"
-                  "compress=zstd"
-                  "noatime"
-                ];
+              "@home" = {
+                mountOptions = btrfsOpts;
                 mountpoint = "/home";
               };
-              "/@nix" = {
-                mountOptions = [
-                  "defaults"
-                  "compress=zstd"
-                  "noatime"
-                ];
+              "@nix" = {
+                mountOptions = btrfsOpts;
                 mountpoint = "/nix";
               };
-              "/@swap" = {
+              "@swap" = {
                 mountpoint = "/.swapvol";
-                swap = {
-                  swapfile.size = "20M";
-                };
+                swap.swapfile.size = "32G";
               };
-              "/@snapshots" = { };
             };
-
-            mountpoint = "/partition-root";
           };
         };
       };
