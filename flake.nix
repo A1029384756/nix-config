@@ -146,9 +146,15 @@
           user = "haydengray";
           os = "nixos";
         };
-        vista-main = nixSystem {
-          device = "vista-main";
-          config = "vista-main";
+        vista = nixSystem {
+          device = "vista";
+          config = "vista";
+          user = "haydengray";
+          os = "nixos";
+        };
+        vista-vps = nixSystem {
+          device = "vista-vps";
+          config = "vista-vps";
           user = "haydengray";
           os = "nixos";
         };
