@@ -44,10 +44,13 @@
   networking.hostName = "vista";
   networking.useDHCP = true;
 
-  boot.loader.grub = {
-    device = "nodev";
-    efiSupport = true;
-    efiInstallAsRemovable = true;
+  boot = {
+    loader.grub = {
+      device = "nodev";
+      efiSupport = true;
+      efiInstallAsRemovable = true;
+    };
+    kernelPackages = pkgs.linuxPackages_latest;
   };
 
   security.sudo = {
