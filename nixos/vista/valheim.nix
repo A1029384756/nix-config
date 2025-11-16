@@ -1,4 +1,4 @@
-{ pkgs, utils, ... }:
+{ user, pkgs, utils, ... }:
 let
   # Set to {id}-{branch}-{password} for betas.
   steam-app = "896660";
@@ -7,17 +7,6 @@ in
   imports = [
     ./steam.nix
   ];
-
-  users.users.valheim = {
-    isSystemUser = true;
-    # Valheim puts save data in the home directory.
-    home = "/mnt/data/valheim";
-    createHome = true;
-    homeMode = "755";
-    group = "valheim";
-  };
-
-  users.groups.valheim = { };
 
   systemd.services.valheim = {
     wantedBy = [ "multi-user.target" ];
@@ -32,7 +21,7 @@ in
         "-nographics"
         "-batchmode"
         "-savedir"
-        "/var/lib/valheim/save"
+        "/mnt/data/valheim/save"
         "-name"
         "Frennz"
         "-port"
@@ -57,7 +46,7 @@ in
       Nice = "-10";
       PrivateTmp = true;
       Restart = "always";
-      User = "valheim";
+      User = user;
       WorkingDirectory = "~";
     };
     environment = {
