@@ -1,7 +1,7 @@
 { user, pkgs, ... }:
 {
   imports = [
-    ./disko-config.nix
+    ./disk-config.nix
     ./jellyfin.nix
     ./minecraft.nix
     ./caddy.nix
@@ -9,7 +9,11 @@
     ./steam.nix
   ];
 
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs = {
+    config.allowUnfree = true;
+    hostPlatform = "x86_64-linux";
+  };
+
   nix.settings = {
     experimental-features = [
       "nix-command"
@@ -18,10 +22,6 @@
     trusted-users = [ user ];
     substituters = [
       "https://cache.nixos.org"
-      "https://nix-community.cachix.org"
-    ];
-    trusted-public-keys = [
-      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
     ];
   };
 
@@ -38,15 +38,12 @@
   programs.fish.enable = true;
 
   system.stateVersion = "25.05";
-  nixpkgs.hostPlatform = "x86_64-linux";
   hardware.enableRedistributableFirmware = true;
-  time.timeZone = "UTC";
+  time.timeZone = "America/New_York";
 
   networking.hostName = "vista";
   networking.useDHCP = true;
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.kernelParams = [ "net.ifnames=0" ];
   boot.loader.grub = {
     device = "nodev";
     efiSupport = true;
