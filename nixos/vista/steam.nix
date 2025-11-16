@@ -1,13 +1,4 @@
-{ pkgs, ... }: {
-  users.users.steam = {
-    isSystemUser = true;
-    group = "steam";
-    home = "/mnt/data/steam";
-    createHome = true;
-  };
-
-  users.groups.steam = { };
-
+{ user, pkgs, ... }: {
   systemd.services."steam@" = {
     unitConfig = {
       StopWhenUnneeded = true;
@@ -64,7 +55,7 @@
       Restart = "on-failure";
       StateDirectory = "steam-app-%i";
       TimeoutStartSec = 3600; # Allow time for updates.
-      User = "steam";
+      User = user;
       WorkingDirectory = "~";
     };
   };
