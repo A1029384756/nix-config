@@ -4,10 +4,8 @@
     [
       (modulesPath + "/profiles/qemu-guest.nix")
       ./disko-config.nix
-      ./valheim.nix
       ./foundry.nix
       ./caddy.nix
-      ./minecraft.nix
       ./nextcloud.nix
       ./wedding_site.nix
       ./blog.nix
