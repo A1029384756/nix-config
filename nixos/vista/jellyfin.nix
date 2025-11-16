@@ -35,4 +35,7 @@ in
     dataDir = "${jellyfinDir}/data";
     cacheDir = "${jellyfinDir}/cache";
   };
+  services.caddy.virtualHosts."jellyfin.cstring.dev".extraConfig = ''
+    reverse_proxy localhost:8096
+  '';
 }
