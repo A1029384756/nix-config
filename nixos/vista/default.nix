@@ -7,6 +7,7 @@
     ./caddy.nix
     ./valheim.nix
     ./steam.nix
+    ./blog.nix
   ];
 
   nixpkgs = {
@@ -45,6 +46,7 @@
   networking.useDHCP = true;
 
   boot = {
+    kernelParams = [ "net.ifnames=0" ];
     loader.grub = {
       device = "nodev";
       efiSupport = true;
