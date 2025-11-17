@@ -28,10 +28,10 @@
       };
 
       networking = {
+        useHostResolvConf = true;
         firewall = {
           enable = true;
           allowedTCPPorts = [ 8000 ];
-          useHostResolvConf = true;
         };
       };
 
