@@ -27,9 +27,12 @@
         wantedBy = [ "multi-user.target" ];
       };
 
-      networking.firewall = {
-        enable = true;
-        allowedTCPPorts = [ 8000 ];
+      networking = {
+        firewall = {
+          enable = true;
+          allowedTCPPorts = [ 8000 ];
+          useHostResolvConf = true;
+        };
       };
 
       system.stateVersion = "24.11";
