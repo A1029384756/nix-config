@@ -8,6 +8,7 @@
     ./valheim.nix
     ./steam.nix
     ./blog.nix
+    ./immich.nix
   ];
 
   nixpkgs = {
