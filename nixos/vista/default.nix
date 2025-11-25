@@ -9,6 +9,9 @@
     ./steam.nix
     ./blog.nix
     ./immich.nix
+    ./cockpit.nix
+    ./vaultwarden.nix
+    ./agenix.nix
   ];
 
   nixpkgs = {
