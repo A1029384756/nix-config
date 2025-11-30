@@ -12,6 +12,7 @@
     ./cockpit.nix
     ./vaultwarden.nix
     ./agenix.nix
+    ./wedding-site.nix
   ];
 
   nixpkgs = {

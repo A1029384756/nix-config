@@ -1,19 +1,21 @@
 { inputs, config, ... }:
 let
   basepath = "/wedding";
+  containerPort = 8000;
 in
 {
-  services.caddy.virtualHosts."cstring.dev".extraConfig = ''
-    handle ${basepath}* {
-      reverse_proxy 192.168.101.11:8000
-    }
-  '';
-
+  networking.firewall.allowedTCPPorts = [ containerPort ];
   containers.wedding = {
     autoStart = true;
     privateNetwork = true;
     hostAddress = "192.168.101.10";
     localAddress = "192.168.101.11";
+    forwardPorts = [
+      {
+        containerPort = containerPort;
+        hostPort = containerPort;
+      }
+    ];
     bindMounts."/etc/ssh/ssh_host_ed25519_key".isReadOnly = true;
 
     config = { config, lib, pkgs, ... }: {
@@ -47,7 +49,7 @@ in
 
       networking.firewall = {
         enable = true;
-        allowedTCPPorts = [ 8000 ];
+        allowedTCPPorts = [ containerPort ];
       };
 
       system.stateVersion = "24.11";
