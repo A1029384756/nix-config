@@ -4,6 +4,13 @@ let
   collabora = "office.cstring.dev";
 in
 {
+  imports = [
+    "${fetchGit {
+			url = "https://github.com/A1029384756/nixos-nextcloud-caddy";
+			rev = "d8ff002a39b038cbd7e11c88a55f75c28883d265";
+		}}/nextcloud-extras.nix"
+  ];
+
   age.secrets.nextcloud_admin = {
     file = ../../secrets/nextcloud_admin.age;
     owner = "nextcloud";
@@ -17,6 +24,7 @@ in
       https = true;
       package = pkgs.nextcloud31;
       hostName = nextcloud;
+      webserver = "caddy";
 
       config.adminpassFile = config.age.secrets.nextcloud_admin.path;
       config.dbtype = "sqlite";
@@ -36,72 +44,6 @@ in
       enable = true;
       settings.NEXTCLOUD_URL = "http://localhost";
       secrets = [ config.age.secrets.nextcloud_whiteboard.path ];
-    };
-
-    phpfpm.pools.nextcloud.settings = {
-      "listen.owner" = config.services.caddy.user;
-      "listen.group" = config.services.caddy.group;
-    };
-
-    caddy.virtualHosts."https://${nextcloud}" = {
-      extraConfig = ''
-        encode zstd gzip
-
-        root * ${config.services.nginx.virtualHosts.${nextcloud}.root}
-
-        redir /.well-known/carddav /remote.php/dav 301
-        redir /.well-known/caldav /remote.php/dav 301
-        redir /.well-known/* /index.php{uri} 301
-        redir /remote/* /remote.php{uri} 301
-
-        header {
-          Strict-Transport-Security max-age=31536000
-          Permissions-Policy interest-cohort=()
-          X-Content-Type-Options nosniff
-          X-Frame-Options SAMEORIGIN
-          Referrer-Policy no-referrer
-          X-XSS-Protection "1;mode=block"
-          X-Permitted-Cross-Domain-Policies none
-          X-Robots-Tag "noindex,nofollow"
-          -X-Powered-By
-        }
-
-        php_fastcgi unix/${config.services.phpfpm.pools.nextcloud.socket} {
-          root ${config.services.nginx.virtualHosts.${nextcloud}.root}
-          env front_controller_active true
-          env modHeadersAvailable true
-        }
-
-        @forbidden {
-          path /build/* /tests/* /config/* /lib/* /3rdparty/* /templates/* /data/*
-          path /.* /autotest* /occ* /issue* /indie* /db_* /console*
-          not path /.well-known/*
-        }
-        error @forbidden 404
-
-        @notlegacy {
-            path *.php *.php/
-            not path /index* /remote* /public* /cron* /core/ajax/update* /status* /ocs/v1* /ocs/v2* /updater* /ocs-provider/* */richdocumentscode/proxy*
-        }
-        rewrite @notlegacy /index.php{uri}
-
-        @immutable {
-          path *.css *.js *.mjs *.svg *.gif *.png *.jpg *.ico *.wasm *.tflite
-          query v=*
-        }
-        header @immutable Cache-Control "max-age=15778463, immutable"
-
-        @static {
-          path *.css *.js *.mjs *.svg *.gif *.png *.jpg *.ico *.wasm *.tflite
-          not query v=*
-        }
-        header @static Cache-Control "max-age=15778463"
-
-        @woff2 path *.woff2
-        header @woff2 Cache-Control "max-age=604800"
-
-        file_server
-      '';
     };
 
     caddy.virtualHosts."https://${collabora}" = {
