@@ -22,7 +22,7 @@ in
     nextcloud = {
       enable = true;
       https = true;
-      package = pkgs.nextcloud31;
+      package = pkgs.nextcloud32;
       hostName = nextcloud;
       webserver = "caddy";
 
