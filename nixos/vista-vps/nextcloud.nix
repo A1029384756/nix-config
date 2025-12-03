@@ -75,8 +75,6 @@ in
         server_name = collabora;
       };
     };
-
-    nginx.enable = lib.mkForce false;
   };
 
   systemd.services.nextcloud-config-collabora =
@@ -109,10 +107,4 @@ in
     "127.0.0.1" = [ nextcloud collabora ];
     "::1" = [ nextcloud collabora ];
   };
-
-  users.users.nginx = {
-    group = "nginx";
-    isSystemUser = true;
-  };
-  users.groups.nginx = { };
 }
