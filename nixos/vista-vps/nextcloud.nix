@@ -9,27 +9,33 @@ in
     owner = "nextcloud";
     group = "nextcloud";
   };
+  age.secrets.nextcloud_whiteboard.file = ../../secrets/nextcloud_whiteboard.age;
 
   services = {
     nextcloud = {
       enable = true;
       https = true;
       package = pkgs.nextcloud31;
-      configureRedis = true;
       hostName = nextcloud;
 
       config.adminpassFile = config.age.secrets.nextcloud_admin.path;
       config.dbtype = "sqlite";
 
-      extraAppsEnable = true;
       extraApps = {
         inherit (config.services.nextcloud.package.packages.apps)
           calendar
           contacts
           richdocuments
           tasks
+          whiteboard
           ;
       };
+    };
+
+    nextcloud-whiteboard-server = {
+      enable = true;
+      settings.NEXTCLOUD_URL = "http://localhost";
+      secrets = [ config.age.secrets.nextcloud_whiteboard.path ];
     };
 
     phpfpm.pools.nextcloud.settings = {

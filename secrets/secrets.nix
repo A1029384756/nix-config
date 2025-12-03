@@ -5,6 +5,7 @@ let
 in
 {
   "nextcloud_admin.age".publicKeys = [ haydengray vista vista-vps ];
+  "nextcloud_whiteboard.age".publicKeys = [ haydengray vista vista-vps ];
   "wedding_site.age".publicKeys = [ haydengray vista vista-vps ];
   "vaultwarden.age".publicKeys = [ haydengray vista vista-vps ];
 }
