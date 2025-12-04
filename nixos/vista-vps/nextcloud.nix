@@ -26,8 +26,14 @@ in
       hostName = nextcloud;
       webserver = "caddy";
 
-      config.adminpassFile = config.age.secrets.nextcloud_admin.path;
-      config.dbtype = "sqlite";
+      config = {
+        adminpassFile = config.age.secrets.nextcloud_admin.path;
+        dbtype = "sqlite";
+      };
+
+      settings = {
+        defaultPhoneRegion = "US";
+      };
 
       extraApps = {
         inherit (config.services.nextcloud.package.packages.apps)
@@ -37,6 +43,11 @@ in
           tasks
           whiteboard
           ;
+      };
+
+      phpOptions = {
+        "opcache.interned_strings_buffer" = 16;
+        "maintenance_window_start" = 6;
       };
     };
 
