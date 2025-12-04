@@ -53,6 +53,10 @@ in
       '';
     };
 
+    caddy.virtualHosts."https://whiteboard.cstring.dev".extraConfig = ''
+      reverse_proxy localhost:3002
+    '';
+
     collabora-online = {
       enable = true;
       port = 12841;
