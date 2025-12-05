@@ -49,6 +49,8 @@
 
     nix-index-database.url = "github:Mic92/nix-index-database";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
+
+    quadlet-nix.url = "github:SEIAROTg/quadlet-nix";
   };
 
   outputs =
@@ -62,6 +64,7 @@
     , nix-minecraft
     , nixos-cosmic
     , stylix
+    , quadlet-nix
     , ...
     }:
     let
@@ -80,6 +83,7 @@
               agenix.nixosModules.default
               stylix.nixosModules.stylix
               disko.nixosModules.disko
+              quadlet-nix.nixosModules.quadlet
               nix-minecraft.nixosModules.minecraft-servers
               {
                 nixpkgs.overlays = [ inputs.nix-minecraft.overlay ];

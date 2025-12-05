@@ -6,7 +6,6 @@
       ./disko-config.nix
       ./foundry.nix
       ./caddy.nix
-      ./nextcloud.nix
       ./wedding_site.nix
     ];
 

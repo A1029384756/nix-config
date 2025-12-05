@@ -13,6 +13,7 @@
     ./vaultwarden.nix
     ./agenix.nix
     ./wedding-site.nix
+    ./nextcloud.nix
   ];
 
   nixpkgs = {
