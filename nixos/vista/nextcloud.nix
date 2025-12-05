@@ -1,6 +1,7 @@
 { config, ... }:
 let
-  hostname = "cloud.cstring.dev";
+  nextcloudhost = "cloud.cstring.dev";
+  officehost = "office.cstring.dev";
 in
 {
   age.secrets.nextcloud.file = ../../secrets/nextcloud_admin.age;
@@ -9,6 +10,7 @@ in
       inherit (config.virtualisation.quadlet) networks pods volumes;
     in
     {
+      autoEscape = true;
       containers = {
         nc.containerConfig = {
           image = "docker.io/library/nextcloud:32-apache";
@@ -18,7 +20,7 @@ in
             "${volumes.nextcloudConfig.ref}:/var/www/html"
           ];
           environments = {
-            NEXTCLOUD_TRUSTED_DOMAINS = "${hostname}";
+            NEXTCLOUD_TRUSTED_DOMAINS = "${nextcloudhost}";
           };
           environmentFiles = [
             config.age.secrets.nextcloud.path
@@ -38,11 +40,23 @@ in
             config.age.secrets.nextcloud.path
           ];
         };
+        ncoffice.containerConfig = {
+          image = "docker.io/collabora/code:25.04.7.3.1";
+          pod = pods.nextcloud.ref;
+          addCapabilities = [
+            "MKNOD"
+          ];
+          environments = {
+            DONT_GEN_SSL_CERT = "true";
+            extra_params = "--o:ssl.enable=false --o:ssl.termination=true";
+          };
+        };
       };
       pods = {
         nextcloud.podConfig = {
           publishPorts = [
             "9000:80"
+            "9980:9980"
           ];
         };
       };
@@ -62,13 +76,18 @@ in
       };
     };
 
-  services.caddy.virtualHosts.${hostname}.extraConfig = ''
-    reverse_proxy localhost:9000
+  services.caddy.virtualHosts = {
+    ${nextcloudhost}.extraConfig = ''
+      reverse_proxy localhost:9000
 
-    header {
-    	Strict-Transport-Security "max-age=15552000; includeSubDomains; preload"
-    }
-  '';
+      header {
+      	Strict-Transport-Security "max-age=15552000; includeSubDomains; preload"
+      }
+    '';
+    ${officehost}.extraConfig = ''
+      reverse_proxy localhost:9980
+    '';
+  };
 
   networking.firewall.allowedTCPPorts = [ 9000 ];
 }
