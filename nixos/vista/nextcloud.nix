@@ -2,6 +2,7 @@
 let
   nextcloudhost = "cloud.cstring.dev";
   officehost = "office.cstring.dev";
+  whiteboardhost = "whiteboard.cstring.dev";
 in
 {
   age.secrets.nextcloud.file = ../../secrets/nextcloud_admin.age;
@@ -51,12 +52,20 @@ in
             extra_params = "--o:ssl.enable=false --o:ssl.termination=true";
           };
         };
+        ncwhiteboard.containerConfig = {
+          image = "ghcr.io/nextcloud/whiteboard:1c151bbd6d3ea64435ed6d865fa2fd8467fb4126";
+          pod = pods.nextcloud.ref;
+          environmentFiles = [
+            config.age.secrets.nextcloud.path
+          ];
+        };
       };
       pods = {
         nextcloud.podConfig = {
           publishPorts = [
             "9000:80"
             "9980:9980"
+            "3002:3002"
           ];
         };
       };
@@ -87,7 +96,8 @@ in
     ${officehost}.extraConfig = ''
       reverse_proxy localhost:9980
     '';
+    ${whiteboardhost}.extraConfig = ''
+      reverse_proxy localhost:3002
+    '';
   };
-
-  networking.firewall.allowedTCPPorts = [ 9000 ];
 }
