@@ -8,7 +8,7 @@ in
   age.secrets.nextcloud.file = ../../secrets/nextcloud_admin.age;
   virtualisation.quadlet =
     let
-      inherit (config.virtualisation.quadlet) networks pods volumes;
+      inherit (config.virtualisation.quadlet) pods volumes;
     in
     {
       autoEscape = true;
@@ -53,11 +53,12 @@ in
           };
         };
         ncwhiteboard.containerConfig = {
-          image = "ghcr.io/nextcloud/whiteboard:1c151bbd6d3ea64435ed6d865fa2fd8467fb4126";
+          image = "ghcr.io/nextcloud/whiteboard:stable";
           pod = pods.nextcloud.ref;
           environmentFiles = [
             config.age.secrets.nextcloud.path
           ];
+          healthCmd = ''node -e 'setTimeout(() => require("http").get("http://localhost:3002", res => process.exit(res.statusCode === 200 ? 0 : 1)), 1000)' '';
         };
       };
       pods = {
