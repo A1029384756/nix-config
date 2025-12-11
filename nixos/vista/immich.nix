@@ -21,6 +21,7 @@ in
       hostPath = mediaLocation;
       isReadOnly = false;
     };
+
     allowedDevices = [
       {
         modifier = "rwm";
@@ -32,14 +33,14 @@ in
       services.immich = {
         enable = true;
         host = "0.0.0.0";
-        settings.server.externalDomain = "https://${host}";
+        settings = null;
         accelerationDevices = [
           hardwareAcceleration
         ];
         inherit mediaLocation;
       };
 
-      networking.firewall.allowedTCPPorts = [ 2283 ];
+      networking.firewall.allowedTCPPorts = [ 2283 587 ];
       system.stateVersion = "25.05";
     };
   };

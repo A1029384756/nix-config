@@ -64,6 +64,7 @@ in
         nextcloud.podConfig = {
           publishPorts = [
             "9000:80"
+            "587:587"
             "9980:9980"
             "3002:3002"
           ];
