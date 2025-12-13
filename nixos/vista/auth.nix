@@ -42,6 +42,8 @@
             "${volumes.authentikTemplates.ref}:/templates"
           ];
         };
+        # this depends on values from the main authentik
+        # server after the LDAP provider has been created
         authentikLDAP.containerConfig = {
           image = "ghcr.io/goauthentik/ldap:2025.10.2";
           pod = pods.authentik.ref;
