@@ -9,6 +9,7 @@ in
   virtualisation.quadlet =
     let
       inherit (config.virtualisation.quadlet) pods volumes;
+      inherit (config.age) secrets;
     in
     {
       autoEscape = true;
@@ -24,7 +25,7 @@ in
             NEXTCLOUD_TRUSTED_DOMAINS = "${nextcloudhost}";
           };
           environmentFiles = [
-            config.age.secrets.nextcloud.path
+            secrets.nextcloud.path
           ];
         };
         ncredis.containerConfig = {
@@ -38,7 +39,7 @@ in
             "${volumes.nextcloudDatabase.ref}:/var/lib/mysql"
           ];
           environmentFiles = [
-            config.age.secrets.nextcloud.path
+            secrets.nextcloud.path
           ];
         };
         ncoffice.containerConfig = {
@@ -56,7 +57,7 @@ in
           image = "ghcr.io/nextcloud/whiteboard:stable";
           pod = pods.nextcloud.ref;
           environmentFiles = [
-            config.age.secrets.nextcloud.path
+            secrets.nextcloud.path
           ];
           healthCmd = ''node -e 'setTimeout(() => require("http").get("http://localhost:3002", res => process.exit(res.statusCode === 200 ? 0 : 1)), 1000)' '';
         };
@@ -64,10 +65,12 @@ in
       pods = {
         nextcloud.podConfig = {
           publishPorts = [
+            # nextcloud
             "9000:80"
-            "587:587"
-            "9980:9980"
-            "3002:3002"
+            # office
+            "9001:9980"
+            # whiteboard
+            "9002:3002"
           ];
         };
       };
@@ -96,10 +99,10 @@ in
       }
     '';
     ${officehost}.extraConfig = ''
-      reverse_proxy localhost:9980
+      reverse_proxy localhost:9001
     '';
     ${whiteboardhost}.extraConfig = ''
-      reverse_proxy localhost:3002
+      reverse_proxy localhost:9002
     '';
   };
 }

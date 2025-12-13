@@ -14,6 +14,7 @@
     ./agenix.nix
     ./wedding-site.nix
     ./nextcloud.nix
+    ./auth.nix
   ];
 
   nixpkgs = {

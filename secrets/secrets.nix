@@ -8,4 +8,5 @@ in
   "nextcloud_whiteboard.age".publicKeys = [ haydengray vista vista-vps ];
   "wedding_site.age".publicKeys = [ haydengray vista vista-vps ];
   "vaultwarden.age".publicKeys = [ haydengray vista vista-vps ];
+  "authentik.age".publicKeys = [ haydengray vista vista-vps ];
 }
