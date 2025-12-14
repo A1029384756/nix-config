@@ -3,7 +3,10 @@
   imports = [
     ../modules/window_tiling
   ];
-  users.users.${user}.home = "/Users/${user}";
+  users.users.${user} = {
+		home = "/Users/${user}";
+		uid = 501;
+	};
   ids.gids.nixbld = 350;
 
   nix.settings.experimental-features = "nix-command flakes impure-derivations";
