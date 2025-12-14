@@ -28,6 +28,21 @@ in
             secrets.nextcloud.path
           ];
         };
+        nccron.containerConfig = {
+          image = "docker.io/library/nextcloud:32-apache";
+          pod = pods.nextcloud.ref;
+          entrypoint = "/cron.sh";
+          volumes = [
+            "${volumes.nextcloudData.ref}:/var/www/html/data"
+            "${volumes.nextcloudConfig.ref}:/var/www/html"
+          ];
+          environments = {
+            NEXTCLOUD_TRUSTED_DOMAINS = "${nextcloudhost}";
+          };
+          environmentFiles = [
+            secrets.nextcloud.path
+          ];
+        };
         ncredis.containerConfig = {
           image = "docker.io/library/redis:alpine";
           pod = pods.nextcloud.ref;
