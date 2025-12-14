@@ -14,9 +14,11 @@
   config = {
     programs.git = {
       enable = true;
-      userName = if config.isWork then "Hayden Gray" else "A1029384756";
-      userEmail = if config.isWork then "hgray@northwindstech.com" else "hayden.gray104@gmail.com";
-      extraConfig = {
+      settings = {
+				user = { 
+					name = if config.isWork then "Hayden Gray" else "A1029384756";
+					email = if config.isWork then "hgray@northwindstech.com" else "hayden.gray104@gmail.com";
+				};
         credential = {
           credentialStore = if pkgs.stdenv.isDarwin then "keychain" else "secretservice";
           helper = "${pkgs.git-credential-manager}/bin/git-credential-manager";
