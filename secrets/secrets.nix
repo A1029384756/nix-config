@@ -9,4 +9,5 @@ in
   "wedding_site.age".publicKeys = [ haydengray vista vista-vps ];
   "vaultwarden.age".publicKeys = [ haydengray vista vista-vps ];
   "authentik.age".publicKeys = [ haydengray vista vista-vps ];
+  "pocket-id.age".publicKeys = [ haydengray vista vista-vps ];
 }
