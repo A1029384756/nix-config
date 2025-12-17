@@ -23,6 +23,7 @@
         AppleFontSmoothing = 0;
         AppleInterfaceStyle = "Dark";
         NSWindowShouldDragOnGesture = true;
+        ApplePressAndHoldEnabled = false;
       };
       SoftwareUpdate.AutomaticallyInstallMacOSUpdates = true;
       CustomSystemPreferences.NSGlobalDomain."com.apple.mouse.linear" = true;
@@ -45,6 +46,7 @@
 
     casks = [
       "arc"
+      "cursor"
       "element"
       "font-jetbrains-mono-nerd-font"
       "ghostty"
