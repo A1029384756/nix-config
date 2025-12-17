@@ -15,6 +15,7 @@
     ./wedding-site.nix
     ./nextcloud.nix
     ./auth.nix
+    ./llm.nix
   ];
 
   nixpkgs = {
