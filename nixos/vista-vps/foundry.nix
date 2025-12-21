@@ -63,7 +63,7 @@ in
     (foundry_instance
       {
         name = "winters";
-        version = "12.0.0+331";
+        version = "13.0.0+348";
         hostAddress = "192.168.100.14";
         localAddress = "192.168.100.15";
       })
