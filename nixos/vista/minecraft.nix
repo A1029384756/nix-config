@@ -31,7 +31,7 @@
       };
 
       jvmOpts = "-Xms4092M -Xmx4092M";
-      package = pkgs.papermcServers.papermc-1_21_10;
+      package = pkgs.paperServers.paper-1_21_11;
 
       symlinks = {
         "server-icon.png" = ./minecraft_assets/server-icon.png;
