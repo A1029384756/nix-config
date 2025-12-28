@@ -9,7 +9,7 @@
 
     firewall = {
       enable = true;
-      allowedTCPPorts = [ 80 443 636 ];
+      allowedTCPPorts = [ 80 443 ];
       allowedUDPPortRanges = [
         # valheim
         { from = 2456; to = 2458; }
