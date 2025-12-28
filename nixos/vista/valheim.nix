@@ -55,4 +55,10 @@ in
       SteamAppId = "892970";
     };
   };
+
+  networking.firewall = {
+    allowedUDPPortRanges = [
+      { from = 2456; to = 2458; }
+    ];
+  };
 }
