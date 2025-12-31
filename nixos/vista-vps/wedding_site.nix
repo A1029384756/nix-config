@@ -1,4 +1,4 @@
-{ inputs, config, ... }:
+{ inputs, ... }:
 let
   basepath = "/wedding";
   containerPort = 8000;
