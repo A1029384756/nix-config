@@ -1,7 +1,3 @@
-{ inputs
-, user
-, ...
-}:
 let
   host = "photos.cstring.dev";
   mediaLocation = "/mnt/data/immich";

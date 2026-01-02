@@ -1,4 +1,4 @@
-{ user, pkgs, lib, config, ... }:
+{ user, pkgs, ... }:
 let
   jellyfinDir = "/mnt/data/jellyfin";
   jellyfin-ffmpeg-overlay = (final: prev: {
