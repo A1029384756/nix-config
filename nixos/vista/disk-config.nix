@@ -6,11 +6,18 @@ let
   ];
 in
 {
-  fileSystems."/mnt/data" = {
-    device = "/dev/sda";
-    fsType = "btrfs";
-    options = btrfsOpts;
-  };
+  fileSystems = {
+		"/mnt/data" = {
+			device = "/dev/sda";
+    	fsType = "btrfs";
+    	options = btrfsOpts;
+		};
+		"/mnt/vault" = {
+			device = "/dev/sdc";
+    	fsType = "btrfs";
+    	options = btrfsOpts;
+		};
+	};
 
   # this only runs at installation
   disko.devices.disk.os = {
