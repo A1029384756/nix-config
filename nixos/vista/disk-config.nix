@@ -8,12 +8,12 @@ in
 {
   fileSystems = {
 		"/mnt/data" = {
-			device = "/dev/sda";
+			device = "/dev/disk/by-uuid/47f94cbd-7f87-4888-8325-caeacec504a9";
     	fsType = "btrfs";
     	options = btrfsOpts;
 		};
 		"/mnt/vault" = {
-			device = "/dev/sdc";
+			device = "/dev/disk/by-uuid/72e926b7-0d0d-47b9-9a1d-5b964076d9b8";
     	fsType = "btrfs";
     	options = btrfsOpts;
 		};
