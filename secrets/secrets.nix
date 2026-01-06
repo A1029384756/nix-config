@@ -11,4 +11,5 @@ in
   "authentik.age".publicKeys = [ haydengray vista vista-vps ];
   "pocket-id.age".publicKeys = [ haydengray vista vista-vps ];
   "open-webui.age".publicKeys = [ haydengray vista vista-vps ];
+  "headscale.age".publicKeys = [ haydengray vista vista-vps ];
 }

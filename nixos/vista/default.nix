@@ -16,6 +16,7 @@
 		./nextcloud.nix
 		./auth.nix
 		./llm.nix
+		./headscale.nix
 	];
 
 	nixpkgs = {
