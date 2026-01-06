@@ -89,7 +89,7 @@
               nix-minecraft.nixosModules.minecraft-servers
 							headscale.nixosModules.default
               {
-                nixpkgs.overlays = [ inputs.nix-minecraft.overlay ];
+                nixpkgs.overlays = [ nix-minecraft.overlay ];
               }
             ]
           else if os == "darwin" then
