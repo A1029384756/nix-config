@@ -51,6 +51,7 @@
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
 
     quadlet-nix.url = "github:SEIAROTg/quadlet-nix";
+		headscale.url = "github:juanfont/headscale";
   };
 
   outputs =
@@ -65,6 +66,7 @@
     , nixos-cosmic
     , stylix
     , quadlet-nix
+		, headscale
     , ...
     }:
     let
@@ -85,6 +87,7 @@
               disko.nixosModules.disko
               quadlet-nix.nixosModules.quadlet
               nix-minecraft.nixosModules.minecraft-servers
+							headscale.nixosModules.default
               {
                 nixpkgs.overlays = [ inputs.nix-minecraft.overlay ];
               }
