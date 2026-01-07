@@ -89,5 +89,8 @@
 		wheelNeedsPassword = false;
 	};
 
-	services.fail2ban.enable = true;
+	services = {
+		fail2ban.enable = true;
+		tailscale.enable = true;
+	};
 }
