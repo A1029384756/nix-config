@@ -17,6 +17,7 @@
 		./auth.nix
 		./llm.nix
 		./headscale.nix
+		./backups.nix
 	];
 
 	nixpkgs = {

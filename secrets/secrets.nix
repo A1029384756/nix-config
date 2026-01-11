@@ -12,4 +12,7 @@ in
   "pocket-id.age".publicKeys = [ haydengray vista vista-vps ];
   "open-webui.age".publicKeys = [ haydengray vista vista-vps ];
   "headscale.age".publicKeys = [ haydengray vista vista-vps ];
+	"restic-repo.age".publicKeys = [ haydengray vista vista-vps ];
+	"restic-password.age".publicKeys = [ haydengray vista vista-vps ];
+	"restic-env.age".publicKeys = [ haydengray vista vista-vps ];
 }
