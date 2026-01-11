@@ -8,7 +8,7 @@
 
     catppuccin.url = "github:catppuccin/nix";
 
-    wedding.url = "github:A1029384756/hayden_anna_wedding";
+    wedding.url = "git+ssh://git@github.com/A1029384756/hayden_anna_wedding?shallow=1";
     wedding.flake = false;
     blog.url = "github:A1029384756/blog";
 

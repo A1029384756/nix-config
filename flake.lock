@@ -1457,15 +1457,16 @@
       "locked": {
         "lastModified": 1760996596,
         "narHash": "sha256-W8oZN02XIKFe+K5KlvFt/2KzumXXdyqlcmNf8Cz2LAs=",
-        "owner": "A1029384756",
-        "repo": "hayden_anna_wedding",
+        "ref": "refs/heads/master",
         "rev": "47b80399d03c22e368ebe31ff6c2fa541d733d8a",
-        "type": "github"
+        "shallow": true,
+        "type": "git",
+        "url": "ssh://git@github.com/A1029384756/hayden_anna_wedding"
       },
       "original": {
-        "owner": "A1029384756",
-        "repo": "hayden_anna_wedding",
-        "type": "github"
+        "shallow": true,
+        "type": "git",
+        "url": "ssh://git@github.com/A1029384756/hayden_anna_wedding"
       }
     },
     "xdph": {
