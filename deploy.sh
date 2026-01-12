@@ -1,7 +1,13 @@
 #!/usr/bin/env bash
 
-if [ "$#" -ne 1 ]; then
-	echo 'invalid argument count, usage: `./deploy.sh <system>`'
-	exit 1
-fi
-nix run nixpkgs#nixos-rebuild switch -- --target-host $1 --sudo --flake .#$1
+function handle_sigint() {
+	exit
+}
+
+trap handle_sigint SIGINT
+
+for system in "$@" 
+do
+	echo "------------ DEPLOYING $system -------------"
+	nix run nixpkgs#nixos-rebuild switch -- --target-host $system --sudo --flake .#$system
+done
