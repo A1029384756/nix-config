@@ -12,13 +12,6 @@
 				dns = { 
 					base_domain = "tailnet.cstring.dev"; 
 					nameservers.global = [ "1.1.1.1" "8.8.8.8" ];
-					extra_records = [
-						{
-							name = "cockpit.vista.tailnet.cstring.dev";
-							type = "A";
-							value = "100.64.0.5";
-						}
-					];
 				};
 				oidc = {
 					issuer = "https://pocketid.cstring.dev";
