@@ -75,6 +75,8 @@
     rustc
     tenv
     uv
+    cmake
+    tree-sitter
   ];
 
   nixpkgs.config.allowUnfree = true;
