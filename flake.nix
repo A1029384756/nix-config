@@ -3,54 +3,25 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-
-    agenix.url = "github:ryantm/agenix";
-
-    catppuccin.url = "github:catppuccin/nix";
-
-    wedding.url = "git+ssh://git@github.com/A1029384756/hayden_anna_wedding?shallow=1";
-    wedding.flake = false;
-    blog.url = "github:A1029384756/blog";
-
-    disko.url = "github:nix-community/disko";
-    disko.inputs.nixpkgs.follows = "nixpkgs";
-
-    hyprland = {
-      type = "git";
-      url = "https://github.com/hyprwm/Hyprland";
-      submodules = true;
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    walker.url = "github:abenz1267/walker";
-    walker.inputs.nixpkgs.follows = "nixpkgs";
-
-    stylix.url = "github:danth/stylix";
-    stylix.inputs.nixpkgs.follows = "nixpkgs";
-
-    nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
-    nixos-cosmic.inputs.nixpkgs.follows = "nixpkgs";
-
-    foundryvtt.url = "github:reckenrode/nix-foundryvtt";
-
-    nix-minecraft.url = "github:Infinidoge/nix-minecraft";
-
-    nixGL.url = "github:nix-community/nixGL";
-    nixGL.inputs.nixpkgs.follows = "nixpkgs";
-
-    heroic-theme.url = "github:catppuccin/heroic";
-    heroic-theme.flake = false;
-
-    home-manager.url = "github:nix-community/home-manager";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
-
     darwin.url = "github:lnl7/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
-
     nix-index-database.url = "github:Mic92/nix-index-database";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
 
+    agenix.url = "github:ryantm/agenix";
+    blog.url = "github:A1029384756/blog";
+    disko.url = "github:nix-community/disko";
+    disko.inputs.nixpkgs.follows = "nixpkgs";
+    foundryvtt.url = "github:reckenrode/nix-foundryvtt";
+    nix-minecraft.url = "github:Infinidoge/nix-minecraft";
     quadlet-nix.url = "github:SEIAROTg/quadlet-nix";
 		headscale.url = "github:juanfont/headscale";
+    wedding.url = "git+ssh://git@github.com/A1029384756/hayden_anna_wedding?shallow=1";
+    wedding.flake = false;
+
+    catppuccin.url = "github:catppuccin/nix";
+    home-manager.url = "github:nix-community/home-manager";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
@@ -60,10 +31,7 @@
     , darwin
     , disko
     , catppuccin
-    , nixGL
     , nix-minecraft
-    , nixos-cosmic
-    , stylix
     , quadlet-nix
 		, headscale
     , ...
@@ -80,9 +48,7 @@
           if os == "nixos" then
             [
               catppuccin.nixosModules.catppuccin
-              nixos-cosmic.nixosModules.default
               agenix.nixosModules.default
-              stylix.nixosModules.stylix
               disko.nixosModules.disko
               quadlet-nix.nixosModules.quadlet
               nix-minecraft.nixosModules.minecraft-servers
@@ -131,27 +97,7 @@
         };
     in
     {
-      templates = import ./templates;
-
       nixosConfigurations = {
-        g14 = nixSystem {
-          device = "g14";
-          config = "laptop";
-          user = "haydengray";
-          os = "nixos";
-        };
-        x270 = nixSystem {
-          device = "x270";
-          config = "laptop";
-          user = "haydengray";
-          os = "nixos";
-        };
-        rev3 = nixSystem {
-          device = "rev3";
-          config = "rev3";
-          user = "haydengray";
-          os = "nixos";
-        };
         vista = nixSystem {
           device = "vista";
           config = "vista";
@@ -178,31 +124,6 @@
           config = "macos";
           user = "haydengray";
           os = "darwin";
-        };
-      };
-
-      homeConfigurations = {
-        fedora = lib.homeManagerConfiguration {
-          extraSpecialArgs = { inherit inputs; };
-          pkgs = import nixpkgs {
-            system = "x86_64-linux";
-            overlays = [ nixGL.overlay ];
-          };
-          modules = [
-            catppuccin.homeModules.catppuccin
-            ./home-manager/rev3-fedora.nix
-          ];
-        };
-        fedora-anna = lib.homeManagerConfiguration {
-          extraSpecialArgs = { inherit inputs; };
-          pkgs = import nixpkgs {
-            system = "x86_64-linux";
-            overlays = [ nixGL.overlay ];
-          };
-          modules = [
-            catppuccin.homeModules.catppuccin
-            ./home-manager/g14-fedora.nix
-          ];
         };
       };
     };
