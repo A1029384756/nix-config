@@ -16,4 +16,5 @@ in
 	"restic-password.age".publicKeys = [ haydengray vista vista-vps ];
 	"restic-env.age".publicKeys = [ haydengray vista vista-vps ];
 	"caddy.age".publicKeys = [ haydengray vista vista-vps ];
+	"valheim.age".publicKeys = [ haydengray vista vista-vps ];
 }
