@@ -66,7 +66,9 @@
     go
     rustc
     tenv
-    vesktop
+		cmake
+		tree-sitter
+		tailscale
   ];
 
   nixpkgs.config.allowUnfree = true;
