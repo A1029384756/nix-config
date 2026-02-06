@@ -18,6 +18,7 @@
 		./llm.nix
 		./headscale.nix
 		./backups.nix
+		./search.nix
 	];
 
 	nixpkgs = {

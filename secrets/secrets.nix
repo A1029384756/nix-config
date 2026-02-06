@@ -17,4 +17,5 @@ in
 	"restic-env.age".publicKeys = [ haydengray vista vista-vps ];
 	"caddy.age".publicKeys = [ haydengray vista vista-vps ];
 	"valheim.age".publicKeys = [ haydengray vista vista-vps ];
+	"searxng.age".publicKeys = [ haydengray vista vista-vps ];
 }
