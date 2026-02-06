@@ -57,13 +57,6 @@
 				initialHashedPassword = "$y$j9T$2DyEjQxPoIjTkt8zCoWl.0$3mHxH.fqkCgu53xa0vannyu4Cue3Q7xL4CrUhMxREKC"; # Password.123
 				shell = pkgs.fish;
 			};
-			nezzy = {
-				isSystemUser = true;
-				group = "nezzy";
-				openssh.authorizedKeys.keys = [
-				];
-				shell = pkgs.scponly;
-			};
 		};
 		groups.nezzy = {};
 	};
