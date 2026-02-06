@@ -58,7 +58,6 @@
 				shell = pkgs.fish;
 			};
 		};
-		groups.nezzy = {};
 	};
 
 	programs.fish.enable = true;
