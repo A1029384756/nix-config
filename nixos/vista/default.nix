@@ -19,6 +19,7 @@
 		./headscale.nix
 		./backups.nix
 		./search.nix
+		./cinny.nix
 	];
 
 	nixpkgs = {
