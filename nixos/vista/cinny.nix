@@ -5,13 +5,13 @@ let
 		version = "4.8.1";
 
 		src = pkgs.fetchFromGitHub {
-			owner = "YoJames2019";
+			owner = "hazre";
 			repo = "cinny";
-			rev = "40957632d512e4fa0edc749fca007090d7de205e";
-			hash = "sha256-fLbOYScbbPierHpi14MneZSauzQINsPYD7NY4zqo0OM=";
+			rev = "4f498af4583e2b072c1634abb4a9173c4b2d38ec";
+			hash = "sha256-rrYHr3npd7GUx+Zs0n8XxRee8TFHSOwTjnLyvpqUcwo=";
 		};
 
-		npmDepsHash = "sha256-DW2Fv1Z/YDOkDqqaXHUY5Ojsn2TzOu+6L/a7fmX/RbI=";
+		npmDepsHash = "sha256-z/WDfFriE887eULQU8WktNkx4jJBmqcGvQueNw2A6aA=";
 
 		nodejs = pkgs.nodejs_20;
 
