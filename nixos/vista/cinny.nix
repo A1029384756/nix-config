@@ -7,11 +7,11 @@ let
 		src = pkgs.fetchFromGitHub {
 			owner = "hazre";
 			repo = "cinny";
-			rev = "4f498af4583e2b072c1634abb4a9173c4b2d38ec";
-			hash = "sha256-rrYHr3npd7GUx+Zs0n8XxRee8TFHSOwTjnLyvpqUcwo=";
+			rev = "1f2f8ffa499a1881bc9c4aee90d76a27a0ade032";
+			hash = "sha256-Uilek7gbE1mfGb5gOtrYAp8SJabBlPI0/7o1rI0kOL4=";
 		};
 
-		npmDepsHash = "sha256-z/WDfFriE887eULQU8WktNkx4jJBmqcGvQueNw2A6aA=";
+		npmDepsHash = "sha256-Pn6P5TJTpIGL4xVPhuNsP7/P3BsbCQTP+BKiqILGJdk=";
 
 		nodejs = pkgs.nodejs_20;
 
