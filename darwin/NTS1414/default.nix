@@ -39,6 +39,7 @@
     };
 
     brews = [
+			"awscurl"
       "llvm@18"
       "maven"
       "sdl2"
