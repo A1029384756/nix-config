@@ -2,16 +2,16 @@
 let
 	cinny = pkgs.buildNpmPackage {
 		pname = "cinny";
-		version = "4.10.5";
+		version = "4.10.6";
 
 		src = pkgs.fetchFromGitHub {
 			owner = "cinnyapp";
 			repo = "cinny";
-			rev = "c1b1bdeb8cbd4c687d0a95a0ef5802ab290828d4";
-			hash = "sha256-lfT7/41qqQL5lm7rvrmIp3OkvH3coMkXPFuoscAAJ0I=";
+			rev = "7953ec80e50e2272e24d04cec3f643cc3c222771";
+			hash = "sha256-gghGHGLuIjxe9Wl/CscsVaNrMijCm7yyi8Vj4FkrSC0=";
 		};
 
-		npmDepsHash = "sha256-5k7PLPfzT7i34JvzHC6f65T8RBVAlCWXK6Dp01pq514=";
+		npmDepsHash = "sha256-qyQ0SXkPSUES/tavKzPra0Q+ZnU9qHvkTC1JgAjL0o8=";
 
 		nodejs = pkgs.nodejs_20;
 
