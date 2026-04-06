@@ -37,6 +37,7 @@ in
       };
 
       networking.firewall.allowedTCPPorts = [ 2283 587 ];
+			networking.nameservers = [ "1.1.1.1" "8.8.8.8" ];
       system.stateVersion = "25.05";
     };
   };
