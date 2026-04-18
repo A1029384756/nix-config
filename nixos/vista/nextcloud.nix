@@ -6,6 +6,7 @@ let
 in
 {
   age.secrets.nextcloud.file = ../../secrets/nextcloud_admin.age;
+	age.secrets.onlyoffice.file = ../../secrets/onlyoffice.age;
   virtualisation.quadlet =
     let
       inherit (config.virtualisation.quadlet) pods volumes;
@@ -57,17 +58,13 @@ in
             secrets.nextcloud.path
           ];
         };
-        ncoffice.containerConfig = {
-          image = "docker.io/collabora/code:25.04.7.3.1";
-          pod = pods.nextcloud.ref;
-          addCapabilities = [
-            "MKNOD"
-          ];
-          environments = {
-            DONT_GEN_SSL_CERT = "true";
-            extra_params = "--o:ssl.enable=false --o:ssl.termination=true";
-          };
-        };
+				onlyofficedocumentserver.containerConfig = {
+					image = "docker.io/onlyoffice/documentserver:9.3";
+					pod = pods.onlyoffice.ref;
+					environmentFiles = [
+						secrets.onlyoffice.path
+					];
+				};
         ncwhiteboard.containerConfig = {
           image = "ghcr.io/nextcloud/whiteboard:stable";
           pod = pods.nextcloud.ref;
@@ -82,12 +79,15 @@ in
           publishPorts = [
             # nextcloud
             "9000:80"
-            # office
-            "9001:9980"
             # whiteboard
             "9002:3002"
           ];
         };
+				onlyoffice.podConfig = {
+					publishPorts = [
+						"9001:80"
+					];
+				};
       };
       volumes = {
         nextcloudData.volumeConfig = {
