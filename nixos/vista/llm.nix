@@ -3,9 +3,6 @@
   services.ollama = {
     enable = true;
     package = pkgs.ollama-vulkan;
-		environmentVariables = {
-			OLLAMA_ORIGINS = "https://ollama-api.cstring.dev,https://office.cstring.dev,https://cloud.cstring.dev";
-		};
   };
 
   services.open-webui = {
@@ -17,26 +14,6 @@
     "ollama.cstring.dev".extraConfig = ''
       reverse_proxy localhost:8080
     '';
-		"ollama-api.cstring.dev".extraConfig = ''
-			@cors_preflight method OPTIONS
-			@apirequests header Authorization "Bearer {env.OLLAMA_API_TOKEN}"
-
-			header {
-				Access-Control-Allow-Origin "*"
-    		Access-Control-Allow-Methods "GET, POST, OPTIONS"
-    		Access-Control-Allow-Headers "Authorization, Content-Type"
-    		Access-Control-Max-Age "3600"
-    		defer
-    	}
-
-			route {
-        respond @cors_preflight 204
-				reverse_proxy @apirequests localhost:11434 {
-					header_up Host localhost:11434
-				}
-				respond 401
-			}
-		'';
   };
 
   virtualisation.quadlet =
