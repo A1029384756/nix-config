@@ -13,8 +13,6 @@ in
 	age.secrets.forgejo-oidc.file = ../../secrets/forgejo-oidc.age;
 	age.secrets.forgejo-mail.file = ../../secrets/forgejo-mail.age;
 
-	services.openssh.settings.AllowUsers = [ config.services.forgejo.user ];
-
 	services.postgresql = {
 		enable = true;
 		ensureDatabases = [ "forgejo" ];
@@ -48,9 +46,13 @@ in
 				SSH_PORT = sshPort;
 			};
 			service = {
-				DISABLE_REGISTRATION = false;
-				ALLOW_ONLY_EXTERNAL_REGISTRATION = false;
+				DISABLE_REGISTRATION = true;
+				ENABLE_BASIC_AUTHENTICATION = false;
+				ENABLE_INTERNAL_SIGNIN = false;
 				ENABLE_NOTIFY_MAIL = true;
+			};
+			oauth2_client = {
+				UPDATE_AVATAR = true;
 			};
 			mailer = {
 				ENABLED = true;
