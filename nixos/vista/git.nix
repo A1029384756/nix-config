@@ -5,7 +5,7 @@ let
 	sshPort = lib.head config.services.openssh.ports;
 	httpPort = 3000;
 in
-	{
+{
 	services.caddy.virtualHosts.${host}.extraConfig = ''
 		reverse_proxy localhost:${toString httpPort}
 	'';
