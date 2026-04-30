@@ -10,7 +10,6 @@ in
 		reverse_proxy localhost:${toString httpPort}
 	'';
 
-	age.secrets.forgejo-oidc.file = ../../secrets/forgejo-oidc.age;
 	age.secrets.forgejo-mail.file = ../../secrets/forgejo-mail.age;
 
 	services.postgresql = {
@@ -41,7 +40,6 @@ in
 			server = {
 				DOMAIN = host;
 				ROOT_URL = "https://${host}";
-				HTTP_ADDR = "0.0.0.0";
 				HTTP_PORT = httpPort;
 				SSH_PORT = sshPort;
 			};
