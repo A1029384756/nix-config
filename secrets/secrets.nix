@@ -20,4 +20,5 @@ in
 	"valheim.age".publicKeys = [ haydengray vista vista-vps ];
 	"searxng.age".publicKeys = [ haydengray vista vista-vps ];
 	"forgejo-mail.age".publicKeys = [ haydengray vista vista-vps ];
+	"forgejo-runner-vista.age".publicKeys = [ haydengray vista vista-vps ];
 }
