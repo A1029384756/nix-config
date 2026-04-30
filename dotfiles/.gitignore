@@ -1,0 +1,17 @@
+config/alacritty/alacritty
+config/btop/btop
+config/fish/fish
+config/ghostty/ghostty
+config/hypr/hypr
+config/kitty/kitty
+config/nvim/nvim
+config/nvim/lazy-lock.json
+config/nix/nix
+config/skhd/skhd
+config/waybar/waybar
+config/wezterm/wezterm
+config/wofi/wofi
+config/yabai/yabai
+config/yabai/yabai
+config/fish/conf.d
+config/fish/fish_variables

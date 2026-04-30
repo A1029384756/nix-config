@@ -69,6 +69,7 @@
 		cmake
 		tree-sitter
 		tailscale
+		forgejo-runner
   ];
 
   nixpkgs.config.allowUnfree = true;

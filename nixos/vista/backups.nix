@@ -19,6 +19,7 @@
 				"/mnt/data/nextcloud"
 				"/mnt/data/pocketid"
 				"/mnt/data/vaultwarden"
+				"/mnt/data/forgejo"
 			];
 
 			pruneOpts = [

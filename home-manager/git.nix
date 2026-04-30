@@ -14,6 +14,7 @@
   config = {
     programs.git = {
       enable = true;
+			signing.format = "openpgp";
       settings = {
 				user = { 
 					name = if config.isWork then "Hayden Gray" else "A1029384756";

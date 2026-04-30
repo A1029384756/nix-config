@@ -17,6 +17,7 @@
 		./auth.nix
 		./llm.nix
 		./headscale.nix
+		./git.nix
 		./backups.nix
 		./search.nix
 		./cinny.nix
