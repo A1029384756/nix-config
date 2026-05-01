@@ -5,8 +5,8 @@ jobs:
     strategy:
       matrix:
         os: [ docker, macos ]
-      steps:
-        - uses: actions/checkout@v6
-        - uses: https://github.com/DeterminateSystems/determinate-nix-action@v3
-          if: matrix.os == docker
-        - run: nix flake check
+    steps:
+      - uses: actions/checkout@v6
+      - uses: https://github.com/DeterminateSystems/determinate-nix-action@v3
+        if: matrix.os == docker
+      - run: nix flake check
