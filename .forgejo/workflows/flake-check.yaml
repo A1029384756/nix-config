@@ -4,10 +4,10 @@ jobs:
   check:
     strategy:
       matrix:
-        os: [ docker, macos ]
+        os: [ node-lts, macos ]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v6
       - uses: https://github.com/DeterminateSystems/nix-installer-action@main
-        if: matrix.os == 'docker'
+        if: matrix.os == 'node-lts'
       - run: nix flake check
