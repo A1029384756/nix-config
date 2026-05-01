@@ -4,8 +4,8 @@ jobs:
   check:
     strategy:
       matrix:
-        os: [docker, macos]
-    run-on: ${{ matrix.os }}
+        os: [ docker, macos ]
+    runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v6
       - uses: https://github.com/DeterminateSystems/determinate-nix-action@v3
