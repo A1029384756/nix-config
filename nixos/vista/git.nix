@@ -106,7 +106,7 @@ in
 				--url https://${host} \
 				--uuid c6dac328-1a46-4500-9198-cb899ac58328 \
 				--token-url file://%d/token \
-				--label node-lts:docker://node:lts \
+				--label node-lts:docker://node:lts-trixie \
 				--config ${configFile}
 			'';
 			SupplementaryGroups = [ "podman" ];
