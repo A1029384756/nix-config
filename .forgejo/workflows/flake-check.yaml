@@ -1,4 +1,5 @@
 on: [push]
+enable-email-notifications: true
 jobs:
   check-linux:
     runs-on: docker
