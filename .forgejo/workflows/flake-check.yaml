@@ -8,6 +8,6 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v6
-      - uses: https://github.com/DeterminateSystems/determinate-nix-action@v3
+      - uses: https://github.com/DeterminateSystems/nix-installer-action@main
         if: matrix.os == 'docker'
       - run: nix flake check
