@@ -68,6 +68,10 @@ in
 	systemd.services.forgejo-runner = let 
 		configFile = (pkgs.formats.yaml { }).generate "config.yaml" {
 			runner.capacity = 2;
+			container = {
+				network = "host";
+				enable_ipv6 = true;
+			};
 		};
 	in {
 		after = [ "network-online.target" "podman.service" ];
