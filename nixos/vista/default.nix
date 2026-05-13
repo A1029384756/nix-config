@@ -21,6 +21,7 @@
 		./backups.nix
 		./search.nix
 		./cinny.nix
+		./disk-monitoring.nix
 	];
 
 	nixpkgs = {
@@ -63,7 +64,7 @@
 	};
 
 	programs.fish.enable = true;
-	system.stateVersion = "25.05";
+	system.stateVersion = "25.11";
 	hardware.enableRedistributableFirmware = true;
 	time.timeZone = "America/New_York";
 

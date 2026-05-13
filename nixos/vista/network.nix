@@ -3,8 +3,8 @@
 	services.caddy = {
 		enable = true;
 		package = pkgs.caddy.withPlugins {
-			plugins = [ "github.com/caddy-dns/cloudflare@v0.2.2" ];
-			hash = "sha256-7DGnojZvcQBZ6LEjT0e5O9gZgsvEeHlQP9aKaJIs/Zg=";
+			plugins = [ "github.com/caddy-dns/cloudflare@v0.2.4" ];
+			hash = "sha256-J0HWjCPoOoARAxDpG2bS9c0x5Wv4Q23qWZbTjd8nW84=";
 		};
 		environmentFile = config.age.secrets.caddy.path;
 	};
