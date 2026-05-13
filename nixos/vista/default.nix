@@ -64,7 +64,7 @@
 	};
 
 	programs.fish.enable = true;
-	system.stateVersion = "25.11";
+	system.stateVersion = "25.05";
 	hardware.enableRedistributableFirmware = true;
 	time.timeZone = "America/New_York";
 
