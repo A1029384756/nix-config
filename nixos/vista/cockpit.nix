@@ -9,7 +9,6 @@ in {
 			];
 		};
 		caddy.virtualHosts.${host}.extraConfig = ''
-			bind 100.64.0.5
 			tls {
 				dns cloudflare {env.CF_API_TOKEN}
 			}
@@ -18,7 +17,7 @@ in {
 		headscale.settings.dns.extra_records = [{
 			name = host;
 			type = "A";
-			value = "100.64.0.5";
+			value = "vista.tailnet.cstring.dev";
 		}];
 	};
 }

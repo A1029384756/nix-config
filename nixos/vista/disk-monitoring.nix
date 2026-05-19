@@ -9,7 +9,6 @@ in {
 			settings.web.listen.port = port;
 		};
 		caddy.virtualHosts."scrutiny.vista.cstring.dev".extraConfig = ''
-			bind 100.64.0.5
 			tls {
 				dns cloudflare {env.CF_API_TOKEN}
 			}
@@ -18,7 +17,7 @@ in {
 		headscale.settings.dns.extra_records = [{
 			name = "scrutiny.vista.cstring.dev";
 			type = "A";
-			value = "100.64.0.5";
+			value = "vista.tailnet.cstring.dev";
 		}];
 	};
 }
