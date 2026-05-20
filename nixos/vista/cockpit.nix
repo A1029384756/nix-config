@@ -1,5 +1,6 @@
 let
 	host = "cockpit.vista.cstring.dev";
+	vistaip = "100.64.0.5";
 in {
 	services = {
 		cockpit = {
@@ -9,6 +10,7 @@ in {
 			];
 		};
 		caddy.virtualHosts.${host}.extraConfig = ''
+			bind ${vistaip}
 			tls {
 				dns cloudflare {env.CF_API_TOKEN}
 			}
@@ -17,7 +19,7 @@ in {
 		headscale.settings.dns.extra_records = [{
 			name = host;
 			type = "A";
-			value = "vista.tailnet.cstring.dev";
+			value = vistaip;
 		}];
 	};
 }
