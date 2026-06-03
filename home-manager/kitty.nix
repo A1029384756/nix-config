@@ -1,6 +1,4 @@
 {
-	catppuccin.autoEnable = true;
-  catppuccin.kitty.enable = true;
   programs.kitty = {
     enable = true;
 
