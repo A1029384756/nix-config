@@ -13,7 +13,7 @@ let
 
 		npmDepsHash = "sha256-qyQ0SXkPSUES/tavKzPra0Q+ZnU9qHvkTC1JgAjL0o8=";
 
-		nodejs = pkgs.nodejs_20;
+		nodejs = pkgs.nodejs_22;
 
 		nativeBuildInputs = with pkgs; [
 			pkg-config
