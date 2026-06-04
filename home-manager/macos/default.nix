@@ -18,7 +18,5 @@
 			enable = true;
 			generateCaches = true;
 		};
-		catppuccin.enable = true;
-		catppuccin.autoEnable = true;
 	};
 }

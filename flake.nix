@@ -19,7 +19,6 @@
     wedding.url = "git+ssh://git@github.com/A1029384756/hayden_anna_wedding?shallow=1";
     wedding.flake = false;
 
-    catppuccin.url = "github:catppuccin/nix";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
@@ -30,7 +29,6 @@
     , agenix
     , darwin
     , disko
-    , catppuccin
     , nix-minecraft
     , quadlet-nix
 		, headscale
@@ -47,7 +45,6 @@
         (
           if os == "nixos" then
             [
-              catppuccin.nixosModules.catppuccin
               agenix.nixosModules.default
               disko.nixosModules.disko
               quadlet-nix.nixosModules.quadlet
@@ -88,7 +85,6 @@
                 users.${user} = {
                   imports = [
                     ./home-manager/${config}
-                    catppuccin.homeModules.catppuccin
                   ];
                 };
               };

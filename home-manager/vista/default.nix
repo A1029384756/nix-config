@@ -11,8 +11,6 @@
     defaultEditor = true;
   };
 
-	catppuccin.enable = true;
-	catppuccin.autoEnable = true;
   programs.home-manager.enable = true;
   systemd.user.startServices = "sd-switch";
   home.stateVersion = "26.05";
