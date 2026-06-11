@@ -16,6 +16,7 @@
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
     quadlet-nix.url = "github:SEIAROTg/quadlet-nix";
 		headscale.url = "github:juanfont/headscale";
+		solitaire.url = "git+https://git.cstring.dev/haydengray/odin-solitaire";
     wedding.url = "git+ssh://git@github.com/A1029384756/hayden_anna_wedding?shallow=1";
     wedding.flake = false;
 

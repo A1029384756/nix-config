@@ -22,6 +22,7 @@
 		./search.nix
 		./cinny.nix
 		./disk-monitoring.nix
+		./solitaire.nix
 	];
 
 	nixpkgs = {
