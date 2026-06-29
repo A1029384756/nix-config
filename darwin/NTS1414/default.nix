@@ -47,7 +47,6 @@
     ];
 
     casks = [
-      "arc"
       "cursor"
       "element"
       "font-jetbrains-mono-nerd-font"
