@@ -1,4 +1,4 @@
-{ user, pkgs, ... }:
+{ config, user, pkgs, ... }:
 {
 	imports = [
 		./disk-config.nix
@@ -87,8 +87,15 @@
 		wheelNeedsPassword = false;
 	};
 
+  age.secrets.tailscale.file = ../../secrets/tailscale.age;
 	services = {
 		fail2ban.enable = true;
-		tailscale.enable = true;
+		tailscale = {
+			enable = true;
+			authKeyFile = config.age.secrets.tailscale.path;
+			extraUpFlags = [
+				"--login-server=https://headscale.cstring.dev"
+			];
+		};
 	};
 }
