@@ -4,7 +4,7 @@
 		enable = true;
 		package = pkgs.caddy.withPlugins {
 			plugins = [ "github.com/caddy-dns/cloudflare@v0.2.4" ];
-			hash = "sha256-bzMqxWTqrJ1skZmRTXyEMCKStXpljbqe5r0Ve2cnBfM=";
+			hash = "sha256-7GoH8YLCoPmPExQxoga2FHB58zQDoZVf1BBwkVi0SsQ=";
 		};
 		environmentFile = config.age.secrets.caddy.path;
 	};

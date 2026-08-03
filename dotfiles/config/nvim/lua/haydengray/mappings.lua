@@ -1,4 +1,4 @@
-vim.keymap.set('n', '<esc>', ':noh<CR>', {
+vim.keymap.set('n', '<Esc>', ':noh<CR>', {
 	desc = 'remove highlighting'
 })
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', {
@@ -22,4 +22,11 @@ vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, {
 })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, {
 	desc = 'open diagnostic [Q]uickfix list'
+})
+
+vim.keymap.set('n', '<M-j>', ':m +1<CR>', {
+	desc = 'move line down',
+})
+vim.keymap.set('n', '<M-k>', ':m -2<CR>', {
+	desc = 'move line up'
 })

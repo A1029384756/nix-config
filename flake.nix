@@ -9,7 +9,7 @@
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
 
     agenix.url = "github:ryantm/agenix";
-    blog.url = "github:A1029384756/blog";
+    blog.url = "git+https://git.cstring.dev/haydengray/blog";
     disko.url = "github:nix-community/disko";
     disko.inputs.nixpkgs.follows = "nixpkgs";
     foundryvtt.url = "github:reckenrode/nix-foundryvtt";
