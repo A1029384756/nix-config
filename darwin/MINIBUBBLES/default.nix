@@ -48,7 +48,6 @@
     casks = [
       "bluebubbles"
       "font-jetbrains-mono-nerd-font"
-      "git-credential-manager"
       "iterm2"
       "raycast"
       "zen"
