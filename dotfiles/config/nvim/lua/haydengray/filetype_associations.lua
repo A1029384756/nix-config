@@ -12,8 +12,11 @@ vim.filetype.add({
 		frag = 'glsl',
 		container = 'ini',
 		pod = 'ini',
+		tdsl = 'tdsl',
 	}
 })
+
+vim.treesitter.language.register('odin', 'tdsl')
 
 vim.api.nvim_create_autocmd('FileType', {
 	pattern = 'markdown',
