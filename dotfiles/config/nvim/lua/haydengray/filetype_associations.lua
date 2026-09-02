@@ -1,6 +1,6 @@
 vim.filetype.add({
 	pattern = {
-		['Jenkinsfile'] = 'groovy'
+		['.*Jenkinsfile.*'] = 'groovy'
 	},
 	extension = {
 		tf = 'terraform',
