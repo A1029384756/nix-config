@@ -13,10 +13,11 @@ in
       inherit (config.age) secrets;
     in
     {
+			autoUpdate.enable = true;
       autoEscape = true;
       containers = {
         nc.containerConfig = {
-          image = "docker.io/library/nextcloud:32-apache";
+          image = "docker.io/library/nextcloud:34-apache";
           pod = pods.nextcloud.ref;
           volumes = [
             "${volumes.nextcloudData.ref}:/var/www/html/data"
@@ -30,7 +31,7 @@ in
           ];
         };
         nccron.containerConfig = {
-          image = "docker.io/library/nextcloud:32-apache";
+          image = "docker.io/library/nextcloud:34-apache";
           pod = pods.nextcloud.ref;
           entrypoint = "/cron.sh";
           volumes = [
