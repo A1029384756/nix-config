@@ -482,11 +482,11 @@
         "nixpkgs": "nixpkgs_7"
       },
       "locked": {
-        "lastModified": 1781219687,
-        "narHash": "sha256-i0k8EeSa2b84+PC8kKrRKIpdzPrARF1UEqoXZVhrXEo=",
+        "lastModified": 1789443356,
+        "narHash": "sha256-QfIfM1pMZrtqyWm7X6XsZrtrJIHASYQzpo38KDaEWwE=",
         "ref": "refs/heads/master",
-        "rev": "9fbd0ed02d340cbeca9dcade8fe6e57df0cf9531",
-        "revCount": 105,
+        "rev": "d818b7f2723b62dedc030199162ba316f9efae6b",
+        "revCount": 108,
         "type": "git",
         "url": "https://git.cstring.dev/haydengray/odin-solitaire"
       },
