@@ -41,9 +41,8 @@
 
     brews = [
 			"awscurl"
-      "llvm@18"
+      "llvm@22"
       "maven"
-      "sdl2"
     ];
 
     casks = [
@@ -52,10 +51,6 @@
       "font-jetbrains-mono-nerd-font"
       "ghostty"
       "iterm2"
-      "keymapp"
-      "raycast"
-      "spotify"
-      "vmware-fusion"
       "zen"
       "zoom"
       "zulu@21"
