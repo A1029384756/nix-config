@@ -65,7 +65,8 @@
 				isSystemUser = true;
 				group = "nezzy";
 				openssh.authorizedKeys.keys = [
-					"ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPNn544GyBNjDgfQXxQWbAjQBJcfSphtomnghNwi9iYY"
+					"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDGedSf8UOLQCb6sC+JU4Cql/Y9Q/vd7JikDhSK5H+nfTMlzyVx4DIqkV+hW/U1cq5aUsNELlNura/A4htHgr/QWXqdHyIaIP6oEjln5quyb5PXqucTbhtSj+RWNvZAM5MM4F7s095SYMO76V/3tljC8Ti6RJ5QrC+kYFfEA7kT3YCqIl/uYERGnhj0CoPOPHiSSZF1md1CAcSzOlgYssi0LYS3Kg9e8P+ZlogrZoFjPAtfzKAwOkDktZktY/oLPo+GnJZw32/naIUOF3OTQrBZ4JEI+hsTC8NGsBS06i57MvyGaPw4HbVjVIPS5xMYo1jygsZw4SpoUHBK9Ro+F9uheLQkZipLZA7tzoqxxcOM/CdY0uAcqMZVie+hWfT3WF6phpyukHwkWgK8vQD7d9gXiPPATWEaq340Kli7rHP1siktCwstMEqvk+uE/pOF0jeOFz3U96WfLEvGomAGhuLdbPtJeV6urXMTioUhcorz3Bm9QWVQEQF9UdujmnpvAKc= jnezz@Josh_Comp"
+					"fedora ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPNn544GyBNjDgfQXxQWbAjQBJcfSphtomnghNwi9iYY"
 				];
 				shell = pkgs.scponly;
 			};
