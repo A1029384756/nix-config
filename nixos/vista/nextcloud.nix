@@ -17,7 +17,8 @@ in
       autoEscape = true;
       containers = {
         nc.containerConfig = {
-          image = "docker.io/library/nextcloud:34-apache";
+          image = "docker.io/library/nextcloud:35-apache";
+					autoUpdate = "registry";
           pod = pods.nextcloud.ref;
           volumes = [
             "${volumes.nextcloudData.ref}:/var/www/html/data"
@@ -31,7 +32,8 @@ in
           ];
         };
         nccron.containerConfig = {
-          image = "docker.io/library/nextcloud:34-apache";
+          image = "docker.io/library/nextcloud:35-apache";
+					autoUpdate = "registry";
           pod = pods.nextcloud.ref;
           entrypoint = "/cron.sh";
           volumes = [
@@ -47,11 +49,14 @@ in
         };
         ncredis.containerConfig = {
           image = "docker.io/library/redis:alpine";
+					autoUpdate = "registry";
           pod = pods.nextcloud.ref;
         };
         ncdb.containerConfig = {
           image = "docker.io/library/mariadb:12.1";
+					autoUpdate = "registry";
           pod = pods.nextcloud.ref;
+					exec = "--innodb-log-file-size=256M";
           volumes = [
             "${volumes.nextcloudDatabase.ref}:/var/lib/mysql"
           ];
@@ -61,6 +66,7 @@ in
         };
 				onlyofficedocumentserver.containerConfig = {
 					image = "docker.io/onlyoffice/documentserver:9.3";
+					autoUpdate = "registry";
 					pod = pods.onlyoffice.ref;
 					environmentFiles = [
 						secrets.onlyoffice.path
@@ -68,6 +74,7 @@ in
 				};
         ncwhiteboard.containerConfig = {
           image = "ghcr.io/nextcloud/whiteboard:stable";
+					autoUpdate = "registry";
           pod = pods.nextcloud.ref;
           environmentFiles = [
             secrets.nextcloud.path
