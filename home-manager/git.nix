@@ -22,7 +22,7 @@
 					email = if config.isWork then "hgray@northwindstech.com" else "hayden.gray104@gmail.com";
 				};
         credential = {
-          credentialStore = if pkgs.stdenv.isDarwin then "keychain" else "secretservice";
+          credentialStore = if pkgs.stdenv.hostPlatform.isDarwin then "keychain" else "secretservice";
           helper = "${pkgs.git-credential-manager}/bin/git-credential-manager";
         };
       };
