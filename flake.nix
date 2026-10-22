@@ -97,6 +97,12 @@
         };
     in
     {
+      packages = lib.genAttrs [ "x86_64-linux" "aarch64-darwin" ] (system: {
+        nixos-rebuild = nixpkgs.legacyPackages.${system}.nixos-rebuild.override {
+          nix = determinate.inputs.nix.packages.${system}.default;
+        };
+      });
+
       nixosConfigurations = {
         vista = nixSystem {
           device = "vista";
