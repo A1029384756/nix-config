@@ -95,7 +95,7 @@
 		wheelNeedsPassword = false;
 	};
 
-  age.secrets.tailscale.file = ../../secrets/tailscale.age;
+	age.secrets.tailscale.file = ../../secrets/tailscale.age;
 	services = {
 		fail2ban.enable = true;
 		tailscale = {
