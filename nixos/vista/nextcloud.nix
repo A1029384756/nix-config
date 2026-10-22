@@ -4,7 +4,7 @@ let
 	officehost = "office.cstring.dev";
 	whiteboardhost = "whiteboard.cstring.dev";
 in
-	{
+{
 	age.secrets.nextcloud.file = ../../secrets/nextcloud_admin.age;
 	age.secrets.onlyoffice.file = ../../secrets/onlyoffice.age;
 	virtualisation.quadlet =
@@ -12,7 +12,7 @@ in
 			inherit (config.virtualisation.quadlet) pods volumes;
 			inherit (config.age) secrets;
 		in
-			{
+		{
 			autoUpdate.enable = true;
 			autoEscape = true;
 			containers = {
