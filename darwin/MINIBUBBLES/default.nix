@@ -9,11 +9,11 @@
 	};
   ids.gids.nixbld = 350;
 
-  nix.settings.experimental-features = "nix-command flakes impure-derivations";
-  nix.extraOptions = ''
-    extra-platforms = x86_64-darwin aarch64-darwin
-    trusted-users = root ${user}
-  '';
+  determinateNix.customSettings = {
+    extra-experimental-features = [ "impure-derivations" ];
+    extra-platforms = [ "x86_64-darwin" "aarch64-darwin" ];
+    trusted-users = [ "root" user ];
+  };
 
   programs.zsh.enable = true;
   programs.fish.enable = true;

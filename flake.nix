@@ -9,6 +9,7 @@
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
 
     agenix.url = "github:ryantm/agenix";
+    determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
     blog.url = "git+https://git.cstring.dev/haydengray/blog";
     disko.url = "github:nix-community/disko";
     disko.inputs.nixpkgs.follows = "nixpkgs";
@@ -28,6 +29,7 @@
     inputs@{ nixpkgs
     , home-manager
     , agenix
+    , determinate
     , darwin
     , disko
     , nix-minecraft
@@ -47,6 +49,7 @@
           if os == "nixos" then
             [
               agenix.nixosModules.default
+              determinate.nixosModules.default
               disko.nixosModules.disko
               quadlet-nix.nixosModules.quadlet
               nix-minecraft.nixosModules.minecraft-servers
@@ -56,7 +59,7 @@
               }
             ]
           else if os == "darwin" then
-            [ ]
+            [ determinate.darwinModules.default ]
           else
             throw "Unsupported OS ${os}"
         );
