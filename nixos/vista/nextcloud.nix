@@ -1,12 +1,19 @@
-{ config, ... }:
+{ config, user, ... }:
 let
   nextcloudhost = "cloud.cstring.dev";
   officehost = "office.cstring.dev";
   whiteboardhost = "whiteboard.cstring.dev";
+	uid = config.users.users.${user}.uid;
 in
 {
-  age.secrets.nextcloud.file = ../../secrets/nextcloud_admin.age;
-	age.secrets.onlyoffice.file = ../../secrets/onlyoffice.age;
+  age.secrets.nextcloud = {
+		owner = user;
+		file = ../../secrets/nextcloud_admin.age;
+	};
+	age.secrets.onlyoffice = {
+		owner = user;
+		file = ../../secrets/onlyoffice.age;
+	};
   virtualisation.quadlet =
     let
       inherit (config.virtualisation.quadlet) pods volumes;
@@ -16,10 +23,12 @@ in
 			autoUpdate.enable = true;
       autoEscape = true;
       containers = {
+				nc.rootlessConfig.uid = uid;
         nc.containerConfig = {
           image = "docker.io/library/nextcloud:35-apache";
 					autoUpdate = "registry";
           pod = pods.nextcloud.ref;
+          user = "0:0";
           volumes = [
             "${volumes.nextcloudData.ref}:/var/www/html/data"
             "${volumes.nextcloudConfig.ref}:/var/www/html"
@@ -31,11 +40,13 @@ in
             secrets.nextcloud.path
           ];
         };
+				nccron.rootlessConfig.uid = uid;
         nccron.containerConfig = {
           image = "docker.io/library/nextcloud:35-apache";
 					autoUpdate = "registry";
           pod = pods.nextcloud.ref;
           entrypoint = "/cron.sh";
+          user = "0:0";
           volumes = [
             "${volumes.nextcloudData.ref}:/var/www/html/data"
             "${volumes.nextcloudConfig.ref}:/var/www/html"
@@ -47,16 +58,19 @@ in
             secrets.nextcloud.path
           ];
         };
+				ncredis.rootlessConfig.uid = uid;
         ncredis.containerConfig = {
           image = "docker.io/library/redis:alpine";
 					autoUpdate = "registry";
           pod = pods.nextcloud.ref;
         };
+				ncdb.rootlessConfig.uid = uid;
         ncdb.containerConfig = {
           image = "docker.io/library/mariadb:12.1";
 					autoUpdate = "registry";
           pod = pods.nextcloud.ref;
 					exec = "--innodb-log-file-size=256M";
+					user = "33:33";
           volumes = [
             "${volumes.nextcloudDatabase.ref}:/var/lib/mysql"
           ];
@@ -64,6 +78,7 @@ in
             secrets.nextcloud.path
           ];
         };
+				onlyofficedocumentserver.rootlessConfig.uid = uid;
 				onlyofficedocumentserver.containerConfig = {
 					image = "docker.io/onlyoffice/documentserver:9.3";
 					autoUpdate = "registry";
@@ -72,6 +87,7 @@ in
 						secrets.onlyoffice.path
 					];
 				};
+				ncwhiteboard.rootlessConfig.uid = uid;
         ncwhiteboard.containerConfig = {
           image = "ghcr.io/nextcloud/whiteboard:stable";
 					autoUpdate = "registry";
@@ -83,7 +99,9 @@ in
         };
       };
       pods = {
+				nextcloud.rootlessConfig.uid = uid;
         nextcloud.podConfig = {
+					userns = "keep-id:uid=33,gid=33";
           publishPorts = [
             # nextcloud
             "9000:80"
@@ -91,6 +109,7 @@ in
             "9002:3002"
           ];
         };
+				onlyoffice.rootlessConfig.uid = uid;
 				onlyoffice.podConfig = {
 					publishPorts = [
 						"9001:80"
@@ -98,14 +117,17 @@ in
 				};
       };
       volumes = {
+				nextcloudData.rootlessConfig.uid = uid;
         nextcloudData.volumeConfig = {
           type = "bind";
           device = "/mnt/data/nextcloud/data";
         };
+				nextcloudConfig.rootlessConfig.uid = uid;
         nextcloudConfig.volumeConfig = {
           type = "bind";
           device = "/mnt/data/nextcloud/config";
         };
+				nextcloudDatabase.rootlessConfig.uid = uid;
         nextcloudDatabase.volumeConfig = {
           type = "bind";
           device = "/mnt/data/nextcloud/database";
