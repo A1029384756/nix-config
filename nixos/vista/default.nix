@@ -58,9 +58,6 @@
 				extraGroups = [ "wheel" "render" "video" "podman" ];
 				initialHashedPassword = "$y$j9T$2DyEjQxPoIjTkt8zCoWl.0$3mHxH.fqkCgu53xa0vannyu4Cue3Q7xL4CrUhMxREKC"; # Password.123
 				shell = pkgs.fish;
-				linger = true;
-				autoSubUidGidRange = true;
-				uid = 1000;
 			};
 			nezzy = {
 				isSystemUser = true;
@@ -109,6 +106,4 @@
 			];
 		};
 	};
-
-	systemd.user.sockets.podman.wantedBy = [ "sockets.target" ];
 }
