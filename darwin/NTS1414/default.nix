@@ -43,12 +43,11 @@
 			"awscurl"
       "llvm@22"
       "maven"
+      "opencode"
     ];
 
     casks = [
-      "cursor"
-      "element"
-      "font-jetbrains-mono-nerd-font"
+			"cursor-cli"
       "ghostty"
       "iterm2"
       "zen"
