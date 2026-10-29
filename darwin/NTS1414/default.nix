@@ -73,6 +73,8 @@
     tree-sitter
   ];
 
+	security.pki.certificateFiles = [ ./cato-root-ca.pem ];
+
   nixpkgs.config.allowUnfree = true;
   nixpkgs.hostPlatform = "aarch64-darwin";
 
