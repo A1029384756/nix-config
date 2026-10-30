@@ -20,6 +20,8 @@
 		solitaire.url = "git+https://git.cstring.dev/haydengray/odin-solitaire";
     wedding.url = "git+ssh://git@github.com/A1029384756/hayden_anna_wedding?shallow=1";
     wedding.flake = false;
+		rex.url = "https://pkgs.superlogical.com/rex/nix/snapshot.tar.gz";
+		rex.inputs.nixpkgs.follows = "nixpkgs";
 
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -35,6 +37,7 @@
     , nix-minecraft
     , quadlet-nix
 		, headscale
+		, rex
     , ...
     }:
     let
@@ -54,6 +57,7 @@
               quadlet-nix.nixosModules.quadlet
               nix-minecraft.nixosModules.minecraft-servers
 							headscale.nixosModules.default
+							rex.nixosModules.default
               {
                 nixpkgs.overlays = [ nix-minecraft.overlay ];
               }

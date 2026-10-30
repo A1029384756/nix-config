@@ -1,10 +1,15 @@
-{ config, ... }: {
+{ config, inputs, pkgs, ... }: {
 	age.secrets.headscale = {
 		owner = config.services.headscale.user;
 		file = ../../secrets/headscale.age;
 	};
+	age.secrets.headscale-dns = {
+		owner = config.services.headscale.user;
+		file = ../../secrets/headscale-dns.age;
+	};
 	services = {
 		headscale = {
+			package = inputs.headscale.packages.${pkgs.stdenv.hostPlatform.system}.default;
 			enable = true;
 			port = 8296;
 			settings = {
@@ -12,6 +17,17 @@
 				dns = { 
 					base_domain = "tailnet.cstring.dev"; 
 					nameservers.global = [ "1.1.1.1" "8.8.8.8" ];
+					certificates = {
+						enabled = true;
+						zone = "cstring.dev";
+					};
+					challenge = {
+						propagation_timeout = "45s";
+						provider = {
+							name = "cloudflare";
+							api_token_path = config.age.secrets.headscale-dns.path;
+						};
+					};
 				};
 				oidc = {
 					issuer = "https://pocketid.cstring.dev";

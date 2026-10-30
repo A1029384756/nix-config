@@ -346,11 +346,11 @@
         "nixpkgs": "nixpkgs_6"
       },
       "locked": {
-        "lastModified": 1792490111,
-        "narHash": "sha256-LLwkfxX/bPSy7a3rIntce1sbmekU4eaCAUNBt2Adt/k=",
+        "lastModified": 1793303510,
+        "narHash": "sha256-qzs/+YRzMPAfANQh1+lq+2fqFKpJAzFJJiSeox5u2nw=",
         "owner": "juanfont",
         "repo": "headscale",
-        "rev": "cc66979b16cfbdc76b1d582b028108bb8b823354",
+        "rev": "545ace5673d728f6cb7b9f7bb57cf112af2c1bfd",
         "type": "github"
       },
       "original": {
@@ -551,11 +551,11 @@
     },
     "nixpkgs_6": {
       "locked": {
-        "lastModified": 1791637130,
-        "narHash": "sha256-TuvwvSjJrpqyIYdjhQ7Wu+ADVfeOpO2Um21/V7TOubw=",
+        "lastModified": 1793225069,
+        "narHash": "sha256-sx1f99WGrDfJ83KKuQrqGPmot0rnDgmpLJDzpU2oHQQ=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "ca1659429c950a11a565b5764e37a1b704e17ec8",
+        "rev": "e62746b0b472753ef019baceab6f1e2e52014980",
         "type": "github"
       },
       "original": {
@@ -628,6 +628,23 @@
         "type": "github"
       }
     },
+    "rex": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1793316310,
+        "narHash": "sha256-l5HQrbsHjLWXJ0ZQxmCTtFegDfq7/XseM6Bkb5Q/rIU=",
+        "type": "tarball",
+        "url": "https://pkgs.superlogical.com/rex/nix/snapshot/0.0.1793316310-g0b1328.tar.gz"
+      },
+      "original": {
+        "type": "tarball",
+        "url": "https://pkgs.superlogical.com/rex/nix/snapshot.tar.gz"
+      }
+    },
     "root": {
       "inputs": {
         "agenix": "agenix",
@@ -642,6 +659,7 @@
         "nix-minecraft": "nix-minecraft",
         "nixpkgs": "nixpkgs_8",
         "quadlet-nix": "quadlet-nix",
+        "rex": "rex",
         "solitaire": "solitaire",
         "wedding": "wedding"
       }

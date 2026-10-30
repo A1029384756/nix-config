@@ -72,6 +72,7 @@
 		groups.nezzy = {};
 	};
 
+
 	programs.fish.enable = true;
 	system.stateVersion = "25.05";
 	hardware.enableRedistributableFirmware = true;
@@ -104,6 +105,11 @@
 			extraUpFlags = [
 				"--login-server=https://headscale.cstring.dev"
 			];
+		};
+		rex.loginServer = {
+			enable = true;
+			accounts.${user}.principals = [ "tailscale:${user}@cstring.dev" ];
+			tailscaleServe.enable = true;
 		};
 	};
 }
