@@ -73,6 +73,8 @@
     tree-sitter
   ];
 
+	services.tailscale.enable = true;
+
 	security.pki.certificateFiles = [ ./cato-root-ca.pem ];
 
   nixpkgs.config.allowUnfree = true;
