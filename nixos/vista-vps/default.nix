@@ -43,7 +43,7 @@
 	hardware.enableRedistributableFirmware = true;
 	time.timeZone = "UTC";
 
-	networking.hostName = "vista-main";
+	networking.hostName = "vista-vps";
 	networking.useDHCP = true;
 
 	boot.kernelParams = [ "net.ifnames=0" ];
@@ -67,6 +67,11 @@
 			extraUpFlags = [
 				"--login-server=https://headscale.cstring.dev"
 			];
+		};
+		rex.loginServer = {
+			enable = true;
+			accounts.${user}.principals = [ "tailscale:${user}@cstring.dev" ];
+			tailscaleServe.enable = true;
 		};
 	};
 }
