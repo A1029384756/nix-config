@@ -21,6 +21,7 @@
   programs.zsh.enable = true;
   programs.fish.enable = true;
 
+  networking.hostName = "minibubbles";
   system = {
     primaryUser = user;
     defaults = {
