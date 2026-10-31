@@ -35,7 +35,7 @@ in {
 
 	launchd.daemons.forgejo-runner = {
 		path = [
-			"/nix/var/nix/profiles/default"
+			"/nix/var/nix/profiles/default/bin"
 		] ++ (with pkgs; [
 				nodejs bash coreutils curl gawk gitMinimal gnused wget 
 			]);
