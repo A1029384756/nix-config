@@ -10,11 +10,5 @@ jobs:
       - uses: actions/checkout@v6
       - uses: https://github.com/DeterminateSystems/nix-installer-action@main
         if: matrix.os == 'node-lts'
-      - name: Configure rex credentials
-        env:
-          REX_TOKEN: ${{ secrets.REX_TOKEN }}
-        run: |
-          umask 077
-          printf 'machine pkgs.superlogical.com login rex password %s\n' "$REX_TOKEN" > "$RUNNER_TEMP/rex.netrc"
-          echo "NIX_CONFIG=netrc-file = $RUNNER_TEMP/rex.netrc" >> "$GITHUB_ENV"
+      - run: nix profile add https://pkgs.superlogical.com/rex/nix/snapshot.tar.gz
       - run: nix flake check

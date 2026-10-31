@@ -1,8 +1,11 @@
-{ user, pkgs, ... }:
+{ inputs, user, pkgs, ... }:
 {
   imports = [
+		inputs.agenix.darwinModules.default
     ../modules/window_tiling
+		./forgejo.nix
   ];
+	age.identityPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
   users.users.${user} = {
 		home = "/Users/${user}";
 		uid = 501;
