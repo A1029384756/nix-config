@@ -10,5 +10,4 @@ jobs:
       - uses: actions/checkout@v6
       - uses: https://github.com/DeterminateSystems/nix-installer-action@main
         if: matrix.os == 'node-lts'
-      - run: nix profile add https://pkgs.superlogical.com/rex/nix/snapshot.tar.gz
       - run: nix flake check
