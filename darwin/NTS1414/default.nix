@@ -67,9 +67,9 @@
 		git
 		go
 		rustc
-		tenv
 		uv
 		bun
+		mise
 		cmake
 		tree-sitter
 	];

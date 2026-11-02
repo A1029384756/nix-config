@@ -32,6 +32,10 @@
 						end
 						complete -c aws -f -a "(__aws_completer)"
 				end
+
+				if type -q mise
+					mise activate fish | source
+				end
 			'';
 		};
 	};
