@@ -44,6 +44,7 @@
 			"llvm@22"
 			"maven"
 			"opencode"
+			"plutosvg"
 		];
 
 		casks = [
