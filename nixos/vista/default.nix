@@ -2,6 +2,8 @@
 {
 	imports = [
 		./disk-config.nix
+		./options.nix
+		./internal-service.nix
 		./jellyfin.nix
 		./minecraft.nix
 		./network.nix
@@ -38,6 +40,8 @@
 			"https://cache.nixos.org"
 		];
 	};
+
+	vista.tailnetIp = "100.64.0.5";
 
 	services.openssh = {
 		enable = true;

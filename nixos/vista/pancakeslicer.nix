@@ -1,8 +1,5 @@
 { config, ... }:
-let
-	host = "slicer.cstring.dev";
-	vistaip = "100.64.0.5";
-in {
+{
 	virtualisation.quadlet = let
 		inherit (config.virtualisation.quadlet) pods volumes;
 	in {
@@ -29,13 +26,9 @@ in {
 		};
 	};
 
-	services.caddy.virtualHosts.${host}.extraConfig = ''
-			bind ${vistaip}
-			reverse_proxy localhost:6868
-	'';
-	services.headscale.settings.dns.extra_records = [{
-		name = host;
-		type = "A";
-		value = vistaip;
-	}];
+	internal_service.pancakeslicer = {
+		host = "slicer.cstring.dev";
+		port = 6868;
+		ip = config.vista.tailnetIp;
+	};
 }
