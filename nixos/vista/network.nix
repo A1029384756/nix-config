@@ -6,6 +6,10 @@
 			plugins = [ "github.com/caddy-dns/cloudflare@v0.2.4" ];
 			hash = "sha256-5a5cpFl90pEWt0lUC4ZJQ7g+1//ZvsRhee64Dt9vh5o=";
 		};
+		globalConfig = ''
+			resolvers 1.1.1.1 1.0.0.1
+			tls { dns cloudflare {env.CF_API_TOKEN}	}
+		'';
 		environmentFile = config.age.secrets.caddy.path;
 	};
 	boot.kernel.sysctl = {

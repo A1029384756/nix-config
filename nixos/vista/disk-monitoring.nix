@@ -12,10 +12,6 @@ in {
 		};
 		caddy.virtualHosts.${host}.extraConfig = ''
 			bind ${vistaip}
-			tls {
-				dns cloudflare {env.CF_API_TOKEN}
-				resolvers 1.1.1.1 1.0.0.1
-			}
 			reverse_proxy localhost:${toString port}
 		'';
 		headscale.settings.dns.extra_records = [{
