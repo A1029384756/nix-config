@@ -9,7 +9,6 @@
 		./steam.nix
 		./blog.nix
 		./immich.nix
-		./cockpit.nix
 		./vaultwarden.nix
 		./agenix.nix
 		./wedding-site.nix
@@ -21,6 +20,7 @@
 		./search.nix
 		./disk-monitoring.nix
 		./solitaire.nix
+		./pancakeslicer.nix
 	];
 
 	nixpkgs = {
